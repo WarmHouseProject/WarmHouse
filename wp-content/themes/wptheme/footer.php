@@ -56,7 +56,7 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		$(document).ready(function() {
+		jQuery(document).ready(function($) {
 			/*
 			 var defaults = {
 			 containerID: 'toTop', // fading element id
@@ -67,7 +67,6 @@
 			 */
 
 			$().UItoTop({ easingType: 'easeOutQuart' });
-
 		});
 	</script>
 	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
