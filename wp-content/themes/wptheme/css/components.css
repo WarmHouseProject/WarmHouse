@@ -1,5 +1,64 @@
 .add_button {
     font-size: 30px;
     margin-bottom: 50px;
+    margin-top: 20px;
     text-align: center;
+}
+
+.add_button a span {
+    font-size: 20px;
+}
+
+.form-element {
+    resize: none;
+    width: 100%
+}
+
+.form-row {
+    margin-bottom: 20px;
+}
+
+.form-group .input-block {
+    position: relative;
+}
+
+.form-group .input-block .error-message {
+    display: none;
+}
+
+.form-group.has-error .input-block .error-message {
+    color: rgb(132, 53, 52);
+    display: inline;
+}
+
+.label-warning:hover,
+.label-warning:focus,
+.label-warning.focus {
+    color: #fff;
+    background-color: #ec971f;
+    border-color: #d58512;
+}
+
+.label-default:hover,
+.label-default:focus,
+.label-default.focus {
+    color: #fff;
+    background-color: #555;
+    border-color: #adadad;
+}
+
+.label-danger:hover,
+.label-danger:focus,
+.label-danger.focus {
+    color: #fff;
+    background-color: #c9302c;
+    border-color: #ac2925;
+}
+
+.label-primary:hover,
+.label-primary:focus,
+.label-primary.focus {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
 }

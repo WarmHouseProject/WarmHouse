@@ -1,0 +1,49 @@
+.view.fifth-effect a {
+    position: relative;
+    display: block;
+}
+
+.view.fifth-effect .status-label {
+    position: absolute;
+    z-index: 20;
+    bottom: 0;
+    right: 0;
+    height: 200px;
+    width: 200px;
+    display: inline-block !important;
+}
+
+@media screen and (max-width: 1024px) {
+    .view.fifth-effect .status-label {
+        height: 160px;
+        width: 160px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .view.fifth-effect .status-label {
+        height: 120px;
+        width: 120px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .view.fifth-effect .status-label {
+        height: 120px;
+        width: 120px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .view.fifth-effect .status-label {
+        height: 120px;
+        width: 120px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .view.fifth-effect .status-label {
+        height: 160px;
+        width: 160px;
+    }
+}

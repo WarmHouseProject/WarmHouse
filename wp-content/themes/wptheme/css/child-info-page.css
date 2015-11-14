@@ -1,0 +1,76 @@
+.child-info .container{
+    margin-top: 50px;
+}
+
+.child-info .container{
+    margin-bottom: 20px;
+}
+
+.child-info .inner-container{
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.child-info .inner-container.image,
+.child-info .inner-container.edit{
+    text-align: center;
+}
+
+.child-info .inner-container.edit a span {
+    font-size: 18px;
+}
+
+.child-info .well {
+    word-wrap: break-word;
+}
+
+.child-info .btn {
+    font-weight: bold;
+}
+
+.child-info .btn.long-description {
+    margin-bottom: 20px;
+}
+
+.child-info .btn.donate {
+    position: absolute;
+    right: 0;
+}
+
+.child-info .inner-image-block {
+    display: inline-block;
+    position: relative;
+}
+
+.child-info .status-label {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 200px;
+    width: 200px;
+    display: inline-block !important;
+}
+
+@media screen and (max-width: 600px) {
+    .child-info .child-image {
+        width: 160px;
+        height: 160px;
+    }
+
+    .child-info .status-label {
+        height: 100px;
+        width: 100px;
+    }
+}
+@media screen and (max-width: 360px) {
+    .child-info .btn.long-description {
+        position: relative;
+        top: 50px;
+        margin-bottom: 70px;
+    }
+
+    .child-info .btn.donate {
+        left: 0;
+    }
+}

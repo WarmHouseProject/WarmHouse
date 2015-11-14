@@ -8,7 +8,10 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
-?><!DOCTYPE html>
+ global $tabIndex;
+ $tabIndex = isset($tabIndex) ? $tabIndex : 0;
+?>
+<!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7" <?php language_attributes(); ?>>
 <![endif]-->
@@ -32,6 +35,10 @@
 <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/components.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/style.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo get_template_directory_uri(); ?>/css/fileinput.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo get_template_directory_uri(); ?>/css/childs-list.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo get_template_directory_uri(); ?>/css/child_form_page.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo get_template_directory_uri(); ?>/css/child-info-page.css" rel='stylesheet' type='text/css' />
 <script async src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.11.0.min.js"></script>
 <?php wp_head(); ?>
 <script async type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/move-top.js"></script>
@@ -105,19 +112,24 @@
 				<div class="top-menu">
 					<span class="menu"><img src="<?php echo get_template_directory_uri(); ?>/images/menu-icon.png" alt="" /></span>
 					<ul class="nav">
-						<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="active hvr-bounce-to-right">Дети</a></li>
-						<li><a class="hvr-bounce-to-right" href="index.html">Home</a></li>
+						<li><a href="<?= esc_url( home_url( '/' ) ); ?>" class="<?php if ($tabIndex == 0): ?>active<?php endif; ?> hvr-bounce-to-right">Дети</a></li>
+						<li><a href="<?= get_site_url(); ?>/helped_childs" class="<?php if ($tabIndex == 1): ?>active<?php endif; ?> hvr-bounce-to-right">Кому помогли</a></li>
+						<li><a href="index.html" class="hvr-bounce-to-right">Home</a></li>
 						<li><a href="about.html" class="hvr-bounce-to-right">About</a></li>
-						<li><a href="faq.html" class="hvr-bounce-to-right">Faqs</a></li>
 						<li><a href="gallery.html" class="hvr-bounce-to-right">Gallery</a></li>
 						<li><a href="typo.html" class="hvr-bounce-to-right">Blog</a></li>
 						<li><a href="contact.html" class="hvr-bounce-to-right">Contact</a></li>
 					</ul>
 					<!-- script for menu -->
 					<script>
-						$( "span.menu" ).click(function() {
-							$( "ul.nav" ).slideToggle( "slow", function() {
-								// Animation complete.
+						jQuery(document).ready(function($) {
+							$( "span.menu" ).click(function() {
+								$( "ul.nav" ).slideToggle( "slow", function() {
+
+									if ($(this).css("display") == "none") {
+										$(this).css("display", "")
+									}
+								});
 							});
 						});
 					</script>

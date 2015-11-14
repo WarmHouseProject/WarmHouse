@@ -237,8 +237,6 @@ input[type="color"] {
 
 /* Buttons */
 .menu-toggle,
-input[type="submit"],
-input[type="button"],
 input[type="reset"],
 article.post-password-required input[type=submit],
 .bypostauthor cite span {
@@ -262,8 +260,6 @@ article.post-password-required input[type=submit],
 }
 .menu-toggle,
 button,
-input[type="submit"],
-input[type="button"],
 input[type="reset"] {
 	cursor: pointer;
 }
@@ -273,9 +269,6 @@ input[disabled] {
 }
 .menu-toggle:hover,
 .menu-toggle:focus,
-button:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover,
 input[type="reset"]:hover,
 article.post-password-required input[type=submit]:hover {
 	color: #5e5e5e;
@@ -289,9 +282,6 @@ article.post-password-required input[type=submit]:hover {
 }
 .menu-toggle:active,
 .menu-toggle.toggled-on,
-button:active,
-input[type="submit"]:active,
-input[type="button"]:active,
 input[type="reset"]:active {
 	color: #757575;
 	background-color: #e1e1e1;
@@ -1467,6 +1457,10 @@ img#wpstats {
 }
 @viewport {
 	width: device-width;
+}
+
+body {
+	background-color: #e6e6e6;
 }
 
 /* Minimum width of 600 pixels. */

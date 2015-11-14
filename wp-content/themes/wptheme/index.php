@@ -14,104 +14,27 @@
  * @since Twenty Twelve 1.0
  */
 
-get_header(); ?>
+    require_once(ABSPATH . WPINC . '/lib/class-child-db-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/class-image-db-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/class-template-utils.php');
+
+    $childs = ChildDBUtils::getNeedHelpChilds();
+    $data = ["childs" => $childs];
+
+    get_header();
+?>
 
 <div class="services">
     <div class="container">
         <div class="services-top heading">
             <h2>им нужна ваша помощь</h2>
         </div>
-        <div class="services-bottom">
+        <?php if (is_user_logged_in()): ?>
             <div class="add_button">
-                <a href="../child_form"><span class="label label-primary">Добавить запись</span></a>
+                <a href="<?= get_site_url(); ?>/add-child-page-controller.php"><span class="label label-primary">Добавить запись</span></a>
             </div>
-            <div class="services-one">
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="<?php echo get_template_directory_uri(); ?>/images/s-1.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="<?php echo get_template_directory_uri(); ?>/images/s-2.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="<?php echo get_template_directory_uri(); ?>/images/s-3.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="<?php echo get_template_directory_uri(); ?>/images/s-4.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="services-two">
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="<?php echo get_template_directory_uri(); ?>/images/s-5.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="<?php echo get_template_directory_uri(); ?>/images/s-6.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="<?php echo get_template_directory_uri(); ?>/images/s-7.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="<?php echo get_template_directory_uri(); ?>/images/s-8.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
+        <?php endif; ?>
+        <?php TemplateUtils::includeTemplate(get_template_directory() . '/page-templates/child-info-block.php', $data); ?>
     </div>
 </div>
 <!--services-end-->
