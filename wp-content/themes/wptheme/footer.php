@@ -12,31 +12,10 @@
 <div class="footer">
 	<div class="container">
 		<div class="footer-top">
-			<div class="col-md-6 footer-left">
-				<h3>Subscribe to Our Newsletter</h3>
-				<div class="letter">
-					<form>
-						<input type="text" value="Enter Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email';}">
-						<input type="submit" value="Subscribe">
-					</form>
-				</div>
-			</div>
-			<div class="col-md-3 footer-left">
-				<h3>Overview</h3>
-				<ul>
-					<li><a href="#">Phasellus at lacus ultrices</a></li>
-					<li><a href="#">Duis vestibulum porta lorem</a></li>
-					<li><a href="#">Praesent laoreet quam nec purus</a></li>
-					<li><a href="#">Suspendisse id tempus dolor</a></li>
-					<li><a href="#">Morbi efficitur tincidunt</a></li>
-					<li><a href="#">Sed eu erat vel ipsum fermentum</a></li>
-				</ul>
-			</div>
-			<div class="col-md-3 footer-left">
-				<h3>Information</h3>
-				<ul>
-					<li><a href="about.html">About</a></li>
-					<li><a href="faq.html">Faqs</a></li>
+			<div class="footer-left">
+				<ul class="tabs-list">
+					<li><a href="<?= esc_url( home_url( '/' ) ); ?>">Дети</a></li>
+					<li><a href="<?= get_site_url(); ?>/helped_childs">Кому помогли</a></li>
 					<li><a href="services.html">Services</a></li>
 					<li><a href="gallery.html">Gallery</a></li>
 					<li><a href="typo.html">Blog</a></li>
@@ -47,7 +26,7 @@
 		</div>
 		<div class="footer-text">
 			<div class="col-md-6 ftr-left">
-				<h4><a href="index.html">Adoption</a></h4>
+				<h4><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Лучик надежды</a></h4>
 			</div>
 			<div class="col-md-6 ftr-right">
 				<p>© 2015 Adoption. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
@@ -56,7 +35,7 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		$(document).ready(function() {
+		jQuery(document).ready(function($) {
 			/*
 			 var defaults = {
 			 containerID: 'toTop', // fading element id
@@ -67,7 +46,6 @@
 			 */
 
 			$().UItoTop({ easingType: 'easeOutQuart' });
-
 		});
 	</script>
 	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>

@@ -41,7 +41,7 @@ body a:hover{
 .header-left a h1 {
     margin: 0;
     padding: 25px 1em;
-    background: #000;
+    background: #f0ad4e;
     width: 70%;
     text-align: center;
     font-family: 'Philosopher-Regular';
@@ -182,13 +182,39 @@ body a:hover{
     width: 100%;
     text-align: left;
     display: block;
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 30, 70, 0.45);
     padding: 15px 0 15px 11.75%;
     margin-left: 0%;
 }
 .callbacks_tabs li{
 	display:inline-block;
 }
+
+.col-md-3.services-left {
+	margin-bottom: 25px;
+}
+
+.footer .tabs-list {
+	text-align: center;
+}
+
+.footer .tabs-list li {
+	display: inline-block;
+}
+
+@media screen and (max-width: 400px) {
+	.footer .tabs-list {
+		width: 110px;
+		text-align: left;
+		margin: auto;
+		margin-bottom: 15px;
+	}
+
+	.footer .tabs-list li {
+		display: list-item !important;
+	}
+}
+
 @media screen and (max-width: 600px) {
   .callbacks_nav {
     top: 47%;
@@ -211,7 +237,7 @@ body a:hover{
 	background:#fff;
 }
 .callbacks_here a:after{
-	background:#44479A;
+	background: #337ab7;
 }
 ul.callbacks_tabs.callbacks2_tabs {
 	display: block;
@@ -231,7 +257,7 @@ ul.callbacks_tabs.callbacks2_tabs {
 }
 .top-menu ul {
     padding: 0;
-    background: #E6E5E5;
+	background-color: #fff;
 }
 .top-menu ul li{
 	display:inline-block;
@@ -244,7 +270,7 @@ ul.callbacks_tabs.callbacks2_tabs {
     font-weight: 400;
     text-decoration: none;
     padding: 13px 40px;
-    font-family: 'Lato-Regular';
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .top-menu ul li a:hover,.top-menu ul li a.active{
 	color:#fff;
@@ -255,7 +281,7 @@ ul.callbacks_tabs.callbacks2_tabs {
 	-ms-transition:0.5s all;
 }
 .top-menu ul li a.active{
-	background: #44479A;
+	background: #337ab7;
 }
 .header-bottom {
 	z-index: 999;
@@ -304,7 +330,7 @@ span.menu{
 	.top-menu ul.nav li {
 	    display: block;
 	  text-align: center;
-	  background: rgba(29, 29, 29, 1);
+	  background: rgba(77, 77, 83, 1);
 	  margin: 0;
 	  width: 100%;
 	}
@@ -345,7 +371,7 @@ span.menu{
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: #44479A;
+	background: #337ab7;
 	-webkit-transform: scaleX(0);
 	transform: scaleX(0);
 	-webkit-transform-origin: 0 50%;
@@ -650,7 +676,7 @@ a.tooltips2 span:before {
 }
 .footer {
     padding: 5em 0;
-    background: #000;
+    background: #4d4d53;
 }
 .footer-left h3{
 	font-size: 2em;
@@ -674,11 +700,10 @@ a.tooltips2 span:before {
 	font-size:15px;
 }
 .footer-left ul li a:hover{
-	color:#44479A;
+	color:#337ab7;
 }
 .footer-text{
 	text-align:center;
-	margin-top:4%;
 }
 .ftr-right p {
     font-size: 15px;
@@ -839,10 +864,11 @@ a.tooltips2 span:before {
 	transition: all 0.3s ease-in;
 }
 .fifth-effect .mask {
+   z-index: 50;
    cursor:pointer;
    opacity:1;
    visibility:visible;
-   border:30px solid rgba(0,0,0,0.7);
+   border:30px solid rgba(0,30,70,0.6);
    -moz-box-sizing:border-box;
    -webkit-box-sizing:border-box;
    box-sizing:border-box;
@@ -853,7 +879,7 @@ a.tooltips2 span:before {
    transition: all 0.4s cubic-bezier(0.940, 0.850, 0.100, 0.620);
 }
 .fifth-effect:hover .mask {
-	border:0px double rgba(0,0,0,0.7);
+	border:0px double rgba(0,30,70,0.6);
 	opacity:0;
 	visibility:hidden;
 }
@@ -864,8 +890,8 @@ a.tooltips2 span:before {
 .view {
     width: 255px;
     height: 255px;
-    margin: 0 0px 20px 0px;
-    float: left;
+	margin: auto;
+    margin-bottom: 20px;
     overflow: hidden;
     position: relative;
     text-align: center;
@@ -899,12 +925,18 @@ a.tooltips2 span:before {
     text-align: center;
 }
 .s-btm h4{
+	overflow: hidden;
+	text-overflow: ellipsis;
 	font-size:21px;
     margin: 0;
     font-family: 'Philosopher-Regular';
     color: #44479A;
 }
 .s-btm p{
+	max-height: 80px;
+	word-wrap: break-word;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	font-size:16px;
 	line-height:1.8em;
 	color:#999;
@@ -1323,7 +1355,7 @@ h3.ghj {
     width: 51%;
 }
 .footer {
-    padding: 4em 0;
+    padding: 1em 0 2em 0;
 }
 .footer-left h3 {
     font-size: 1.85em;
@@ -1553,6 +1585,14 @@ h3.ghj {
     font-size: 14px;
     margin-top: 12px;
 }
+.ftr-left {
+	width: 35%;
+	float: left;
+}
+.ftr-right {
+	width: 65%;
+	float: right;
+}
 .program {
     min-height: 283px;
 }
@@ -1663,7 +1703,7 @@ h5.best {
     height: 170px;
 }
 .fifth-effect .mask {
-    border: 20px solid rgba(0,0,0,0.7);
+    border: 20px solid rgba(0,30,70,0.6);
 }
 .about-bottom, .why-bottom, .team-bottom {
     margin-top: 2%;
@@ -1907,9 +1947,6 @@ a.tooltips1 span:before {
     padding: 5px 20px;
     font-size: 13px;
 }
-.footer-text {
-    margin-top: 2%;
-}
 .faq-top ul li h3 {
     width: 95%;
     font-size: 14px;
@@ -1973,14 +2010,6 @@ h5.best {
     top: 71%;
     left: 8.2%;
     width: 85%;
-}
-.view {
-    width: 267px;
-    height: 267px;
-}
-.view .mask, .view .content {
-    width: 267px;
-    height: 267px;
 }
 h3.ghj {
     font-size: 1.5em;
@@ -2167,13 +2196,13 @@ a.tooltips1 span:before {
     padding: 0 4px;
 }
 .view {
-    width: 197px;
-    height: 197px;
+    width: 100%;
+    height: 100%;
 	margin: 0 0px 14px 0px;
 }
 .view .mask, .view .content {
-    width: 197px;
-    height: 197px;
+    width: 100%;
+    height: 100%;
 }
 .g-left {
     padding: 0 7px;

@@ -14,142 +14,29 @@
  * @since Twenty Twelve 1.0
  */
 
-get_header(); ?>
+    require_once(ABSPATH . WPINC . '/lib/class-child-db-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/class-image-db-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/class-template-utils.php');
+
+    $childs = ChildDBUtils::getNeedHelpChilds();
+    $data = ["childs" => $childs];
+
+    get_header();
+?>
 
 <div class="services">
     <div class="container">
         <div class="services-top heading">
-            <h2>Our Services</h2>
+            <h2>им нужна ваша помощь</h2>
         </div>
-        <div class="services-bottom">
-            <div class="services-one">
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="images/s-1.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="images/s-2.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="images/s-3.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="images/s-4.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
+        <?php if (is_user_logged_in()): ?>
+            <div class="add_button">
+                <a href="<?= get_site_url(); ?>/add-child-page-controller.php"><span class="label label-primary">Добавить запись</span></a>
             </div>
-            <div class="services-two">
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="images/s-5.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="images/s-6.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="images/s-7.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="col-md-3 services-left">
-                    <div class="view fifth-effect">
-                        <a href="#" title="Full Image"><img src="images/s-8.jpg" alt=""/></a>
-                        <div class="mask"></div>
-                    </div>
-                    <div class="s-btm">
-                        <h4>Nulla egestas</h4>
-                        <p>Donec convallis vitae mi sodales varius</p>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
+        <?php endif; ?>
+        <?php TemplateUtils::includeTemplate(get_template_directory() . '/page-templates/child-info-block.php', $data); ?>
     </div>
 </div>
 <!--services-end-->
-<!--best-starts-->
-<div class="service-top-in">
-    <div class="container">
-        <h5 class="best">Aenean imperdiet enim sed</h5>
-        <div class="ser-at">
-            <p>Labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure.</p>
-            <a href="#" class="more">MORE</a>
-        </div>
-        <div class="clearfix"> </div>
-    </div>
-</div>
-<!--best-end-->
-<!--more-starts-->
-<div class="service-bottom">
-    <div class="container">
-        <div class="s-top heading">
-            <h3>Quisque faucibus eros</h3>
-        </div>
-        <div class="ser-bottom">
-            <div class="col-md-4 flex-in">
-                <h4>Flexible</h4>
-                <p>Magnam aliquam quaerat voluptatemut enim ad minima veniam, quis nostrum exercitation em ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur quis autem vel.</p>
-                <a href="#" class="more">MORE</a>
-            </div>
-            <div class="col-md-4 flex-in">
-                <h4>Convenient</h4>
-                <p>Magnam aliquam quaerat voluptatemut enim ad minima veniam, quis nostrum exercitation em ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur quis autem vel.</p>
-                <a href="#" class="more">MORE</a>
-            </div>
-            <div class="col-md-4 flex-in">
-                <h4>Local</h4>
-                <p>Magnam aliquam quaerat voluptatemut enim ad minima veniam, quis nostrum exercitation em ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur quis autem vel.</p>
-                <a href="#" class="more">MORE</a>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-    </div>
-</div>
-<!--more-end-->
 
 <?php get_footer(); ?>

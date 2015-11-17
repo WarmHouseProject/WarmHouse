@@ -8,7 +8,10 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
-?><!DOCTYPE html>
+ global $tabIndex;
+ $tabIndex = isset($tabIndex) ? $tabIndex : 0;
+?>
+<!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7" <?php language_attributes(); ?>>
 <![endif]-->
@@ -22,7 +25,7 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Adoption a Society & people Category Flat Bootstarp responsive Website Template</title>
+<title>Лучик надежды</title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions. ?>
@@ -30,7 +33,12 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo get_template_directory_uri(); ?>/css/components.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/style.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo get_template_directory_uri(); ?>/css/fileinput.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo get_template_directory_uri(); ?>/css/childs-list.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo get_template_directory_uri(); ?>/css/child_form_page.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo get_template_directory_uri(); ?>/css/child-info-page.css" rel='stylesheet' type='text/css' />
 <script async src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.11.0.min.js"></script>
 <?php wp_head(); ?>
 <script async type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/move-top.js"></script>
@@ -50,15 +58,7 @@
     	<div class="container">
     		<div class="header-main">
     			<div class="col-md-6 header-left">
-    				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><h1>Adoption</h1></a>
-    			</div>
-    			<div class="col-md-6 header-right">
-    				<ul>
-    					<li><a href="#"><span class="fb"></span></a></li>
-    					<li><a href="#"><span class="twitter"></span></a></li>
-    					<li><a href="#"><span class="google"></span></a></li>
-    					<li><a href="#"><span class="rss"></span></a></li>
-    				</ul>
+    				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><h1>Лучик надежды</h1></a>
     			</div>
     			<div class="clearfix"></div>
     		</div>
@@ -86,7 +86,7 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/responsiveslides.min.js"></script>
 	<script>
 		// You can also use "$(window).load(function() {"
-		$(function () {
+		jQuery(document).ready(function($) {
 			// Slideshow 4
 			$("#slider4").responsiveSlides({
 				auto: true,
@@ -110,29 +110,35 @@
 		<div class="fixed-header">
 			<div class="container">
 				<div class="top-menu">
-					<span class="menu"><img src="images/menu-icon.png" alt="" /></span>
+					<span class="menu"><img src="<?php echo get_template_directory_uri(); ?>/images/menu-icon.png" alt="" /></span>
 					<ul class="nav">
-						<li><a class="hvr-bounce-to-right" href="index.html">Home</a></li>
+						<li><a href="<?= esc_url( home_url( '/' ) ); ?>" class="<?php if ($tabIndex == 0): ?>active<?php endif; ?> hvr-bounce-to-right">Дети</a></li>
+						<li><a href="<?= get_site_url(); ?>/helped_childs" class="<?php if ($tabIndex == 1): ?>active<?php endif; ?> hvr-bounce-to-right">Кому помогли</a></li>
+						<li><a href="index.html" class="hvr-bounce-to-right">Home</a></li>
 						<li><a href="about.html" class="hvr-bounce-to-right">About</a></li>
-						<li><a href="faq.html" class="hvr-bounce-to-right">Faqs</a></li>
-						<li><a href="services.html" class="active hvr-bounce-to-right">Services</a></li>
 						<li><a href="gallery.html" class="hvr-bounce-to-right">Gallery</a></li>
 						<li><a href="typo.html" class="hvr-bounce-to-right">Blog</a></li>
 						<li><a href="contact.html" class="hvr-bounce-to-right">Contact</a></li>
 					</ul>
 					<!-- script for menu -->
 					<script>
-						$( "span.menu" ).click(function() {
-							$( "ul.nav" ).slideToggle( "slow", function() {
-								// Animation complete.
+						jQuery(document).ready(function($) {
+							$( "span.menu" ).click(function() {
+								$( "ul.nav" ).slideToggle( "slow", function() {
+
+									if ($(this).css("display") == "none") {
+										$(this).css("display", "")
+									}
+								});
 							});
 						});
 					</script>
 					<!-- script for menu -->
 				</div>
 				<script>
-					$(document).ready(function() {
+					jQuery(document).ready(function($) {
 						var navoffeset=$(".header-bottom").offset().top;
+
 						$(window).scroll(function(){
 							var scrollpos=$(window).scrollTop();
 							if(scrollpos >=navoffeset){
