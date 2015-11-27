@@ -14,14 +14,14 @@
  * @since Twenty Twelve 1.0
  */
 
-    require_once(ABSPATH . WPINC . '/lib/class-child-db-utils.php');
-    require_once(ABSPATH . WPINC . '/lib/class-image-db-utils.php');
-    require_once(ABSPATH . WPINC . '/lib/class-template-utils.php');
+require_once(ABSPATH . WPINC . '/lib/class-child-db-utils.php');
+require_once(ABSPATH . WPINC . '/lib/class-image-db-utils.php');
+require_once(ABSPATH . WPINC . '/lib/class-template-utils.php');
 
-    $childs = ChildDBUtils::getNeedHelpChilds();
-    $data = ["childs" => $childs];
+$orphanages = ChildDBUtils::getNeedHelpChilds();
+$data = ["childs" => $orphanages];
 
-    get_header();
+get_header();
 ?>
 
 <div class="services">

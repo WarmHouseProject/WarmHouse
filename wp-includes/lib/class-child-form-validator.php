@@ -25,6 +25,7 @@ class ChildFormValidator
         return (isset($parameters[Child::NAME_FIELD]) && ValidateHelper::validateTextField($parameters[Child::NAME_FIELD], Child::MIN_NAME_LENGTH, Child::MAX_NAME_LENGTH)) &&
         (isset($parameters[Child::SHORT_DESCRIPTION_FIELD]) && ValidateHelper::validateTextField($parameters[Child::SHORT_DESCRIPTION_FIELD], Child::MIN_SHORT_DESCRIPTION_LENGTH, Child::MAX_SHORT_DESCRIPTION_LENGTH)) &&
         (isset($parameters[Child::LONG_DESCRIPTION_FIELD]) && ValidateHelper::validateTextField($parameters[Child::LONG_DESCRIPTION_FIELD], Child::MIN_LONG_DESCRIPTION_LENGTH, Child::MAX_LONG_DESCRIPTION_LENGTH)) &&
+        (isset($parameters[Child::CONTACT_INFO_FIELD]) && ValidateHelper::validateTextField($parameters[Child::CONTACT_INFO_FIELD], Child::MIN_CONTACT_LENGTH, Child::MAX_CONTACT_LENGTH)) &&
         (isset($parameters[Child::STATUS_FIELD]) && ValidateHelper::validateSelectField($parameters[Child::STATUS_FIELD], ChildStatus::getChildStatuses())) &&
         (isset($parameters[Child::PRIORITY_FIELD]) && ValidateHelper::validateNumberField($parameters[Child::PRIORITY_FIELD], ChildPriority::MIN_PRIORITY, ChildPriority::MAX_PRIORITY));
     }

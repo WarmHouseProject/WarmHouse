@@ -39,6 +39,7 @@
 <link href="<?php echo get_template_directory_uri(); ?>/css/childs-list.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/child_form_page.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/child-info-page.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo get_template_directory_uri(); ?>/css/orphanages-page.css" rel='stylesheet' type='text/css' />
 <script async src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.11.0.min.js"></script>
 <?php wp_head(); ?>
 <script async type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/move-top.js"></script>
@@ -114,7 +115,8 @@
 					<ul class="nav">
 						<li><a href="<?= esc_url( home_url( '/' ) ); ?>" class="<?php if ($tabIndex == 0): ?>active<?php endif; ?> hvr-bounce-to-right">Дети</a></li>
 						<li><a href="<?= get_site_url(); ?>/helped_childs" class="<?php if ($tabIndex == 1): ?>active<?php endif; ?> hvr-bounce-to-right">Кому помогли</a></li>
-						<li><a href="index.html" class="hvr-bounce-to-right">Home</a></li>
+						<li><a href="<?= get_site_url(); ?>/orphanages" class="<?php if ($tabIndex == 2): ?>active<?php endif; ?> hvr-bounce-to-right">Детские дома</a></li>
+						<li><a href="<?= get_site_url(); ?>/stocks" class="<?php if ($tabIndex == 3): ?>active<?php endif; ?> hvr-bounce-to-right">Акции</a></li>
 						<li><a href="about.html" class="hvr-bounce-to-right">About</a></li>
 						<li><a href="gallery.html" class="hvr-bounce-to-right">Gallery</a></li>
 						<li><a href="typo.html" class="hvr-bounce-to-right">Blog</a></li>
