@@ -22,3 +22,30 @@ CREATE TABLE `wp_child` (
   KEY `image_id` (`image_id`),
   CONSTRAINT `child_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `wp_image` (`image_id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `wp_orphanage`;
+CREATE TABLE `wp_orphanage` (
+  `orphanage_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` longtext NOT NULL,
+  `contact_info` varchar(255) NOT NULL,
+  `image_id` int(11) DEFAULT NULL,
+  `priority` int(11) NOT NULL,
+  PRIMARY KEY (`orphanage_id`),
+  KEY `image_id` (`image_id`),
+  CONSTRAINT `orphanage_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `wp_image` (`image_id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `wp_stock`;
+CREATE TABLE `wp_stock` (
+  `stock_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` longtext NOT NULL,
+  `image_id` int(11) DEFAULT NULL,
+  `priority` int(11) NOT NULL,
+  PRIMARY KEY (`stock_id`),
+  KEY `image_id` (`image_id`),
+  CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `wp_image` (`image_id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

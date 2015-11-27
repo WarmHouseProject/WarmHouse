@@ -16,8 +16,8 @@
 				<ul class="tabs-list">
 					<li><a href="<?= esc_url( home_url( '/' ) ); ?>">Дети</a></li>
 					<li><a href="<?= get_site_url(); ?>/helped_childs">Кому помогли</a></li>
-					<li><a href="services.html">Services</a></li>
-					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="<?= get_site_url(); ?>/orphanages">Детстке дома</a></li>
+					<li><a href="<?= get_site_url(); ?>/stocks">Акции</a></li>
 					<li><a href="typo.html">Blog</a></li>
 					<li><a href="contact.html">Contact</a></li>
 				</ul>

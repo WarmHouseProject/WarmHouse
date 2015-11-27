@@ -1,7 +1,3 @@
-<?php
-    global $childs;
-?>
-
 <div class="services-bottom">
     <div class="services-row">
         <?php foreach ($childs as $index => $child): ?>
