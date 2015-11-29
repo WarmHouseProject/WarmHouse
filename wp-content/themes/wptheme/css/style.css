@@ -1555,6 +1555,7 @@ h3.ghj {
 .top-menu ul li a {
     font-size: 1.02em;
 	padding: 13px 35px;
+	display: block;
 }
 .help {
     min-height: 284px;
