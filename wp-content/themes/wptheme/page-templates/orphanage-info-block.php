@@ -18,12 +18,13 @@
                     <div class="inner-container heading">
                         <h2 class="head"><?= $orphanage->name ?></h2>
                     </div>
-                    <div class="inner-container heading">
+                    <form class="inner-container heading" action="/donation/" method="post">
                         <div class="well short-description"><?= $orphanage->description ?></div>
                         <div class="well well-sm contact-info"><?= $orphanage->contact_info ?></div>
-                        <button type="button" class="btn btn-success donate">Пожертвовать</button>
+                        <input type="hidden" name="orphanage_id" value="<?=  $orphanage->orphanage_id; ?>">
+                        <button type="submit" class="btn btn-success donate">Пожертвовать</button>
                         <div class="clearfix"></div>
-                    </div>
+                    </form>
                 </div>
                 <div class="clearfix"></div>
             </div>

@@ -55,13 +55,14 @@ get_header(); ?>
                     <div class="inner-container heading">
                         <h2 class="head"><?= $child->name ?></h2>
                     </div>
-                    <div class="inner-container heading">
+                    <form class="inner-container heading" action="/donation/" method="post">
                         <div class="well short-description"><?= $child->short_description ?></div>
                         <div class="well well-sm contact-info"><?= $child->contact_info ?></div>
                         <button type="button" id="showLongDescriptionButton" class="btn btn-primary long-description">Читать больше</button>
-                        <button type="button" class="btn btn-success donate">Пожертвовать</button>
+                        <input type="hidden" name="child_id" value="<?= $childId; ?>">
+                        <button type="submit" class="btn btn-success donate">Пожертвовать</button>
                         <div class="well well-lg collapse long-description" id="longDescription"><?= $child->long_description ?></div>
-                    </div>
+                    </form>
                     <script>
                         jQuery(document).ready(function($) {
                             $('#showLongDescriptionButton').click(function(){
