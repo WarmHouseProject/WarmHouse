@@ -3,3 +3,7 @@
     margin-bottom: 30px;
     text-align: center;
 }
+
+.thank-you-form label {
+    margin-top: 11px;
+}
