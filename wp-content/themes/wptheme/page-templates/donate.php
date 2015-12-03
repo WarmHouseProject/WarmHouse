@@ -34,12 +34,14 @@ Template Name: Donation Form
             <label><?php echo $paymentPurpose; ?></label>
             <div class="input-block">
                 <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="22S2S5FGJ7GML">
-                    <input type="hidden" name="return" value=http://warmhouse-wp.local/donation/">
-                    <input type="hidden" name="cancel_return" value="http://warmhouse-wp.local/donation/">
+                    <input type="hidden" name="cmd" value="_donations">
+                    <input type="hidden" name="business" value="Q8CHD2XYLYDQJ">
+                    <input type="hidden" name="return" value="http://warmhouse-wp.local/thank-you/">
+                    <input type="hidden" name="cancel_return" value="http://warmhouse-wp.local/">
                     <input type="hidden" name="item_name" value="<?= $paymentPurposeTranslit; ?>">
-                    <input type="image" src="http://sozvezdieserdec.ru/uploads/images/knopki/donation.png" border="0" name="submit" alt="PayPal — более безопасный и легкий способ оплаты через Интернет!">
+                    <input type="hidden" name="currency_code" value="RUB">
+                    <input type="hidden" name="lc" value="RU">
+                    <input type="image" src="<?= get_template_directory_uri() . '/images/donation.png' ?>" border="0" name="submit" alt="PayPal — более безопасный и легкий способ оплаты через Интернет!">
                     <img alt="" border="0" src="https://www.sandbox.paypal.com/ru_RU/i/scr/pixel.gif" width="1" height="1">
                 </form>
             </div>
