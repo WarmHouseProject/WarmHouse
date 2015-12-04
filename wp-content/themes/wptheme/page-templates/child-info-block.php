@@ -12,8 +12,6 @@
                     <img src="<?= get_site_url() . ImageDBUtils::getImageLinkByImageId($child->image_id) ?>" alt="<?= $child->name ?>"/>
                     <?php if ($child->status == ChildStatus::URGENTLY_NEED_HELP): ?>
                         <img class="status-label" src="<?= get_template_directory_uri() . '/images/urgently.png' ?>" alt=""/>
-                    <?php elseif ($child->status == ChildStatus::HELPED): ?>
-                        <img class="status-label" src="<?= get_template_directory_uri() . '/images/helped.png' ?>" alt=""/>
                     <?php endif; ?>
                 </a>
                 <div class="mask"></div>

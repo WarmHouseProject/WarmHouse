@@ -40,8 +40,6 @@ get_header(); ?>
                             <img src="<?= get_site_url() . ImageDBUtils::getImageLinkByImageId($child->image_id) ?>" class="img-thumbnail child-image" alt="<?= $child->name ?>">
                             <?php if ($child->status == ChildStatus::URGENTLY_NEED_HELP): ?>
                                 <img class="status-label" src="<?= get_template_directory_uri() . '/images/urgently.png' ?>" alt=""/>
-                            <?php elseif ($child->status == ChildStatus::HELPED): ?>
-                                <img class="status-label" src="<?= get_template_directory_uri() . '/images/helped.png' ?>" alt=""/>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -60,7 +58,9 @@ get_header(); ?>
                         <div class="well well-sm contact-info"><?= $child->contact_info ?></div>
                         <button type="button" id="showLongDescriptionButton" class="btn btn-primary long-description">Читать больше</button>
                         <input type="hidden" name="child_id" value="<?= $childId; ?>">
-                        <button type="submit" class="btn btn-success donate">Пожертвовать</button>
+                        <?php if ($child->status != ChildStatus::HELPED): ?>
+                            <button type="submit" class="btn btn-success donate">Пожертвовать</button>
+                        <?php endif; ?>
                         <div class="well well-lg collapse long-description" id="longDescription"><?= $child->long_description ?></div>
                     </form>
                     <script>
