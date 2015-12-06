@@ -7,7 +7,7 @@ Template Name: Stocks
     require_once(ABSPATH . WPINC . '/lib/class-image-db-utils.php');
     require_once(ABSPATH . WPINC . '/lib/class-template-utils.php');
 
-    $tabIndex = 3;
+    $tabIndex = 4;
     $stocks = StockDBUtils::getStocks();
     $data = ["stocks" => $stocks];
 

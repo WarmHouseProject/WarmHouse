@@ -1,0 +1,153 @@
+
+.grey_block
+{
+    background-color: #e6e6e6;
+}
+
+.white_block
+{
+    background-color: #FFF;
+}
+
+.information_block
+{
+    padding: 5em 4em;
+    width: 100%;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.information_block .main_header
+{
+    margin-bottom: 20px;
+}
+
+.information_block .main_header .logo_container
+{
+    text-align: center;
+}
+
+.information_block .main_header .head.logo_header
+{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.information_block .text_block
+{
+    font-size: 1.2em;
+    color: #999999;
+    line-height: 2em;
+}
+
+.information_block .head
+{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.blue_text
+{
+    color: #337ab7;
+}
+
+.orange_text
+{
+    color: #E1A20C;
+}
+
+.line_begin
+{
+    margin-left: 40px;
+}
+
+.line_begin_middle
+{
+    margin-left: 20px;
+}
+
+.information_block .marker_block
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.information_block .marker
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin: auto;
+    text-align: center;
+    padding-top: 13px;
+    color: #FFF;
+    font-size: 15px;
+}
+
+.information_block .marker_middle
+{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    display: inline-block;
+    text-align: center;
+    color: #FFF;
+    font-size: 13px;
+}
+
+.information_block .marker_middle.list
+{
+    margin-right: 15px;
+}
+
+.information_block ul.text_block li
+{
+    margin-bottom: 15px;
+}
+
+.information_block .marker_image
+{
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border-radius: 100%;
+}
+
+.information_block .marker_image img
+{
+    position: relative;
+    top: 10px;
+}
+
+.information_block .marker_image.second img
+{
+    top: 16px;
+}
+
+.information_block .marker_image.third img
+{
+    top: 24px;
+}
+
+.information_block .marker_image.blue_orange
+{
+    background-color: #6DBEE8;
+}
+
+.col-md-4:hover .marker_block .marker_image.blue_orange
+{
+    background-color: #E1A20C;
+}
+
+.information_block .marker.blue,
+.information_block .marker_middle.blue
+{
+    background-color: #6DBEE8;
+}
+
+.information_block .marker.orange,
+.information_block .marker_middle.orange
+{
+    background-color: #ED9A47;
+}

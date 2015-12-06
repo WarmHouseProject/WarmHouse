@@ -14,7 +14,8 @@
 		<div class="footer-top">
 			<div class="footer-left">
 				<ul class="tabs-list">
-					<li><a href="<?= esc_url( home_url( '/' ) ); ?>">Дети</a></li>
+					<li><a href="<?= esc_url( home_url( '/' ) ); ?>">Главная</a></li>
+					<li><a href="<?= get_site_url(); ?>/childs">Дети</a></li>
 					<li><a href="<?= get_site_url(); ?>/helped_childs">Кому помогли</a></li>
 					<li><a href="<?= get_site_url(); ?>/orphanages">Детстке дома</a></li>
 					<li><a href="<?= get_site_url(); ?>/stocks">Акции</a></li>

@@ -7,7 +7,7 @@ Template Name: Orphanage
     require_once(ABSPATH . WPINC . '/lib/class-image-db-utils.php');
     require_once(ABSPATH . WPINC . '/lib/class-template-utils.php');
 
-    $tabIndex = 2;
+    $tabIndex = 3;
     $orphanages = OrphanageDBUtils::getOrphanages();
     $data = ["orphanages" => $orphanages];
 

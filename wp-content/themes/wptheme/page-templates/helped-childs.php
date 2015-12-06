@@ -7,7 +7,7 @@ Template Name: Helped Childs
     require_once(ABSPATH . WPINC . '/lib/class-image-db-utils.php');
     require_once(ABSPATH . WPINC . '/lib/class-template-utils.php');
 
-    $tabIndex = 1;
+    $tabIndex = 2;
     $childs = ChildDBUtils::getHelpedChilds();
     $data = ["childs" => $childs];
 
