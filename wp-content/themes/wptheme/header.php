@@ -35,6 +35,7 @@
 <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/components.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/style.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo get_template_directory_uri(); ?>/css/index.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/fileinput.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/childs-list.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/child_form_page.css" rel='stylesheet' type='text/css' />
@@ -117,12 +118,12 @@
 					<ul id="primary-navigation" role="navigation" class="nav">
 
 
-
-						<li><a href="<?= esc_url( home_url( '/' ) ); ?>" class="<?php if ($tabIndex == 0): ?>active<?php endif; ?> hvr-bounce-to-right">Дети</a></li>
-						<li><a href="<?= get_site_url(); ?>/helped_childs" class="<?php if ($tabIndex == 1): ?>active<?php endif; ?> hvr-bounce-to-right">Кому помогли</a></li>
-						<li><a href="<?= get_site_url(); ?>/orphanages" class="<?php if ($tabIndex == 2): ?>active<?php endif; ?> hvr-bounce-to-right">Детские дома</a></li>
-						<li><a href="<?= get_site_url(); ?>/stocks" class="<?php if ($tabIndex == 3): ?>active<?php endif; ?> hvr-bounce-to-right">Акции</a></li>
-						<li><a href="<?= get_site_url(); ?>/documents" class="<?php if ($tabIndex == 4): ?>active<?php endif; ?> hvr-bounce-to-right">Уставные документы</a></li>
+						<li><a href="<?= esc_url( home_url( '/' ) ); ?>" class="<?php if ($tabIndex == 0): ?>active<?php endif; ?> hvr-bounce-to-right">Главная</a></li>
+						<li><a href="<?= get_site_url(); ?>/childs" class="<?php if ($tabIndex == 1): ?>active<?php endif; ?> hvr-bounce-to-right">Дети</a></li>
+						<li><a href="<?= get_site_url(); ?>/helped_childs" class="<?php if ($tabIndex == 2): ?>active<?php endif; ?> hvr-bounce-to-right">Кому помогли</a></li>
+						<li><a href="<?= get_site_url(); ?>/orphanages" class="<?php if ($tabIndex == 3): ?>active<?php endif; ?> hvr-bounce-to-right">Детские дома</a></li>
+						<li><a href="<?= get_site_url(); ?>/stocks" class="<?php if ($tabIndex == 4): ?>active<?php endif; ?> hvr-bounce-to-right">Акции</a></li>
+						<li><a href="<?= get_site_url(); ?>/documents" class="<?php if ($tabIndex == 5): ?>active<?php endif; ?> hvr-bounce-to-right">Уставные документы</a></li>
 					</ul>
 					<!-- script for menu -->
 					<script>
