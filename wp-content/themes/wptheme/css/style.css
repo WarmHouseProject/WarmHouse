@@ -2731,3 +2731,12 @@ h4.head {
 }
 }
 /*--media-quaries-starts-here--*/
+
+h1.entry-title {
+	display: none;
+}
+
+.leyka-tpl-toggles {
+	width: 350px;
+	margin: 0 auto;
+}
