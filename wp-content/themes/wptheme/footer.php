@@ -12,17 +12,7 @@
 <div class="footer">
 	<div class="container">
 		<div class="footer-top">
-			<div class="footer-left">
-				<ul class="tabs-list">
-					<li><a href="<?= esc_url( home_url( '/' ) ); ?>">Главная</a></li>
-					<li><a href="<?= get_site_url(); ?>/childs">Дети</a></li>
-					<li><a href="<?= get_site_url(); ?>/helped_childs">Кому помогли</a></li>
-					<li><a href="<?= get_site_url(); ?>/orphanages">Детстке дома</a></li>
-					<li><a href="<?= get_site_url(); ?>/stocks">Акции</a></li>
-					<li><a href="typo.html">Blog</a></li>
-					<li><a href="contact.html">Contact</a></li>
-				</ul>
-			</div>
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'tabs-list', 'menu_id' => 'footer-menu', 'container_class' => 'footer-left' ) ); ?>
 			<div class="clearfix"></div>
 		</div>
 		<div class="footer-text">

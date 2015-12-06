@@ -115,17 +115,9 @@
 			<div class="container">
 				<div class="top-menu">
 					<span class="menu"><img src="<?php echo get_template_directory_uri(); ?>/images/menu-icon.png" alt="" /></span>
-					<ul id="primary-navigation" role="navigation" class="nav">
-
-
-						<li><a href="<?= esc_url( home_url( '/' ) ); ?>" class="<?php if ($tabIndex == 0): ?>active<?php endif; ?> hvr-bounce-to-right">Главная</a></li>
-						<li><a href="<?= get_site_url(); ?>/childs" class="<?php if ($tabIndex == 1): ?>active<?php endif; ?> hvr-bounce-to-right">Дети</a></li>
-						<li><a href="<?= get_site_url(); ?>/helped_childs" class="<?php if ($tabIndex == 2): ?>active<?php endif; ?> hvr-bounce-to-right">Кому помогли</a></li>
-						<li><a href="<?= get_site_url(); ?>/orphanages" class="<?php if ($tabIndex == 3): ?>active<?php endif; ?> hvr-bounce-to-right">Детские дома</a></li>
-						<li><a href="<?= get_site_url(); ?>/stocks" class="<?php if ($tabIndex == 4): ?>active<?php endif; ?> hvr-bounce-to-right">Акции</a></li>
-						<li><a href="<?= get_site_url(); ?>/documents" class="<?php if ($tabIndex == 5): ?>active<?php endif; ?> hvr-bounce-to-right">Уставные документы</a></li>
-					</ul>
+					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav', 'menu_id' => 'primary-menu' ) ); ?>
 					<!-- script for menu -->
+					<div class="clearfix"></div>
 					<script>
 						jQuery(document).ready(function($) {
 							$( "span.menu" ).click(function() {

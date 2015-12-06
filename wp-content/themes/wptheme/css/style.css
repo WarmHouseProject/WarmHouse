@@ -263,6 +263,7 @@ ul.callbacks_tabs.callbacks2_tabs {
 	display:inline-block;
 	list-style:none;
 	float: left;
+	transform: translateZ(0);
 }
 .top-menu ul li a {
 	color: #444;
@@ -271,6 +272,7 @@ ul.callbacks_tabs.callbacks2_tabs {
     text-decoration: none;
     padding: 13px 40px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	display: block;
 }
 .top-menu ul li a:hover,.top-menu ul li a.active{
 	color:#fff;
@@ -2709,7 +2711,7 @@ h4.head {
     height: 8px;
     width: 8px;
 }
-.top-menu ul.nav li a {
+	.top-menu ul.nav li a {
     font-size: 13px;
     padding: 7px 0;
 }
