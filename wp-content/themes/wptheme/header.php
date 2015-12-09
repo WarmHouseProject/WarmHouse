@@ -35,6 +35,7 @@
 <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/components.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/style.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo get_template_directory_uri(); ?>/css/header.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/index.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/fileinput.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/childs-list.css" rel='stylesheet' type='text/css' />
@@ -59,14 +60,54 @@
 
 <body <?php body_class(); ?>>
     <div class="header" id="home">
-    	<div class="container">
-    		<div class="header-main">
-    			<div class="col-md-6 header-left">
-    				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><h1>Лучик надежды</h1></a>
-    			</div>
-    			<div class="clearfix"></div>
-    		</div>
-    	</div>
+		<div class="space_block"></div>
+		<div class=header_block>
+			<div class="container">
+				<a class="main_link" href="<?=  home_url( '/'); ?>" title="Главная">
+					<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="" />
+				</a>
+				<div class="header-main">
+					<div class="top-menu">
+						<span class="menu"><img src="<?php echo get_template_directory_uri(); ?>/images/menu-icon.png" alt="" /></span>
+						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav', 'menu_id' => 'primary-menu' ) ); ?>
+						<!-- script for menu -->
+						<div class="clearfix"></div>
+						<script>
+							jQuery(document).ready(function($) {
+								$( "span.menu" ).click(function() {
+									$( "ul.nav" ).slideToggle( "slow", function() {
+
+										if ($(this).css("display") == "none") {
+											$(this).css("display", "")
+										}
+									});
+								});
+							});
+						</script>
+						<!-- script for menu -->
+					</div>
+					<script>
+						jQuery(document).ready(function($) {
+							var homeBlock = $("#home");
+
+							$(window).scroll(function(){
+								var headerHeight = homeBlock.height()
+								var scrollpos=$(window).scrollTop();
+								if(scrollpos > 0){
+									$("#home").addClass("fixed");
+									$(".bnr").css("margin-top", headerHeight + "px")
+								}else{
+									$("#home").removeClass("fixed");
+									$(".bnr").css("margin-top", 0)
+								}
+							});
+
+						});
+					</script>
+				</div>
+			</div>
+		</div>
+		<div class="space_block"></div>
     </div>
 	<!--header-ends-->
 	<!--banner-starts-->
@@ -109,44 +150,3 @@
 		});
 	</script>
 	<!--End-slider-script-->
-	<!--header-starts-->
-	<div class="header-bottom">
-		<div class="fixed-header">
-			<div class="container">
-				<div class="top-menu">
-					<span class="menu"><img src="<?php echo get_template_directory_uri(); ?>/images/menu-icon.png" alt="" /></span>
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav', 'menu_id' => 'primary-menu' ) ); ?>
-					<!-- script for menu -->
-					<div class="clearfix"></div>
-					<script>
-						jQuery(document).ready(function($) {
-							$( "span.menu" ).click(function() {
-								$( "ul.nav" ).slideToggle( "slow", function() {
-
-									if ($(this).css("display") == "none") {
-										$(this).css("display", "")
-									}
-								});
-							});
-						});
-					</script>
-					<!-- script for menu -->
-				</div>
-				<script>
-					jQuery(document).ready(function($) {
-						var navoffeset=$(".header-bottom").offset().top;
-
-						$(window).scroll(function(){
-							var scrollpos=$(window).scrollTop();
-							if(scrollpos >=navoffeset){
-								$(".header-bottom").addClass("fixed");
-							}else{
-								$(".header-bottom").removeClass("fixed");
-							}
-						});
-
-					});
-				</script>
-			</div>
-		</div>
-	</div>
