@@ -43,6 +43,7 @@
 <link href="<?php echo get_template_directory_uri(); ?>/css/orphanages-page.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/donate-page.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/thank-you-page.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo get_template_directory_uri(); ?>/css/contacts-page.css" rel='stylesheet' type='text/css' />
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.11.0.min.js"></script>
 <?php wp_head(); ?>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/move-top.js"></script>

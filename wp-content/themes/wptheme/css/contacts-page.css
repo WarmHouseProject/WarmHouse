@@ -1,0 +1,91 @@
+.contacts-form .container {
+    margin-top: 30px;
+}
+
+.mail-form-container {
+    padding: 2px;
+    border: 1px solid #44479A;
+}
+
+.mail-form {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    text-align: center;
+    border: 1px solid #44479A;
+    border-radius: 3px;
+}
+
+.mail-form label {
+    padding-bottom: 5px;
+}
+
+.contact-info {
+    margin-top: 30px;
+}
+
+.address-left {
+    //padding: 1.5em 3px;
+    padding: 2em 15px;
+    //background: #44479A;
+    background: #F0AD4E;
+    text-align: center;
+    font-size: 100%;
+
+    height:100%;
+}
+
+.address-left p {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+    margin-left: 1px;
+    color: #FFF;
+}
+
+.address-left span {
+    box-sizing: border-box;
+    display: inline-block;
+    color: #FFF;
+    font-size: 35.2px;
+    font-style: normal;
+    font-weight: normal;
+    height: 35px;
+    line-height: 35.2px;
+    position:relative;
+    text-align: center;
+    top: 1px;
+    vertical-align: middle;
+    width: 35.2031px;
+}
+
+.address-middle {
+    //background: #000;
+    background: #FFF;
+}
+
+.address-middle span {
+    color: #000;
+}
+
+.address-middle p {
+    color: #000;
+}
+
+.btn-full-info {
+    width: 100%;
+    //color: #F0AD4E;
+}
+
+.full-text-info label {
+    margin-right: 10px;
+}
+
+.full-text-info table {
+    margin-top: 5px;
+}
+
+
+.map {
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
