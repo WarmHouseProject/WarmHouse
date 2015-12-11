@@ -935,7 +935,7 @@ a.tooltips2 span:before {
     color: #44479A;
 }
 .s-btm p{
-	max-height: 80px;
+	height: 80px;
 	word-wrap: break-word;
 	overflow: hidden;
 	text-overflow: ellipsis;

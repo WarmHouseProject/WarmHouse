@@ -8,8 +8,6 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
- global $tabIndex;
- $tabIndex = isset($tabIndex) ? $tabIndex : 0;
 ?>
 <!DOCTYPE html>
 <!--[if IE 7]>
@@ -60,56 +58,40 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <div class="header" id="home">
-		<div class="space_block"></div>
-		<div class=header_block>
-			<div class="container">
-				<a class="main_link" href="<?=  home_url( '/'); ?>" title="Главная">
-					<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="" />
-				</a>
-				<div class="header-main">
-					<div class="top-menu">
-						<span class="menu"><img src="<?php echo get_template_directory_uri(); ?>/images/menu-icon.png" alt="" /></span>
-						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav', 'menu_id' => 'primary-menu' ) ); ?>
-						<!-- script for menu -->
-						<div class="clearfix"></div>
-						<script>
-							jQuery(document).ready(function($) {
-								$( "span.menu" ).click(function() {
-									$( "ul.nav" ).slideToggle( "slow", function() {
+	<div class="header-container">
+		<div class="header fixed" id="home">
+			<div class="space_block"></div>
+			<div class=header_block>
+				<div class="container">
+					<a class="main_link" href="<?=  home_url( '/'); ?>" title="Главная">
+						<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="" />
+					</a>
+					<div class="header-main">
+						<div class="top-menu">
+							<span class="menu"><img src="<?php echo get_template_directory_uri(); ?>/images/menu-icon.png" alt="" /></span>
+							<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav', 'menu_id' => 'primary-menu' ) ); ?>
+							<!-- script for menu -->
+							<div class="clearfix"></div>
+							<script>
+								jQuery(document).ready(function($) {
+									$( "span.menu" ).click(function() {
+										$( "ul.nav" ).slideToggle( "slow", function() {
 
-										if ($(this).css("display") == "none") {
-											$(this).css("display", "")
-										}
+											if ($(this).css("display") == "none") {
+												$(this).css("display", "")
+											}
+										});
 									});
 								});
-							});
-						</script>
-						<!-- script for menu -->
+							</script>
+							<!-- script for menu -->
+						</div>
 					</div>
-					<script>
-						jQuery(document).ready(function($) {
-							var homeBlock = $("#home");
-
-							$(window).scroll(function(){
-								var headerHeight = homeBlock.height()
-								var scrollpos=$(window).scrollTop();
-								if(scrollpos > 0){
-									$("#home").addClass("fixed");
-									$(".bnr").css("margin-top", headerHeight + "px")
-								}else{
-									$("#home").removeClass("fixed");
-									$(".bnr").css("margin-top", 0)
-								}
-							});
-
-						});
-					</script>
 				</div>
 			</div>
+			<div class="space_block"></div>
 		</div>
-		<div class="space_block"></div>
-    </div>
+	</div>
 	<!--header-ends-->
 	<!--banner-starts-->
 	<div class="bnr">

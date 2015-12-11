@@ -8,8 +8,6 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
-global $tabIndex;
-$tabIndex = isset($tabIndex) ? $tabIndex : 0;
 ?>
 <!DOCTYPE html>
 <!--[if IE 7]>
@@ -35,6 +33,7 @@ $tabIndex = isset($tabIndex) ? $tabIndex : 0;
     <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/components.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="<?php echo get_template_directory_uri(); ?>/css/header.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/index.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/fileinput.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/childs-list.css" rel='stylesheet' type='text/css' />
@@ -43,6 +42,7 @@ $tabIndex = isset($tabIndex) ? $tabIndex : 0;
     <link href="<?php echo get_template_directory_uri(); ?>/css/orphanages-page.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/donate-page.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/thank-you-page.css" rel='stylesheet' type='text/css' />
+    <link href="<?php echo get_template_directory_uri(); ?>/css/contacts-page.css" rel='stylesheet' type='text/css' />
     <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.11.0.min.js"></script>
     <?php wp_head(); ?>
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/move-top.js"></script>
@@ -58,56 +58,39 @@ $tabIndex = isset($tabIndex) ? $tabIndex : 0;
 </head>
 
 <body <?php body_class(); ?>>
-<div class="header" id="home">
-    <div class="container">
-        <div class="header-main">
-            <div class="col-md-6 header-left">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><h1>Лучик надежды</h1></a>
+<div class="header-container">
+    <div class="header fixed" id="home">
+        <div class="space_block"></div>
+        <div class=header_block>
+            <div class="container">
+                <a class="main_link" href="<?=  home_url( '/'); ?>" title="Главная">
+                    <img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="" />
+                </a>
+                <div class="header-main">
+                    <div class="top-menu">
+                        <span class="menu"><img src="<?php echo get_template_directory_uri(); ?>/images/menu-icon.png" alt="" /></span>
+                        <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav', 'menu_id' => 'primary-menu' ) ); ?>
+                        <!-- script for menu -->
+                        <div class="clearfix"></div>
+                        <script>
+                            jQuery(document).ready(function($) {
+                                $( "span.menu" ).click(function() {
+                                    $( "ul.nav" ).slideToggle( "slow", function() {
+
+                                        if ($(this).css("display") == "none") {
+                                            $(this).css("display", "")
+                                        }
+                                    });
+                                });
+                            });
+                        </script>
+                        <!-- script for menu -->
+                    </div>
+                </div>
             </div>
-            <div class="clearfix"></div>
         </div>
+        <div class="space_block"></div>
     </div>
 </div>
 <!--header-ends-->
-<div style="height: 20px"></div>
-<!--header-starts-->
-<div class="header-bottom">
-    <div class="fixed-header">
-        <div class="container">
-            <div class="top-menu">
-                <span class="menu"><img src="<?php echo get_template_directory_uri(); ?>/images/menu-icon.png" alt="" /></span>
-                <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav', 'menu_id' => 'primary-menu' ) ); ?>
-                <!-- script for menu -->
-                <div class="clearfix"></div>
-                <script>
-                    jQuery(document).ready(function($) {
-                        $( "span.menu" ).click(function() {
-                            $( "ul.nav" ).slideToggle( "slow", function() {
 
-                                if ($(this).css("display") == "none") {
-                                    $(this).css("display", "")
-                                }
-                            });
-                        });
-                    });
-                </script>
-                <!-- script for menu -->
-            </div>
-            <script>
-                jQuery(document).ready(function($) {
-                    var navoffeset=$(".header-bottom").offset().top;
-
-                    $(window).scroll(function(){
-                        var scrollpos=$(window).scrollTop();
-                        if(scrollpos >=navoffeset){
-                            $(".header-bottom").addClass("fixed");
-                        }else{
-                            $(".header-bottom").removeClass("fixed");
-                        }
-                    });
-
-                });
-            </script>
-        </div>
-    </div>
-</div>

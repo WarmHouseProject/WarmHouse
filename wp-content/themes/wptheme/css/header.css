@@ -4,6 +4,11 @@
     z-index: 9999;
 }
 
+.header-container
+{
+    height: 83px;
+}
+
 .header .space_block
 {
     height: 20px;
@@ -66,6 +71,11 @@
     {
         margin-left: 20px;
     }
+
+    .header-container
+    {
+        height: 62px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -78,22 +88,27 @@
     {
         margin-left: 0;
     }
+
+    .header-container
+    {
+        height: 57px;
+    }
 }
 
 @media (min-width: 768px) {
-    .container {
+    .header .container {
         width: 800px;
     }
 }
 
 @media (min-width: 992px) {
-    .container {
+    .header .container {
         width: 970px;
     }
 }
 
 @media (min-width: 1200px) {
-    .container {
+    .header .container {
         width: 1170px;
     }
 }
