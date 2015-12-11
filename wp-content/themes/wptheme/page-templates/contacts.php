@@ -2,30 +2,38 @@
 /*
 Template Name: Contacts Form
 */
+    require_once(ABSPATH . WPINC . '/lib/class-email-utils.php');
+
+    $emailSenderURL = "/email-sender.php";
 
     get_header();
 ?>
 <div class="contacts-form">
     <div class="container">
         <div class="mail-form-container">
-        <form class="mail-form" role="form">
-            <div class="col">
-                <div class="col-md-6 form-group">
+            <form class="mail-form" role="form" action="<?= esc_url( home_url( $emailSenderURL ) ); ?>">
+                <div class="alert alert-danger" style="display: none;" id="wrong_email_error_block">Введите правильный email адрес</div>
+                <div class="alert alert-danger" style="display: none;" id="no_email_error_block">Введите свой email адрес, чтобы мы смогли вам ответить</div>
+                <div class="alert alert-danger" style="display: none;" id="no_message_error_block">Введите своё сообщение</div>
+                <div class="alert alert-danger" style="display: none;" id="internal_failure_block">Внутренняя ошибка сайта. Не удалось отправить сообщение. Попробуйте отправить своё сообщение через несколько минут.</div>
+                <div class="alert alert-success" style="display: none;" id="success_block">Ваше сообщение успешно отправлено</div>
+                <div class="col">
+                    <div class="col-md-6 form-group">
                         <label>Ваше имя</label>
-                        <input type="text" class="form-control">
-                </div>
-                <div class="col-md-6 form-group">
+                        <input type="text" class="form-control" name="user_name">
+                    </div>
+                    <div class="col-md-6 form-group">
                         <label>Ваш e-mail</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="user_email">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-12 form-group">
-                <label>Ваше сообщение</label>
-                <textarea class="form-control" rows="10"></textarea>
-            </div>
-            <button type="submit" class="btn btn-default send-email">Послать сообщение</button>
-            <div class="clearfix"></div>
-        </form>
+                <div class="col-md-12 form-group">
+                    <label>Ваше сообщение</label>
+                    <textarea class="form-control" rows="10" name="user_message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-default send-email">Отправить сообщение</button>
+                <div class="clearfix"></div>
+            </form>
         </div>
         <div class="contact-info" style="width:100%;">
             <div class="text-info">
@@ -93,6 +101,55 @@ Template Name: Contacts Form
                 $('#fullInfo').slideToggle("slow");
             });
         });
+    </script>
+    <script>
+        window.addEventListener("load", registerSubmitHandler);
+
+        function registerSubmitHandler()
+        {
+            var $form = $("form");
+            $form.submit(function(){
+                var request = $.post($form.attr('action'), $form.serialize(), function(response){
+                    checkErrors(response);
+                });
+                return false;
+            });
+        }
+
+        function checkErrors(errorMessage)
+        {
+            var wrongEmailErrorMessageBlock      = $('#wrong_email_error_block');
+            var noEmailErrorMessageBlock         = $('#no_email_error_block');
+            var noMessageErrorMessageBlock       = $('#no_message_error_block');
+            var internalFailureErrorMessageBlock = $('#internal_failure_block');
+            var successMessageBlock              = $('#success_block');
+
+            wrongEmailErrorMessageBlock.hide();
+            noEmailErrorMessageBlock.hide();
+            noMessageErrorMessageBlock.hide();
+            internalFailureErrorMessageBlock.hide();
+            successMessageBlock.hide();
+
+            switch (errorMessage)
+            {
+                case "<?= EmailUtils::ERR_NO_EMAIL ?>":
+                    noEmailErrorMessageBlock.show();
+                    break;
+                case "<?= EmailUtils::ERR_WRONG_EMAIL ?>":
+                    wrongEmailErrorMessageBlock.show();
+                    break;
+                case "<?= EmailUtils::ERR_NO_MESSAGE ?>":
+                    noMessageErrorMessageBlock.show();
+                    break;
+                case "<?= EmailUtils::ERR_UNABLE_TO_SEND ?>":
+                    internalFailureErrorMessageBlock.show();
+                    break;
+                case "<?= EmailUtils::ERR_SUCCESS ?>":
+                    successMessageBlock.show();
+                    break;
+            }
+        }
+
     </script>
     <script>
         window.addEventListener("load", invalidateContactInfoPanel);
