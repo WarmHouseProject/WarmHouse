@@ -53,7 +53,7 @@
 
         private static function getUserEmail()
         {
-            return addslashes(RequestHelper::getParameter("user_email"));
+            return addslashes(trim(RequestHelper::getParameter("user_email")));
         }
 
         private static function getUserMessage()
