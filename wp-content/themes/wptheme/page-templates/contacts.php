@@ -96,27 +96,27 @@ Template Name: Contacts Form
         </div>
     </div>
     <script>
-        jQuery(document).ready(function($) {
+        $(document).ready(function($) {
             $('#showFullInfoButton').click(function(){
                 $('#fullInfo').slideToggle("slow");
             });
         });
     </script>
     <script>
-        window.addEventListener("load", registerSubmitHandler);
+        $(document).ready(registerSubmitHandler());
 
         function registerSubmitHandler()
         {
             var $form = $("form");
             $form.submit(function(){
                 var request = $.post($form.attr('action'), $form.serialize(), function(response){
-                    checkErrors(response);
+                    showErrorMessage(response);
                 });
                 return false;
             });
         }
 
-        function checkErrors(errorMessage)
+        function showErrorMessage(errorMessage)
         {
             var wrongEmailErrorMessageBlock      = $('#wrong_email_error_block');
             var noEmailErrorMessageBlock         = $('#no_email_error_block');
@@ -130,26 +130,27 @@ Template Name: Contacts Form
             internalFailureErrorMessageBlock.hide();
             successMessageBlock.hide();
 
-            switch (errorMessage)
-            {
-                case "<?= EmailUtils::ERR_NO_EMAIL ?>":
-                    noEmailErrorMessageBlock.show();
-                    break;
-                case "<?= EmailUtils::ERR_WRONG_EMAIL ?>":
-                    wrongEmailErrorMessageBlock.show();
-                    break;
-                case "<?= EmailUtils::ERR_NO_MESSAGE ?>":
-                    noMessageErrorMessageBlock.show();
-                    break;
-                case "<?= EmailUtils::ERR_UNABLE_TO_SEND ?>":
-                    internalFailureErrorMessageBlock.show();
-                    break;
-                case "<?= EmailUtils::ERR_SUCCESS ?>":
-                    successMessageBlock.show();
-                    break;
-            }
+            setTimeout(function() {
+                switch (errorMessage)
+                {
+                    case "<?= EmailUtils::ERR_NO_EMAIL ?>":
+                        noEmailErrorMessageBlock.show();
+                        break;
+                    case "<?= EmailUtils::ERR_WRONG_EMAIL ?>":
+                        wrongEmailErrorMessageBlock.show();
+                        break;
+                    case "<?= EmailUtils::ERR_NO_MESSAGE ?>":
+                        noMessageErrorMessageBlock.show();
+                        break;
+                    case "<?= EmailUtils::ERR_UNABLE_TO_SEND ?>":
+                        internalFailureErrorMessageBlock.show();
+                        break;
+                    case "<?= EmailUtils::ERR_SUCCESS ?>":
+                        successMessageBlock.show();
+                        break;
+                }
+            }, 400);
         }
-
     </script>
     <script>
         window.addEventListener("load", invalidateContactInfoPanel);
