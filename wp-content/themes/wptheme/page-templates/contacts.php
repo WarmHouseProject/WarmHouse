@@ -12,11 +12,28 @@ Template Name: Contacts Form
     <div class="container">
         <div class="mail-form-container">
             <form class="mail-form" role="form" action="<?= esc_url( home_url( $emailSenderURL ) ); ?>">
-                <div class="alert alert-danger" style="display: none;" id="wrong_email_error_block">Введите правильный email адрес</div>
-                <div class="alert alert-danger" style="display: none;" id="no_email_error_block">Введите свой email адрес, чтобы мы смогли вам ответить</div>
-                <div class="alert alert-danger" style="display: none;" id="no_message_error_block">Введите своё сообщение</div>
-                <div class="alert alert-danger" style="display: none;" id="internal_failure_block">Внутренняя ошибка сайта. Не удалось отправить сообщение. Попробуйте отправить своё сообщение через несколько минут.</div>
-                <div class="alert alert-success" style="display: none;" id="success_block">Ваше сообщение успешно отправлено</div>
+                <div class="col col-md-12">
+                    <div class="alert alert-danger" style="display: none;" id="wrong_email_error_block">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <p>Введите правильный email адрес</p>
+                    </div>
+                    <div class="alert alert-danger" style="display: none;" id="no_email_error_block">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <p>Введите свой email адрес, чтобы мы смогли вам ответить</p>
+                    </div>
+                    <div class="alert alert-danger" style="display: none;" id="no_message_error_block">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <p>Введите своё сообщение</p>
+                    </div>
+                    <div class="alert alert-danger" style="display: none;" id="internal_failure_block">
+                        <span class="glyphicon glyphicon-wrench"></span>
+                        <p>Внутренняя ошибка сайта. Не удалось отправить сообщение. Попробуйте отправить своё сообщение через несколько минут.</p>
+                    </div>
+                    <div class="alert alert-success" style="display: none;" id="success_block">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        <p>Ваше сообщение успешно отправлено</p>
+                    </div>
+                </div>
                 <div class="col">
                     <div class="col-md-6 form-group">
                         <label>Ваше имя</label>
@@ -124,37 +141,73 @@ Template Name: Contacts Form
             var internalFailureErrorMessageBlock = $('#internal_failure_block');
             var successMessageBlock              = $('#success_block');
 
-            wrongEmailErrorMessageBlock.hide();
-            noEmailErrorMessageBlock.hide();
-            noMessageErrorMessageBlock.hide();
-            internalFailureErrorMessageBlock.hide();
-            successMessageBlock.hide();
+            const FADE_DURATION = 400;
+
+            $(".alert").each(function (){
+                $(this).fadeOut(FADE_DURATION);
+            });
 
             setTimeout(function() {
                 switch (errorMessage)
                 {
                     case "<?= EmailUtils::ERR_NO_EMAIL ?>":
-                        noEmailErrorMessageBlock.show();
+                        noEmailErrorMessageBlock.fadeIn(FADE_DURATION);
                         break;
                     case "<?= EmailUtils::ERR_WRONG_EMAIL ?>":
-                        wrongEmailErrorMessageBlock.show();
+                        wrongEmailErrorMessageBlock.fadeIn(FADE_DURATION);
                         break;
                     case "<?= EmailUtils::ERR_NO_MESSAGE ?>":
-                        noMessageErrorMessageBlock.show();
+                        noMessageErrorMessageBlock.fadeIn(FADE_DURATION);
                         break;
                     case "<?= EmailUtils::ERR_UNABLE_TO_SEND ?>":
-                        internalFailureErrorMessageBlock.show();
+                        internalFailureErrorMessageBlock.fadeIn(FADE_DURATION);
                         break;
                     case "<?= EmailUtils::ERR_SUCCESS ?>":
-                        successMessageBlock.show();
+                        successMessageBlock.fadeIn(FADE_DURATION);
                         break;
                 }
-            }, 400);
+            }, FADE_DURATION);
         }
     </script>
     <script>
-        window.addEventListener("load", invalidateContactInfoPanel);
-        window.addEventListener("resize", invalidateContactInfoPanel);
+        window.addEventListener("load", invalidate);
+        window.addEventListener("resize", invalidate);
+
+        function invalidate()
+        {
+            invalidateSendMessageErrorPanel();
+            invalidateContactInfoPanel();
+        }
+
+        function invalidateSendMessageErrorPanel()
+        {
+            $(".alert").each(function (){
+                var container = $(this);
+                var icon = container.find("span");
+                var text = container.find("p");
+
+                icon.removeAttr("style");
+                text.removeAttr("style");
+
+                var prevVisibilityState = container.is(":visible");
+                container.show();
+                var deltaIcon = (container.height() - icon.height()) / 2;
+                var deltaText = (container.height() - text.height()) / 2;
+                prevVisibilityState ? container.show() : container.hide();
+
+                if (samePositionFromTop(icon, text))
+                {
+                    text.css("padding-top", deltaText);
+                    icon.css("padding-top", deltaIcon);
+                }
+            });
+        }
+
+        function samePositionFromTop(jqueryObject1, jqueryObject2)
+        {
+            var precision = 5;
+            return Math.abs(jqueryObject1.position().top - jqueryObject2.position().top) < precision;
+        }
 
         function invalidateContactInfoPanel()
         {

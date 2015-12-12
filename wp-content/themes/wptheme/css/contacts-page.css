@@ -2,6 +2,23 @@
     margin-top: 30px;
 }
 
+.alert span {
+    margin-right: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: normal;
+    //position:relative;
+    text-align: center;
+   // top: 1px;
+    vertical-align: top;
+}
+
+.alert p {
+    display: inline-block;
+}
+
 .mail-form-container {
     padding: 2px;
     border: 1px solid #44479A;
