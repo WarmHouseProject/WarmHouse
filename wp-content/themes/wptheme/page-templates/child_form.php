@@ -16,15 +16,15 @@ Template Name: Child Form
     $contactInfo      = "";
 
     $formRequestUrl = "/child-form-controller.php";
-    if (isset($needyItem))
+    if (isset($child))
     {
-        $avatar           = "<img src='" . get_site_url() . ImageDBUtils::getImageLinkByImageId($needyItem->image_id) . "' class='file-preview-image' alt='avatar' title='avatar'>";
-        $name             = $needyItem->name;
-        $childStatus      = $needyItem->status;
-        $childPriority    = $needyItem->priority;
-        $shortDescription = $needyItem->short_description;
-        $longDescription  = $needyItem->long_description;
-        $contactInfo      = $needyItem->contact_info;
+        $avatar           = "<img src='" . get_site_url() . ImageDBUtils::getImageLinkByImageId($child->image_id) . "' class='file-preview-image' alt='avatar' title='avatar'>";
+        $name             = $child->name;
+        $childStatus      = $child->status;
+        $childPriority    = $child->priority;
+        $shortDescription = $child->short_description;
+        $longDescription  = $child->long_description;
+        $contactInfo      = $child->contact_info;
 
         $formRequestUrl = "/edit-child-controller.php";
     }
@@ -124,14 +124,14 @@ Template Name: Child Form
                     <div class="form-group button-row">
                         <input type="submit" class="btn btn-success success" value="Сохранить">
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="label label-default">Отмена</span></a>
-                        <?php if (isset($needyItem)): ?>
-                            <a class="delete" href="<?php echo esc_url( home_url( '/delete-child-controller.php?child_id=' . $needyItem->child_id ) ); ?>" onClick="return window.confirm('Вы дейтвительно хотите удалить?')">
+                        <?php if (isset($child)): ?>
+                            <a class="delete" href="<?php echo esc_url( home_url( '/delete-child-controller.php?child_id=' . $child->child_id ) ); ?>" onClick="return window.confirm('Вы дейтвительно хотите удалить?')">
                                 <span class="label label-danger">Удалить</span>
                             </a>
                         <?php endif;?>
                     </div>
-                    <?php if (isset($needyItem)): ?>
-                        <input type="hidden" name="<?= Child::ID_FIELD ?>" id="<?= Child::ID_FIELD ?>" value="<?= $needyItem->child_id ?>">
+                    <?php if (isset($child)): ?>
+                        <input type="hidden" name="<?= Child::ID_FIELD ?>" id="<?= Child::ID_FIELD ?>" value="<?= $child->child_id ?>">
                     <?php endif;?>
                 </div>
             </div>
