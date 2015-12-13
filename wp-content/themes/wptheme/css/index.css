@@ -1,3 +1,25 @@
+.float-right
+{
+    float: right;
+}
+
+.services-top
+{
+    margin-bottom: 30px;
+}
+
+.primary-color
+{
+    background-color: #337ab7;
+}
+
+.dropdown-menu.primary-color > li > a {
+    color: #FFF;
+}
+
+.dropdown-menu.primary-color > li > a:hover {
+    background-color: #286090;
+}
 
 .grey_block
 {

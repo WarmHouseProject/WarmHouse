@@ -3,9 +3,9 @@
 Template Name: Stocks
 */
 
-    require_once(ABSPATH . WPINC . '/lib/class-stock-db-utils.php');
-    require_once(ABSPATH . WPINC . '/lib/class-image-db-utils.php');
-    require_once(ABSPATH . WPINC . '/lib/class-template-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/db/class-stock-db-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/db/class-image-db-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/class-template-utils.php');
 
     $tabIndex = 4;
     $stocks = StockDBUtils::getStocks();

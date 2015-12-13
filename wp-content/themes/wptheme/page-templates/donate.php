@@ -3,10 +3,10 @@
 Template Name: Donation Form
 */
 
-    require_once(ABSPATH . WPINC . '/lib/class-child-db-utils.php');
-    require_once(ABSPATH . WPINC . '/lib/class-orphanage-db-utils.php');
-    require_once(ABSPATH . WPINC . '/lib/class-request-helper.php');
-    require_once(ABSPATH . WPINC . '/lib/class-donation-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/db/class-child-db-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/db/class-orphanage-db-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/helper/class-request-helper.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/class-donation-utils.php');
 
     $childId     = RequestHelper::getParameter("child_id");
     $orphanageId = RequestHelper::getParameter("orphanage_id");

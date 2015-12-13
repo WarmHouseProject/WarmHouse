@@ -2,7 +2,7 @@
 /*
 Template Name: Contacts Form
 */
-    require_once(ABSPATH . WPINC . '/lib/class-email-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/class-email-utils.php');
 
     $emailSenderURL = "/email-sender.php";
 

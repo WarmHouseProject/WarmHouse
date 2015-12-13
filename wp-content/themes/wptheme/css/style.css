@@ -319,7 +319,7 @@ span.menu{
 	  position: absolute;
 	  width: 100%;
 	  left: 0;
-	  top: 53px;
+	  top: 62px;
 	  padding: 1.9em 0em 0em 0em;
 	}
 	ul.nav {
@@ -402,8 +402,8 @@ span.menu{
 .welcome-right h2,.heading h3,.heading h2{
 	font-size:3em;
 	margin:0;
-	font-family: 'Philosopher-Regular';
-	color:#44479A;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color:#337ab7;
 }
 .w-left img{
 	width:100%;
@@ -881,10 +881,27 @@ a.tooltips2 span:before {
    transition: all 0.4s cubic-bezier(0.940, 0.850, 0.100, 0.620);
 }
 .fifth-effect:hover .mask {
-	border:0px double rgba(0,30,70,0.6);
+	border:0 double rgba(0,30,70,0.6);
 	opacity:0;
 	visibility:hidden;
 }
+
+.fifth-effect.urgently-need-help .mask{
+	border:30px solid rgba(155,0,0,0.6);
+}
+
+.fifth-effect.helped .mask{
+	border:30px solid rgba(0,155,0,0.6);
+}
+
+.fifth-effect.urgently-need-help:hover .mask{
+	border:0 double rgba(155,0,0,0.6);
+}
+
+.fifth-effect.helped:hover .mask{
+	border:0 double rgba(0,155,0,0.6);
+}
+
 .fifth-effect:hover img {
 	opacity:1;
 }
@@ -935,7 +952,7 @@ a.tooltips2 span:before {
     color: #44479A;
 }
 .s-btm p{
-	max-height: 80px;
+	height: 80px;
 	word-wrap: break-word;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -1708,6 +1725,13 @@ h5.best {
 .fifth-effect .mask {
     border: 20px solid rgba(0,30,70,0.6);
 }
+.fifth-effect.urgently-need-help .mask{
+	border:20px solid rgba(155,0,0,0.6);
+}
+
+.fifth-effect.helped .mask{
+	border:20px solid rgba(0,155,0,0.6);
+}
 .about-bottom, .why-bottom, .team-bottom {
     margin-top: 2%;
 }
@@ -2154,7 +2178,7 @@ a.tooltips1 span:before {
     padding: 10px 0;
 }
 .top-menu ul {
-    top: 45px;
+    top: 57px;
 }
 .callbacks_tabs {
     top: 80.5%;
@@ -2716,7 +2740,7 @@ h4.head {
     padding: 7px 0;
 }
 .top-menu ul {
-    top: 40px;
+    top: 57px;
 }
 .tool1 {
     top: 27%;

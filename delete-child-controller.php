@@ -1,9 +1,9 @@
 <?php
 
     require_once(__DIR__ . '/wp-load.php');
-    require_once(ABSPATH . WPINC . '/lib/class-request-helper.php');
-    require_once(ABSPATH . WPINC . '/lib/class-child-form-validator.php');
-    require_once(ABSPATH . WPINC . '/lib/class-child-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/helper/class-request-helper.php');
+    require_once(ABSPATH . WPINC . '/lib/validator/class-child-form-validator.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/class-child-utils.php');
 
     if (!is_user_logged_in())
     {

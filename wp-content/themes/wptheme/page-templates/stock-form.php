@@ -3,8 +3,8 @@
 Template Name: Stock Form
 */
 
-    require_once( ABSPATH . WPINC . '/lib/class-stock.php' );
-    require_once( ABSPATH . WPINC . '/lib/class-stock-priority.php' );
+    require_once(ABSPATH . WPINC . '/lib/model/stock/class-stock.php');
+    require_once(ABSPATH . WPINC . '/lib/model/stock/class-stock-priority.php');
 
     $avatar        = "";
     $name          = "";
