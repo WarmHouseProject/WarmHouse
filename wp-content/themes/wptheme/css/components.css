@@ -5,6 +5,14 @@
     text-align: center;
 }
 
+.add_button.align-left {
+    text-align: left;
+}
+
+.add_button.align-right {
+    text-align: right;
+}
+
 .add_button a span {
     font-size: 20px;
 }

@@ -402,8 +402,8 @@ span.menu{
 .welcome-right h2,.heading h3,.heading h2{
 	font-size:3em;
 	margin:0;
-	font-family: 'Philosopher-Regular';
-	color:#44479A;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color:#337ab7;
 }
 .w-left img{
 	width:100%;
@@ -881,10 +881,27 @@ a.tooltips2 span:before {
    transition: all 0.4s cubic-bezier(0.940, 0.850, 0.100, 0.620);
 }
 .fifth-effect:hover .mask {
-	border:0px double rgba(0,30,70,0.6);
+	border:0 double rgba(0,30,70,0.6);
 	opacity:0;
 	visibility:hidden;
 }
+
+.fifth-effect.urgently-need-help .mask{
+	border:30px solid rgba(155,0,0,0.6);
+}
+
+.fifth-effect.helped .mask{
+	border:30px solid rgba(0,155,0,0.6);
+}
+
+.fifth-effect.urgently-need-help:hover .mask{
+	border:0 double rgba(155,0,0,0.6);
+}
+
+.fifth-effect.helped:hover .mask{
+	border:0 double rgba(0,155,0,0.6);
+}
+
 .fifth-effect:hover img {
 	opacity:1;
 }
@@ -1707,6 +1724,13 @@ h5.best {
 }
 .fifth-effect .mask {
     border: 20px solid rgba(0,30,70,0.6);
+}
+.fifth-effect.urgently-need-help .mask{
+	border:20px solid rgba(155,0,0,0.6);
+}
+
+.fifth-effect.helped .mask{
+	border:20px solid rgba(0,155,0,0.6);
 }
 .about-bottom, .why-bottom, .team-bottom {
     margin-top: 2%;

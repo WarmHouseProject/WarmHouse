@@ -3,34 +3,34 @@
 Template Name: Child Form
 */
 
-    require_once( ABSPATH . WPINC . '/lib/class-child.php' );
-    require_once( ABSPATH . WPINC . '/lib/class-child-status.php' );
-    require_once( ABSPATH . WPINC . '/lib/class-child-priority.php' );
+    require_once(ABSPATH . WPINC . '/lib/model/child/class-child.php');
+    require_once(ABSPATH . WPINC . '/lib/model/child/class-child-status.php');
+    require_once(ABSPATH . WPINC . '/lib/model/child/class-child-priority.php');
 
     $avatar           = "";
     $name             = "";
-    $childStatus      = ChildStatus::DEFAULT_CHILD_STATUS;
-    $childPriority    = ChildPriority::DEFAULT_CHILD_PRIORITY;
+    $childStatus      = ChildStatus::DEFAULT_NEEDY_STATUS;
+    $childPriority    = ChildPriority::DEFAULT_PRIORITY;
     $shortDescription = "";
     $longDescription  = "";
     $contactInfo      = "";
 
     $formRequestUrl = "/child-form-controller.php";
-    if (isset($child))
+    if (isset($needyItem))
     {
-        $avatar           = "<img src='" . get_site_url() . ImageDBUtils::getImageLinkByImageId($child->image_id) . "' class='file-preview-image' alt='avatar' title='avatar'>";
-        $name             = $child->name;
-        $childStatus      = $child->status;
-        $childPriority    = $child->priority;
-        $shortDescription = $child->short_description;
-        $longDescription  = $child->long_description;
-        $contactInfo      = $child->contact_info;
+        $avatar           = "<img src='" . get_site_url() . ImageDBUtils::getImageLinkByImageId($needyItem->image_id) . "' class='file-preview-image' alt='avatar' title='avatar'>";
+        $name             = $needyItem->name;
+        $childStatus      = $needyItem->status;
+        $childPriority    = $needyItem->priority;
+        $shortDescription = $needyItem->short_description;
+        $longDescription  = $needyItem->long_description;
+        $contactInfo      = $needyItem->contact_info;
 
         $formRequestUrl = "/edit-child-controller.php";
     }
 
-    $childStatusesText = ChildStatus::getChildStatusesText();
-    $childStatuses     = implode(",", ChildStatus::getChildStatuses());
+    $childStatusesText = ChildStatus::getNeedyStatusesText();
+    $childStatuses     = implode(",", ChildStatus::getNeedyStatuses());
 
     get_header();
 ?>
@@ -124,14 +124,14 @@ Template Name: Child Form
                     <div class="form-group button-row">
                         <input type="submit" class="btn btn-success success" value="Сохранить">
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="label label-default">Отмена</span></a>
-                        <?php if (isset($child)): ?>
-                            <a class="delete" href="<?php echo esc_url( home_url( '/delete-child-controller.php?child_id=' . $child->child_id ) ); ?>" onClick="return window.confirm('Вы дейтвительно хотите удалить?')">
+                        <?php if (isset($needyItem)): ?>
+                            <a class="delete" href="<?php echo esc_url( home_url( '/delete-child-controller.php?child_id=' . $needyItem->child_id ) ); ?>" onClick="return window.confirm('Вы дейтвительно хотите удалить?')">
                                 <span class="label label-danger">Удалить</span>
                             </a>
                         <?php endif;?>
                     </div>
-                    <?php if (isset($child)): ?>
-                        <input type="hidden" name="<?= Child::ID_FIELD ?>" id="<?= Child::ID_FIELD ?>" value="<?= $child->child_id ?>">
+                    <?php if (isset($needyItem)): ?>
+                        <input type="hidden" name="<?= Child::ID_FIELD ?>" id="<?= Child::ID_FIELD ?>" value="<?= $needyItem->child_id ?>">
                     <?php endif;?>
                 </div>
             </div>

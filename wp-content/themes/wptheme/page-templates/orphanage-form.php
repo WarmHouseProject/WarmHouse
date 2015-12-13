@@ -3,23 +3,25 @@
 Template Name: Orphanage Form
 */
 
-    require_once( ABSPATH . WPINC . '/lib/class-orphanage.php' );
-    require_once( ABSPATH . WPINC . '/lib/class-orphanage-priority.php' );
+    require_once(ABSPATH . WPINC . '/lib/model/orphanage/class-orphanage.php');
+    require_once(ABSPATH . WPINC . '/lib/model/orphanage/class-orphanage-priority.php');
 
     $avatar            = "";
     $name              = "";
-    $orphanagePriority = OrphanagePriority::DEFAULT_ORPHANAGE_PRIORITY;
-    $description       = "";
+    $orphanagePriority = OrphanagePriority::DEFAULT_PRIORITY;
+    $shortDescription  = "";
+    $longDescription   = "";
     $contactInfo       = "";
 
     $formRequestUrl = "/add-orphanage-controller.php";
-    if (isset($stock))
+    if (isset($orphanage))
     {
-        $avatar            = "<img src='" . get_site_url() . ImageDBUtils::getImageLinkByImageId($stock->image_id) . "' class='file-preview-image' alt='avatar' title='avatar'>";
-        $name              = $stock->name;
-        $orphanagePriority = $stock->priority;
-        $description       = $stock->description;
-        $contactInfo       = $stock->contact_info;
+        $avatar            = "<img src='" . get_site_url() . ImageDBUtils::getImageLinkByImageId($orphanage->image_id) . "' class='file-preview-image' alt='avatar' title='avatar'>";
+        $name              = $orphanage->name;
+        $orphanagePriority = $orphanage->priority;
+        $shortDescription  = $orphanage->short_description;
+        $longDescription   = $orphanage->long_description;
+        $contactInfo       = $orphanage->contact_info;
 
         $formRequestUrl = "/edit-orphanage-controller.php";
     }
@@ -79,11 +81,19 @@ Template Name: Orphanage Form
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="<?= Orphanage::DESCRIPTION_FIELD ?>">Описание:</label>
+                            <label for="<?= Orphanage::SHORT_DESCRIPTION_FIELD ?>">Краткое описание:</label>
                             <div class="input-block">
-                                <textarea class="form-control form-element" name="<?= Orphanage::DESCRIPTION_FIELD ?>" rows="5" id="<?= Orphanage::DESCRIPTION_FIELD ?>" ><?= $description ?></textarea>
+                                <textarea class="form-control form-element" name="<?= Orphanage::SHORT_DESCRIPTION_FIELD ?>" rows="5" id="<?= Orphanage::SHORT_DESCRIPTION_FIELD ?>" ><?= $shortDescription ?></textarea>
                                 <span class="glyphicon form-control-feedback"></span>
-                                <span class="error-message">допустимая длина текста не менее <?= Orphanage::MIN_DESCRIPTION_LENGTH?> символов</span>
+                                <span class="error-message">допустимая длина текста не менее <?= Orphanage::MIN_SHORT_DESCRIPTION_LENGTH?> символов</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="<?= Orphanage::LONG_DESCRIPTION_FIELD ?>">Полное описание:</label>
+                            <div class="input-block">
+                                <textarea class="form-control form-element" name="<?= Orphanage::LONG_DESCRIPTION_FIELD ?>" rows="7" id="<?= Orphanage::LONG_DESCRIPTION_FIELD ?>"><?= $longDescription ?></textarea>
+                                <span class="glyphicon form-control-feedback"></span>
+                                <span class="error-message">допустимая длина текста не менее <?= Orphanage::MIN_LONG_DESCRIPTION_LENGTH ?> символов</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -114,7 +124,7 @@ Template Name: Orphanage Form
                 jQuery(document).ready(function($) {
                     $("form[name='orphanage_form']").submit(function(){
                         return validateTextField($('#<?= Orphanage::NAME_FIELD ?>'), <?= Orphanage::MIN_NAME_LENGTH ?>, <?= Orphanage::MAX_NAME_LENGTH ?>) &&
-                            validateTextField($('#<?= Orphanage::DESCRIPTION_FIELD ?>'), <?= Orphanage::MIN_DESCRIPTION_LENGTH ?>, <?= Orphanage::MAX_DESCRIPTION_LENGTH ?>) &&
+                            validateTextField($('#<?= Orphanage::SHORT_DESCRIPTION_FIELD ?>'), <?= Orphanage::MIN_SHORT_DESCRIPTION_LENGTH ?>, <?= Orphanage::MAX_SHORT_DESCRIPTION_LENGTH ?>) &&
                             validateTextField($('#<?= Orphanage::CONTACT_INFO_FIELD ?>'), <?= Orphanage::MIN_CONTACT_LENGTH ?>, <?= Orphanage::MAX_CONTACT_LENGTH ?>) &&
                             validateImageUploadingField($('.kv-avatar .file-input')) &&
                             validateNumberField($('#<?= Orphanage::PRIORITY_FIELD ?>'), <?= OrphanagePriority::MIN_PRIORITY ?>, <?= OrphanagePriority::MAX_PRIORITY ?>);

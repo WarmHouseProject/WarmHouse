@@ -9,6 +9,11 @@
     height: 83px;
 }
 
+.header-container .current_page_item a
+{
+    color: #FFF
+}
+
 .header .space_block
 {
     height: 20px;
