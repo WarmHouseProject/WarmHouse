@@ -20,4 +20,4 @@
         }
     }
 
-    wp_redirect(get_site_url() . '/orphanages'); exit;
+    wp_redirect(home_url()); exit;

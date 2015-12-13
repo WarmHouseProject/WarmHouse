@@ -891,7 +891,7 @@ a.tooltips2 span:before {
 }
 
 .fifth-effect.helped .mask{
-	border:30px solid rgba(0,155,0,0.6);
+	border:30px solid rgba(0,115,0,0.6);
 }
 
 .fifth-effect.urgently-need-help:hover .mask{
@@ -1730,7 +1730,7 @@ h5.best {
 }
 
 .fifth-effect.helped .mask{
-	border:20px solid rgba(0,155,0,0.6);
+	border:20px solid rgba(0,115,0,0.6);
 }
 .about-bottom, .why-bottom, .team-bottom {
     margin-top: 2%;
