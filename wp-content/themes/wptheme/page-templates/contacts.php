@@ -2,30 +2,55 @@
 /*
 Template Name: Contacts Form
 */
+    require_once(ABSPATH . WPINC . '/lib/utils/class-email-utils.php');
+
+    $emailSenderURL = "/email-sender.php";
 
     get_header();
 ?>
 <div class="contacts-form">
     <div class="container">
         <div class="mail-form-container">
-        <form class="mail-form" role="form">
-            <div class="col">
-                <div class="col-md-6 form-group">
+            <form class="mail-form" role="form" action="<?= esc_url( home_url( $emailSenderURL ) ); ?>">
+                <div class="col col-md-12">
+                    <div class="alert alert-danger" style="display: none;" id="wrong_email_error_block">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <p>Введите правильный email адрес</p>
+                    </div>
+                    <div class="alert alert-danger" style="display: none;" id="no_email_error_block">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <p>Введите свой email адрес, чтобы мы смогли вам ответить</p>
+                    </div>
+                    <div class="alert alert-danger" style="display: none;" id="no_message_error_block">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <p>Введите своё сообщение</p>
+                    </div>
+                    <div class="alert alert-danger" style="display: none;" id="internal_failure_block">
+                        <span class="glyphicon glyphicon-wrench"></span>
+                        <p>Внутренняя ошибка сайта. Не удалось отправить сообщение. Попробуйте отправить своё сообщение через несколько минут.</p>
+                    </div>
+                    <div class="alert alert-success" style="display: none;" id="success_block">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        <p>Ваше сообщение успешно отправлено</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col-md-6 form-group">
                         <label>Ваше имя</label>
-                        <input type="text" class="form-control">
-                </div>
-                <div class="col-md-6 form-group">
+                        <input type="text" class="form-control" name="user_name">
+                    </div>
+                    <div class="col-md-6 form-group">
                         <label>Ваш e-mail</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="user_email">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-12 form-group">
-                <label>Ваше сообщение</label>
-                <textarea class="form-control" rows="10"></textarea>
-            </div>
-            <button type="submit" class="btn btn-default send-email">Послать сообщение</button>
-            <div class="clearfix"></div>
-        </form>
+                <div class="col-md-12 form-group">
+                    <label>Ваше сообщение</label>
+                    <textarea class="form-control" rows="10" name="user_message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-default send-email">Отправить сообщение</button>
+                <div class="clearfix"></div>
+            </form>
         </div>
         <div class="contact-info" style="width:100%;">
             <div class="text-info">
@@ -88,15 +113,101 @@ Template Name: Contacts Form
         </div>
     </div>
     <script>
-        jQuery(document).ready(function($) {
+        $(document).ready(function($) {
             $('#showFullInfoButton').click(function(){
                 $('#fullInfo').slideToggle("slow");
             });
         });
     </script>
     <script>
-        window.addEventListener("load", invalidateContactInfoPanel);
-        window.addEventListener("resize", invalidateContactInfoPanel);
+        $(document).ready(registerSubmitHandler());
+
+        function registerSubmitHandler()
+        {
+            var $form = $("form");
+            $form.submit(function(){
+                var request = $.post($form.attr('action'), $form.serialize(), function(response){
+                    showErrorMessage(response);
+                });
+                return false;
+            });
+        }
+
+        function showErrorMessage(errorMessage)
+        {
+            var wrongEmailErrorMessageBlock      = $('#wrong_email_error_block');
+            var noEmailErrorMessageBlock         = $('#no_email_error_block');
+            var noMessageErrorMessageBlock       = $('#no_message_error_block');
+            var internalFailureErrorMessageBlock = $('#internal_failure_block');
+            var successMessageBlock              = $('#success_block');
+
+            const FADE_DURATION = 400;
+
+            $(".alert").each(function (){
+                $(this).fadeOut(FADE_DURATION);
+            });
+
+            setTimeout(function() {
+                switch (errorMessage)
+                {
+                    case "<?= EmailUtils::ERR_NO_EMAIL ?>":
+                        noEmailErrorMessageBlock.fadeIn(FADE_DURATION);
+                        break;
+                    case "<?= EmailUtils::ERR_WRONG_EMAIL ?>":
+                        wrongEmailErrorMessageBlock.fadeIn(FADE_DURATION);
+                        break;
+                    case "<?= EmailUtils::ERR_NO_MESSAGE ?>":
+                        noMessageErrorMessageBlock.fadeIn(FADE_DURATION);
+                        break;
+                    case "<?= EmailUtils::ERR_UNABLE_TO_SEND ?>":
+                        internalFailureErrorMessageBlock.fadeIn(FADE_DURATION);
+                        break;
+                    case "<?= EmailUtils::ERR_SUCCESS ?>":
+                        successMessageBlock.fadeIn(FADE_DURATION);
+                        break;
+                }
+            }, FADE_DURATION);
+        }
+    </script>
+    <script>
+        window.addEventListener("load", invalidate);
+        window.addEventListener("resize", invalidate);
+
+        function invalidate()
+        {
+            invalidateSendMessageErrorPanel();
+            invalidateContactInfoPanel();
+        }
+
+        function invalidateSendMessageErrorPanel()
+        {
+            $(".alert").each(function (){
+                var container = $(this);
+                var icon = container.find("span");
+                var text = container.find("p");
+
+                icon.removeAttr("style");
+                text.removeAttr("style");
+
+                var prevVisibilityState = container.is(":visible");
+                container.show();
+                var deltaIcon = (container.height() - icon.height()) / 2;
+                var deltaText = (container.height() - text.height()) / 2;
+                prevVisibilityState ? container.show() : container.hide();
+
+                if (samePositionFromTop(icon, text))
+                {
+                    text.css("padding-top", deltaText);
+                    icon.css("padding-top", deltaIcon);
+                }
+            });
+        }
+
+        function samePositionFromTop(jqueryObject1, jqueryObject2)
+        {
+            var precision = 5;
+            return Math.abs(jqueryObject1.position().top - jqueryObject2.position().top) < precision;
+        }
 
         function invalidateContactInfoPanel()
         {

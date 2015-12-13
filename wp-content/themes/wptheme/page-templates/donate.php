@@ -36,8 +36,8 @@ Template Name: Donation Form
                 <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
                     <input type="hidden" name="cmd" value="_donations">
                     <input type="hidden" name="business" value="Q8CHD2XYLYDQJ">
-                    <input type="hidden" name="return" value="http://warmhouse-wp.local/thank-you/">
-                    <input type="hidden" name="cancel_return" value="http://warmhouse-wp.local/">
+                    <input type="hidden" name="return" value="http://www.luchik12.ru//thank-you/">
+                    <input type="hidden" name="cancel_return" value="http://www.luchik12.ru/">
                     <input type="hidden" name="item_name" value="<?= $paymentPurposeTranslit; ?>">
                     <input type="hidden" name="currency_code" value="RUB">
                     <input type="hidden" name="lc" value="RU">
