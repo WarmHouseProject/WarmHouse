@@ -39,24 +39,27 @@ get_header();
             </div>
             <div class="clearfix"></div>
         <?php endif; ?>
-        <div class="btn-group">
-            <button type="button" class="btn btn-primary" id="allNeedy">Все</button>
+        <div class="col-md-12">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" id="allNeedy">Все</button>
 
-            <div class="btn-group dropdown-toggle-button">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                    Дети
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu primary-color">
-                    <li id="allChilds"><a href="javascript:void(0)">Все</a></li>
-                    <li id="urgentlyNeedHelpChilds"><a href="javascript:void(0)">Срочно нужна помощь</a></li>
-                    <li id="needHelpChilds"><a href="javascript:void(0)">Нужна помощь</a></li>
-                    <li id="helpedChilds"><a href="javascript:void(0)">Помогли</a></li>
-                </ul>
+                <div class="btn-group dropdown-toggle-button">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        Дети
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu primary-color">
+                        <li id="allChilds"><a href="javascript:void(0)">Все</a></li>
+                        <li id="urgentlyNeedHelpChilds"><a href="javascript:void(0)">Срочно нужна помощь</a></li>
+                        <li id="needHelpChilds"><a href="javascript:void(0)">Нужна помощь</a></li>
+                        <li id="helpedChilds"><a href="javascript:void(0)">Помогли</a></li>
+                    </ul>
+                </div>
+
+                <button type="button" class="btn btn-primary" id="allOrphanages">Детские дома</button>
             </div>
-
-            <button type="button" class="btn btn-primary" id="allOrphanages">Детские дома</button>
         </div>
+        <div class="clearfix"></div>
         <script>
             jQuery(document).ready(function($) {
                 $('.dropdown-toggle-button').click(function(){
