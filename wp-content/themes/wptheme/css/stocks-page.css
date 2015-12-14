@@ -1,0 +1,64 @@
+.container.stock {
+    padding-left: 0;
+    padding-right: 30px;
+}
+
+.stock-info {
+    padding-top: 30px;
+    margin-bottom: 30px;
+    background-color: #FFF;
+    border-radius: 15px;
+}
+
+.stock-info .inner-container{
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.stock-info .col .col-sm-3 {
+    padding: 0;
+}
+
+
+.stock-info .inner-container.image,
+.stock-info .inner-container.edit{
+    text-align: center;
+}
+
+.stock-info .inner-container.edit a span {
+    font-size: 18px;
+}
+
+.stock-info .well {
+    word-wrap: break-word;
+}
+
+.stock-info .btn {
+    font-weight: bold;
+}
+
+.stock-info .btn.long-description {
+    margin-bottom: 20px;
+}
+
+.stock-info .btn.donate {
+    float: right;
+}
+
+.stock-info .inner-image-block {
+    display: inline-block;
+    position: relative;
+}
+
+.stock-info .stock-image {
+    width: 160px;
+    height: 160px;
+}
+
+@media screen and (max-width: 760px) {
+    .container.stock {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
