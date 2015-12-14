@@ -1,11 +1,11 @@
 <div class="container stock">
     <?php foreach ($stocks as $index => $stock): ?>
-        <div class="orphanage-info">
+        <div class="stock-info">
             <div class="col">
                 <div class="col-sm-3">
                     <div class="inner-container image">
                         <div class="inner-image-block">
-                            <img src="<?= get_site_url() . ImageDBUtils::getImageLinkByImageId($stock->image_id) ?>" class="img-thumbnail orphanage-image" alt="<?= $stock->name ?>">
+                            <img src="<?= get_site_url() . ImageDBUtils::getImageLinkByImageId($stock->image_id) ?>" class="img-thumbnail stock-image" alt="<?= $stock->name ?>">
                         </div>
                     </div>
                     <?php if (is_user_logged_in()): ?>

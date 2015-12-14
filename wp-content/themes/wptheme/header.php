@@ -36,6 +36,7 @@
 <link href="<?php echo get_template_directory_uri(); ?>/css/header.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/index.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/fileinput.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo get_template_directory_uri(); ?>/css/stocks-page.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/childs-list.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/child_form_page.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo get_template_directory_uri(); ?>/css/needy-info-page.css" rel='stylesheet' type='text/css' />
