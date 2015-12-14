@@ -62,7 +62,7 @@
 .address-left span {
     box-sizing: border-box;
     display: inline-block;
-    color: #FFF;
+    color: white;
     font-size: 35.2px;
     font-style: normal;
     font-weight: normal;
@@ -76,7 +76,15 @@
 }
 
 .address-middle {
-    background: #FFF;
+    background: white;
+}
+
+.address-right a {
+    color: white;
+}
+
+.address-right a:hover {
+    color: black;
 }
 
 .address-middle span {
