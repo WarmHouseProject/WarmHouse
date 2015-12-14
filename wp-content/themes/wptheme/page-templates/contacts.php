@@ -3,6 +3,7 @@
 Template Name: Contacts Form
 */
     require_once(ABSPATH . WPINC . '/lib/utils/class-email-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/class-recaptcha-utils.php');
 
     $emailSenderURL = "/email-sender.php";
 
@@ -29,6 +30,10 @@ Template Name: Contacts Form
                         <span class="glyphicon glyphicon-wrench"></span>
                         <p>Внутренняя ошибка сайта. Не удалось отправить сообщение. Попробуйте отправить своё сообщение через несколько минут.</p>
                     </div>
+                    <div class="alert alert-danger" style="display: none;" id="captcha_check_error_block">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <p>Подтвердите, что вы не робот</p>
+                    </div>
                     <div class="alert alert-success" style="display: none;" id="success_block">
                         <span class="glyphicon glyphicon-ok"></span>
                         <p>Ваше сообщение успешно отправлено</p>
@@ -48,8 +53,10 @@ Template Name: Contacts Form
                     <label>Ваше сообщение</label>
                     <textarea class="form-control" rows="10" name="user_message"></textarea>
                 </div>
-                <button type="submit" class="btn btn-default send-email">Отправить сообщение</button>
                 <div class="clearfix"></div>
+                <script src='https://www.google.com/recaptcha/api.js?render=explicit'></script>
+                <div class="recaptcha-container"></div>
+                <div><button type="submit" class="btn btn-primary btn-send-email">Отправить сообщение</button></div>
             </form>
         </div>
         <div class="contact-info" style="width:100%;">
@@ -121,10 +128,9 @@ Template Name: Contacts Form
     </script>
     <script>
         $(document).ready(registerSubmitHandler());
-
         function registerSubmitHandler()
         {
-            var $form = $("form");
+            var $form = $(".mail-form");
             $form.submit(function(){
                 var request = $.post($form.attr('action'), $form.serialize(), function(response){
                     showErrorMessage(response);
@@ -140,6 +146,7 @@ Template Name: Contacts Form
             var noMessageErrorMessageBlock       = $('#no_message_error_block');
             var internalFailureErrorMessageBlock = $('#internal_failure_block');
             var successMessageBlock              = $('#success_block');
+            var captchaCheckErrorBlock           = $('#captcha_check_error_block');
 
             const FADE_DURATION = 400;
 
@@ -165,6 +172,9 @@ Template Name: Contacts Form
                     case "<?= EmailUtils::ERR_SUCCESS ?>":
                         successMessageBlock.fadeIn(FADE_DURATION);
                         break;
+                    case "<?= ReCaptchaUtils::ERR_BOT_CHECK_FAILED ?>":
+                        captchaCheckErrorBlock.fadeIn(FADE_DURATION);
+                        break;
                 }
             }, FADE_DURATION);
         }
@@ -176,6 +186,7 @@ Template Name: Contacts Form
         function invalidate()
         {
             invalidateSendMessageErrorPanel();
+            invalidateCaptchaPanel();
             invalidateContactInfoPanel();
         }
 
@@ -203,11 +214,53 @@ Template Name: Contacts Form
             });
         }
 
-        function samePositionFromTop(jqueryObject1, jqueryObject2)
+        function invalidateCaptchaPanel()
         {
-            var precision = 5;
-            return Math.abs(jqueryObject1.position().top - jqueryObject2.position().top) < precision;
+            var newSize = "normal";
+            var prevSize = getReCaptchaContainerSizeAttribute();
+            if ($(window).width() < 350)
+            {
+                newSize = "compact";
+            }
+
+            if (newSize != prevSize)
+            {
+                invalidateReCaptcha(newSize);
+                setReCaptchaContainerSizeAttribute(newSize);
+            }
         }
+
+        function getReCaptchaContainerSizeAttribute()
+        {
+            var captchaPanel = $(".g-recaptcha");
+            return captchaPanel.attr("data-size");
+        }
+
+        function setReCaptchaContainerSizeAttribute(value)
+        {
+            var captchaPanel = $(".g-recaptcha");
+            captchaPanel.attr("data-size", value);
+        }
+
+        function invalidateReCaptcha(size)
+        {
+            recreateReCaptchaContainer();
+            renderReCaptcha(size);
+        }
+
+        function renderReCaptcha(size)
+        {
+            var captchaPanel = document.getElementsByClassName("g-recaptcha")[0];
+            grecaptcha.render(captchaPanel, {"sitekey": "<?= ReCaptcha::PUBLIC_KEY ?>", "size": size});
+        }
+
+        function recreateReCaptchaContainer()
+        {
+            var reCaptchaContainer = $(".recaptcha-container");
+            reCaptchaContainer.empty();
+            reCaptchaContainer.append('<div class="g-recaptcha form-group"></div>');
+        }
+
 
         function invalidateContactInfoPanel()
         {
@@ -239,6 +292,12 @@ Template Name: Contacts Form
             setPaddingTop(leftCellContent, deltaLeft);
             setPaddingTop(middleCellContent, deltaMiddle);
             setPaddingTop(rightCellContent, deltaRight);
+        }
+
+        function samePositionFromTop(jqueryObject1, jqueryObject2)
+        {
+            var precision = 5;
+            return Math.abs(jqueryObject1.position().top - jqueryObject2.position().top) < precision;
         }
 
         function removeStyle(domElArr)

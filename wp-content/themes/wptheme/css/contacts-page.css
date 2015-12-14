@@ -9,9 +9,7 @@
     font-size: 35px;
     font-style: normal;
     font-weight: normal;
-    //position:relative;
     text-align: center;
-   // top: 1px;
     vertical-align: top;
 }
 
@@ -36,15 +34,17 @@
     padding-bottom: 5px;
 }
 
+.g-recaptcha {
+    display: inline-block;
+}
+
 .contact-info {
     margin-top: 30px;
 }
 
 .address-left {
-    //padding: 1.5em 3px;
-    padding: 2em 15px;
-    //background: #44479A;
-    background: #F0AD4E;
+    padding: 1.5em 15px;
+    background: #E1A20C;
     text-align: center;
     font-size: 100%;
 
@@ -76,7 +76,6 @@
 }
 
 .address-middle {
-    //background: #000;
     background: #FFF;
 }
 
@@ -90,7 +89,6 @@
 
 .btn-full-info {
     width: 100%;
-    //color: #F0AD4E;
 }
 
 .full-text-info label {
