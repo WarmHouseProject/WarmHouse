@@ -50,7 +50,7 @@ get_header(); ?>
                     <div class="inner-container heading">
                         <h2 class="head"><?= $child->name ?></h2>
                     </div>
-                    <form class="inner-container heading" action="/donation/" method="post">
+                    <form class="inner-container heading" action="/campaign/donate  " method="post">
                         <div class="well short-description"><?= $child->short_description ?></div>
                         <div class="well well-sm contact-info"><?= $child->contact_info ?></div>
                         <input type="hidden" name="<?= $donateHiddenId ?>" value="<?= $needyId; ?>">
