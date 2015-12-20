@@ -14,27 +14,27 @@ Template Name: Contacts Form
         <div class="mail-form-container">
             <form class="mail-form" role="form" action="<?= esc_url( home_url( $emailSenderURL ) ); ?>">
                 <div class="col col-md-12">
-                    <div class="alert alert-danger" style="display: none;" id="wrong_email_error_block">
+                    <div class="alert alert-danger collapse" style="display: none;" id="wrong_email_error_block">
                         <span class="glyphicon glyphicon-remove"></span>
                         <p>Введите правильный email адрес</p>
                     </div>
-                    <div class="alert alert-danger" style="display: none;" id="no_email_error_block">
+                    <div class="alert alert-danger collapse" style="display: none;" id="no_email_error_block">
                         <span class="glyphicon glyphicon-remove"></span>
                         <p>Введите свой email адрес, чтобы мы смогли вам ответить</p>
                     </div>
-                    <div class="alert alert-danger" style="display: none;" id="no_message_error_block">
+                    <div class="alert alert-danger collapse" style="display: none;" id="no_message_error_block">
                         <span class="glyphicon glyphicon-remove"></span>
                         <p>Введите своё сообщение</p>
                     </div>
-                    <div class="alert alert-danger" style="display: none;" id="internal_failure_block">
+                    <div class="alert alert-danger collapse" style="display: none;" id="internal_failure_block">
                         <span class="glyphicon glyphicon-wrench"></span>
                         <p>Внутренняя ошибка сайта. Не удалось отправить сообщение. Попробуйте отправить своё сообщение через несколько минут.</p>
                     </div>
-                    <div class="alert alert-danger" style="display: none;" id="captcha_check_error_block">
-                        <span class="glyphicon glyphicon-remove"></span>
-                        <p>Подтвердите, что вы не робот</p>
+                    <div class="alert alert-success collapse" style="display: none;" id="captcha_check_error_block">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <p>Чтобы завершить отправку сообщения, пожалуйста подтвердите, что вы не робот</p>
                     </div>
-                    <div class="alert alert-success" style="display: none;" id="success_block">
+                    <div class="alert alert-success collapse" style="display: none;" id="success_block">
                         <span class="glyphicon glyphicon-ok"></span>
                         <p>Ваше сообщение успешно отправлено</p>
                     </div>
@@ -55,7 +55,7 @@ Template Name: Contacts Form
                 </div>
                 <div class="clearfix"></div>
                 <script src='https://www.google.com/recaptcha/api.js?render=explicit'></script>
-                <div class="recaptcha-container"></div>
+                <div class="recaptcha-container collapse"></div>
                 <div><button type="submit" class="btn btn-primary btn-send-email">Отправить сообщение</button></div>
             </form>
         </div>
@@ -77,7 +77,13 @@ Template Name: Contacts Form
                     <div class="col-md-4 address-left address-right">
                         <div class="address-right-content">
                             <span class="glyphicon glyphicon-envelope"></span>
-                            <p>E-Mail: samle@luchik.com</p>
+                            <p>
+                                E-Mail:
+                                <script type="text/javascript">//
+                                    // <![CDATA[
+                                    function gtfef(pe){return pe.replace(/[a-zA-Z]/g, function (m){return String.fromCharCode((m <= "Z" ? 210 : 3) >= (m = m.charCodeAt(0) + 41) ? m : m-46);})}document.write ('<a class="mailto"  href="mailto:' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '">' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '</a>');//]]>
+                                </script>
+                            </p>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -108,7 +114,10 @@ Template Name: Contacts Form
                             </tr>
                             <tr>
                                 <td><label>Контактный e-mail: </label></td>
-                                <td><span>sample@luchik.com</span></td>
+                                <td><span><script type="text/javascript">//
+                                        // <![FREAD[
+                                    function gtfef(pe){return pe.replace(/[a-zA-Z]/g, function (m){return String.fromCharCode((m <= "Z" ? 210 : 3) >= (m = m.charCodeAt(0) + 41) ? m : m-46);})}document.write ('<a class="mailto"  href="mailto:' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '">' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '</a>');//]]>
+                                </script></span></td>
                             </tr>
                         </table>
                     </div>
@@ -133,12 +142,26 @@ Template Name: Contacts Form
             var $form = $(".mail-form");
             $form.submit(function(){
                 var request = $.post($form.attr('action'), $form.serialize(), function(response){
-                    showErrorMessage(response);
+                    showError(response);
                 });
                 return false;
             });
         }
 
+        function showError(errorMessage)
+        {
+            showCaptcha(errorMessage);
+            showErrorMessage(errorMessage);
+        }
+
+        var reCaptchaIsNeededToLoad = false;
+        function showCaptcha(errorMessage)
+        {
+            reCaptchaIsNeededToLoad = (errorMessage == "<?= ReCaptchaUtils::ERR_BOT_CHECK_FAILED ?>");
+            invalidateCaptchaPanel();
+        }
+
+        var firstAlert = true;
         function showErrorMessage(errorMessage)
         {
             var wrongEmailErrorMessageBlock      = $('#wrong_email_error_block');
@@ -158,28 +181,42 @@ Template Name: Contacts Form
                 switch (errorMessage)
                 {
                     case "<?= EmailUtils::ERR_NO_EMAIL ?>":
+                        SlideDownForFirst(noEmailErrorMessageBlock, FADE_DURATION);
                         noEmailErrorMessageBlock.fadeIn(FADE_DURATION);
                         break;
                     case "<?= EmailUtils::ERR_WRONG_EMAIL ?>":
+                        SlideDownForFirst(wrongEmailErrorMessageBlock, FADE_DURATION);
                         wrongEmailErrorMessageBlock.fadeIn(FADE_DURATION);
                         break;
                     case "<?= EmailUtils::ERR_NO_MESSAGE ?>":
+                        SlideDownForFirst(noMessageErrorMessageBlock, FADE_DURATION);
                         noMessageErrorMessageBlock.fadeIn(FADE_DURATION);
                         break;
                     case "<?= EmailUtils::ERR_UNABLE_TO_SEND ?>":
+                        SlideDownForFirst(internalFailureErrorMessageBlock, FADE_DURATION);
                         internalFailureErrorMessageBlock.fadeIn(FADE_DURATION);
                         break;
                     case "<?= EmailUtils::ERR_SUCCESS ?>":
+                        SlideDownForFirst(successMessageBlock, FADE_DURATION);
                         successMessageBlock.fadeIn(FADE_DURATION);
                         break;
                     case "<?= ReCaptchaUtils::ERR_BOT_CHECK_FAILED ?>":
+                        SlideDownForFirst(captchaCheckErrorBlock, FADE_DURATION);
                         captchaCheckErrorBlock.fadeIn(FADE_DURATION);
                         break;
                 }
             }, FADE_DURATION);
         }
-    </script>
-    <script>
+
+        function SlideDownForFirst(alertBlock, slideDuration)
+        {
+            if (firstAlert)
+            {
+                firstAlert = false;
+                alertBlock.slideDown(slideDuration);
+            }
+        }
+
         window.addEventListener("load", invalidate);
         window.addEventListener("resize", invalidate);
 
@@ -216,6 +253,14 @@ Template Name: Contacts Form
 
         function invalidateCaptchaPanel()
         {
+            if (!reCaptchaIsNeededToLoad)
+            {
+                var reCaptchaContainer = $(".recaptcha-container")
+                reCaptchaContainer.slideUp("slow");
+                deleteReCaptcha();
+                return;
+            }
+
             var newSize = "normal";
             var prevSize = getReCaptchaContainerSizeAttribute();
             if ($(window).width() < 350)
@@ -244,7 +289,7 @@ Template Name: Contacts Form
 
         function invalidateReCaptcha(size)
         {
-            recreateReCaptchaContainer();
+            recreateReCaptcha();
             renderReCaptcha(size);
         }
 
@@ -254,13 +299,20 @@ Template Name: Contacts Form
             grecaptcha.render(captchaPanel, {"sitekey": "<?= ReCaptcha::PUBLIC_KEY ?>", "size": size});
         }
 
-        function recreateReCaptchaContainer()
+        function recreateReCaptcha()
+        {
+            deleteReCaptcha();
+            var reCaptchaContainer = $(".recaptcha-container");
+            reCaptchaContainer.append('<div class="g-recaptcha form-group"></div>');
+
+            reCaptchaContainer.slideDown("slow");
+        }
+
+        function deleteReCaptcha()
         {
             var reCaptchaContainer = $(".recaptcha-container");
             reCaptchaContainer.empty();
-            reCaptchaContainer.append('<div class="g-recaptcha form-group"></div>');
         }
-
 
         function invalidateContactInfoPanel()
         {
