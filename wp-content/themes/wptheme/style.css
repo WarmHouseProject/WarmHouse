@@ -476,12 +476,12 @@ html {
 body {
 	font-size: 14px;
 	font-size: 1rem;
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: 'Roboto-Regular', sans-serif;
 	text-rendering: optimizeLegibility;
 	color: #444;
 }
 body.custom-font-enabled {
-	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	font-family: 'Roboto-Regular', sans-serif;
 }
 a {
 	outline: none;
@@ -854,7 +854,7 @@ article.sticky .featured-post {
 }
 .entry-content code,
 .comment-content code {
-	font-family: Consolas, Monaco, Lucida Console, monospace;
+	font-family: 'Roboto-Regular', sans-serif;
 	font-size: 12px;
 	font-size: 0.857142857rem;
 	line-height: 2;
@@ -863,7 +863,7 @@ article.sticky .featured-post {
 .comment-content pre {
 	border: 1px solid #ededed;
 	color: #666;
-	font-family: Consolas, Monaco, Lucida Console, monospace;
+	font-family: 'Roboto-Regular', sans-serif;
 	font-size: 12px;
 	font-size: 0.857142857rem;
 	line-height: 1.714285714;

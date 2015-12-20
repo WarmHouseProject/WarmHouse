@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 html, body{
     font-size: 100%;
 	background:	#fff;
-	font-family: 'Lato-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
 }
 body a{
 	transition: 0.5s all ease;
@@ -17,12 +17,12 @@ body a{
 	-ms-transition: 0.5s all ease;
 }
 @font-face {
-    font-family: 'Philosopher-Regular';
-    src:url(../fonts/Philosopher-Regular.ttf) format('truetype');
+	font-family: 'Roboto-Regular', sans-serif;
+    src:url(../fonts/Roboto-Regular.ttf) format('truetype');
 }
 @font-face {
-    font-family: 'Lato-Regular';
-    src:url(../fonts/Lato-Regular.ttf) format('truetype');
+    font-family: 'Roboto-Medium';
+    src:url(../fonts/Roboto-Medium.ttf) format('truetype');
 }
 p{
 	margin:0;
@@ -44,7 +44,7 @@ body a:hover{
     background: #f0ad4e;
     width: 70%;
     text-align: center;
-    font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
     font-size: 2.7em;
     color: #fff;
 }
@@ -227,7 +227,7 @@ body a:hover{
 .callbacks_tabs a:after {
 	content: "\f111";
 	font-size: 0;
-	font-family: FontAwesome;
+	font-family: 'Roboto-Regular', sans-serif;
 	visibility: visible;
 	display: block;
 	height: 10px;
@@ -271,7 +271,7 @@ ul.callbacks_tabs.callbacks2_tabs {
     font-weight: 400;
     text-decoration: none;
     padding: 13px 40px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: 'Roboto-Regular', sans-serif;
 	display: block;
 }
 .top-menu ul li a:hover,.top-menu ul li a.active{
@@ -402,7 +402,7 @@ span.menu{
 .welcome-right h2,.heading h3,.heading h2{
 	font-size:3em;
 	margin:0;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 'Roboto-Regular', sans-serif;
 	color:#337ab7;
 }
 .w-left img{
@@ -419,7 +419,7 @@ span.menu{
     line-height: 1.8em;
     color: #999;
     margin-top: 10px;
-    font-family: 'Lato-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
 }
 /*--welcome-ends--*/
 /*--help-starts--*/
@@ -466,7 +466,7 @@ span.menu{
 	font-size:26px;
 	color:#44479A;
 	margin:0;
-	font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
 }
 .help-right p {
     font-size: 14px;
@@ -545,7 +545,7 @@ a.tooltips span:before {
 	font-size:26px;
 	color:#44479A;
 	margin:0;
-	font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
 }
 .program-left p {
     font-size: 14px;
@@ -643,7 +643,7 @@ a.tooltips2 span:before {
     color: #44479A;
     font-size: 21px;
     margin: 30px 0 0 0;
-    font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
 }
 /*--testimonials-ends--*/
 /*--footer-starts--*/
@@ -683,7 +683,7 @@ a.tooltips2 span:before {
 .footer-left h3{
 	font-size: 2em;
     margin: 0;
-    font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
     color: #44479A;
 }
 .letter {
@@ -724,7 +724,7 @@ a.tooltips2 span:before {
 .ftr-left h4 a{
 	font-size: 2.2em;
     color: #fff;
-    font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
 }
 .ftr-left{
 	text-align:left;
@@ -761,7 +761,7 @@ a.tooltips2 span:before {
 .team-text h4{
 	font-size:20px;
     margin: 0;
-    font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
     color: #44479A;
 }
 .team-text p{
@@ -783,7 +783,7 @@ a.tooltips2 span:before {
 .about-left h4 {
     font-size: 16px;
     margin: 0;
-    font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
     color: #44479A;
     text-transform: uppercase;
     line-height: 1.5em;
@@ -811,7 +811,7 @@ a.tooltips2 span:before {
 .why-left h4{
 	font-size: 16px;
     margin: 0;
-    font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
     color: #44479A;
     text-transform: uppercase;
     line-height: 1.5em;
@@ -824,7 +824,7 @@ a.tooltips2 span:before {
 	font-size:3em;
 }
 .wh-right h5{
-	font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
     color: #44479A;
 	font-size:19px;
 	margin:0;
@@ -948,7 +948,7 @@ a.tooltips2 span:before {
 	text-overflow: ellipsis;
 	font-size:21px;
     margin: 0;
-    font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Medium', sans-serif;
     color: #44479A;
 }
 .s-btm p{
@@ -980,7 +980,7 @@ a.tooltips2 span:before {
 h5.best {
     margin: 0;
     font-size: 2.5em;
-    font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
     color: #44479A;
     text-transform: uppercase;
 }
@@ -1012,7 +1012,7 @@ h5.best {
     margin: 0;
     font-size: 2em;
     color: #000;
-    font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
 }
 .flex-in p {
     margin: 10px 0 25px 0;
@@ -1054,7 +1054,7 @@ h5.best {
     line-height: 1.6em;
     text-transform: uppercase;
     display: inline-block;
-    font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
 }
 .faq-top ul li span{
 	font-weight: 900;
@@ -1063,7 +1063,7 @@ h5.best {
 	color: #44479A;
 	text-transform: uppercase;
 	vertical-align: middle;
-	font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
 }
 .faq-top ul li p {
     font-size: 16px;
@@ -1100,7 +1100,7 @@ h5.best {
 }
 h3.ghj {
 	font-size: 2.5em;
-    font-family: 'Philosopher-Regular';
+	font-family: 'Roboto-Regular', sans-serif;
     color: #44479A;
 	margin: 0 0 1em 0;
 }
