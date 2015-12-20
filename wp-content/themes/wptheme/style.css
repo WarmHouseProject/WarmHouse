@@ -1460,7 +1460,7 @@ img#wpstats {
 }
 
 body {
-	background-color: #e6e6e6;
+	background-color: #ffffff;
 }
 
 /* Minimum width of 600 pixels. */
@@ -1713,9 +1713,6 @@ body {
 
 /* Minimum width of 960 pixels. */
 @media screen and (min-width: 960px) {
-	body {
-		background-color: #e6e6e6;
-	}
 	body .site {
 		padding: 0 40px;
 		padding: 0 2.857142857rem;

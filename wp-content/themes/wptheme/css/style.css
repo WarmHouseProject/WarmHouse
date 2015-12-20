@@ -403,7 +403,7 @@ span.menu{
 	font-size:3em;
 	margin:0;
 	font-family: 'Roboto-Regular', sans-serif;
-	color:#337ab7;
+	color: #3d464a;
 }
 .w-left img{
 	width:100%;
@@ -949,7 +949,7 @@ a.tooltips2 span:before {
 	font-size:21px;
     margin: 0;
 	font-family: 'Roboto-Medium', sans-serif;
-    color: #44479A;
+    color: #3d464a;
 }
 .s-btm p{
 	height: 80px;
@@ -958,7 +958,7 @@ a.tooltips2 span:before {
 	text-overflow: ellipsis;
 	font-size:16px;
 	line-height:1.8em;
-	color:#999;
+	color: #8698a7;
 }
 .services-two{
 	margin-top:3%;
