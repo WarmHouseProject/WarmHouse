@@ -1,6 +1,6 @@
-<div class="container stock">
-    <?php foreach ($stocks as $index => $stock): ?>
-        <div class="stock-info">
+<?php foreach ($stocks as $index => $stock): ?>
+    <div class="stock <?php if ($index % 2 == 0): ?>grey_block<?php else: ?>white_block<?php endif; ?>">
+        <div class="container stock-info">
             <div class="col">
                 <div class="col-sm-3">
                     <div class="inner-container image">
@@ -15,15 +15,15 @@
                     <?php endif; ?>
                 </div>
                 <div class="col-sm-9">
-                    <div class="inner-container heading">
-                        <h2 class="head"><?= $stock->name ?></h2>
+                    <div class="inner-container">
+                        <h2 class="head blue_text"><?= $stock->name ?></h2>
                     </div>
-                    <div class="inner-container heading">
-                        <div class="well short-description"><?= $stock->description ?></div>
+                    <div class="inner-container">
+                        <div class="short-description text_block"><?= $stock->description ?></div>
                     </div>
                 </div>
                 <div class="clearfix"></div>
             </div>
         </div>
-    <?php endforeach; ?>
-</div>
+    </div>
+<?php endforeach; ?>

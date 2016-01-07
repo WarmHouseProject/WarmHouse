@@ -1,12 +1,16 @@
-.container.stock {
-    padding-left: 0;
-    padding-right: 30px;
+.stocks-block {
+    margin-top: 3%;
+}
+
+.stock {
+    padding: 0 4em;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 
 .stock-info {
-    padding-top: 30px;
-    margin-bottom: 30px;
-    background-color: #FFF;
+    padding-top: 40px;
+    padding-bottom: 30px;
     border-radius: 15px;
 }
 
@@ -20,6 +24,10 @@
     padding: 0;
 }
 
+.stock-info .inner-container.image {
+    height: 150px;
+    overflow: hidden;
+}
 
 .stock-info .inner-container.image,
 .stock-info .inner-container.edit{
@@ -30,7 +38,7 @@
     font-size: 18px;
 }
 
-.stock-info .well {
+.stock-info .short-description {
     word-wrap: break-word;
 }
 
@@ -49,11 +57,15 @@
 .stock-info .inner-image-block {
     display: inline-block;
     position: relative;
+    margin-top: -34px;
 }
 
 .stock-info .stock-image {
     width: 160px;
-    height: 160px;
+}
+
+.stock-info .head {
+    margin-top: 0;
 }
 
 @media screen and (max-width: 760px) {

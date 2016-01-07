@@ -1,41 +1,8 @@
-.float-right
-{
-    float: right;
-}
-
-.services-top
-{
-    margin-bottom: 30px;
-}
-
-.primary-color
-{
-    background-color: #337ab7;
-}
-
-.dropdown-menu.primary-color > li > a {
-    color: #FFF;
-}
-
-.dropdown-menu.primary-color > li > a:hover {
-    background-color: #286090;
-}
-
-.grey_block
-{
-    background-color: #e6e6e6;
-}
-
-.white_block
-{
-    background-color: #FFF;
-}
-
 .information_block
 {
     padding: 5em 4em;
     width: 100%;
-    font-family: 'Roboto-Medium', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .information_block .main_header
@@ -55,27 +22,10 @@
     text-align: left;
 }
 
-.information_block .text_block
-{
-    font-size: 1.2em;
-    color: #999999;
-    line-height: 2em;
-}
-
 .information_block .head
 {
     text-align: center;
     margin-bottom: 40px;
-}
-
-.blue_text
-{
-    color: #337ab7;
-}
-
-.orange_text
-{
-    color: #E1A20C;
 }
 
 .line_begin
@@ -152,14 +102,14 @@
     top: 24px;
 }
 
-.information_block .marker_image.blue_orange
+.information_block .marker_image.blue_green
 {
     background-color: #6DBEE8;
 }
 
-.col-md-4:hover .marker_block .marker_image.blue_orange
+.col-md-4:hover .marker_block .marker_image.blue_green
 {
-    background-color: #E1A20C;
+    background-color: #1A8989;
 }
 
 .information_block .marker.blue,
@@ -168,8 +118,8 @@
     background-color: #6DBEE8;
 }
 
-.information_block .marker.orange,
-.information_block .marker_middle.orange
+.information_block .marker.green,
+.information_block .marker_middle.green
 {
-    background-color: #ED9A47;
+    background-color: #1A8989;
 }

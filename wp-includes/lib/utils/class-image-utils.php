@@ -7,12 +7,17 @@
     {
         static function resizeAvatarImage($image)
         {
+            return self::resizeImage($image, Image::AVATAR_IMAGE_WIDTH, Image::AVATAR_IMAGE_HEIGHT);
+        }
+
+        static function resizeImage($image, $width, $height)
+        {
             list($srcWidth, $srcHeight, $type) = getimagesize($image);
             $types = array('', 'gif', 'jpeg', 'png');
             $ext = $types[$type];
             if ($ext)
             {
-                $func = 'imagecreatefrom'.$ext;
+                $func = 'imagecreatefrom' . $ext;
                 $src = $func($image);
             }
             else
@@ -20,19 +25,18 @@
                 return false;
             }
 
-            $imgObj = imagecreatetruecolor(Image::AVATAR_IMAGE_SIZE, Image::AVATAR_IMAGE_SIZE);
-            if ($srcWidth > $srcHeight)
+            $imgObj = imagecreatetruecolor($width, $height);
+            if ($srcHeight / $srcWidth > $height / $width)
             {
-                imagecopyresized($imgObj, $src, 0, 0, round(($srcWidth - $srcHeight) / 2), 0, Image::AVATAR_IMAGE_SIZE, Image::AVATAR_IMAGE_SIZE, $srcHeight, $srcHeight);
+                $calcWidth  = $srcWidth;
+                $calcHeight = $calcWidth * $height / $width;
             }
-            if ($srcWidth < $srcHeight)
+            else
             {
-                imagecopyresized($imgObj, $src, 0, 0, 0, 0, Image::AVATAR_IMAGE_SIZE, Image::AVATAR_IMAGE_SIZE, $srcWidth, $srcWidth);
+                $calcHeight = $srcHeight;
+                $calcWidth  = $calcHeight * $width / $height;
             }
-            if ($srcWidth == $srcHeight)
-            {
-                imagecopyresized($imgObj, $src, 0, 0, 0, 0, Image::AVATAR_IMAGE_SIZE, Image::AVATAR_IMAGE_SIZE, $srcWidth, $srcWidth);
-            }
+            imagecopyresized($imgObj, $src, 0, 0, round(($srcWidth - $calcWidth) / 2), round(($srcHeight - $calcHeight) / 2), $width, $height, $calcWidth, $calcHeight);
 
             if ($type == 2)
             {

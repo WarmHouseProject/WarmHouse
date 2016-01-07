@@ -6,6 +6,7 @@
         const NAME_FIELD              = "name";
         const DESCRIPTION_FIELD       = "description";
         const PRIORITY_FIELD          = "priority";
+        const STATUS_FIELD            = "status";
         const AVATAR_FIELD            = "avatar";
         const IMAGE_FIELD             = "image_id";
 

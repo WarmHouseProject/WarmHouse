@@ -31,10 +31,10 @@
     <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
     <![endif]-->
     <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" rel='stylesheet' type='text/css' />
-    <link href="<?php echo get_template_directory_uri(); ?>/css/components.css" rel='stylesheet' type='text/css' />
+    <link href="<?php echo get_template_directory_uri(); ?>/css/main.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/style.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/header.css" rel='stylesheet' type='text/css' />
-    <link href="<?php echo get_template_directory_uri(); ?>/css/index.css" rel='stylesheet' type='text/css' />
+    <link href="<?php echo get_template_directory_uri(); ?>/css/about.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/fileinput.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/stocks-page.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/childs-list.css" rel='stylesheet' type='text/css' />
@@ -60,12 +60,17 @@
 <body <?php body_class(); ?>>
 <div class="header-container">
     <div class="header fixed" id="home">
-        <div class="space_block"></div>
         <div class=header_block>
             <div class="container">
-                <a class="main_link" href="<?=  home_url( '/'); ?>" title="Главная">
-                    <img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="" />
-                </a>
+                <div class="logo-block">
+                    <a class="main_link" href="<?=  home_url( '/'); ?>" title="Главная">
+                        <img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo_white.png" alt="" />
+                    </a>
+                    <div class="company-info-block">
+                        <div class="company-name">Лучик надежды</div>
+                        <div class="company-description">Благотворительная организация</div>
+                    </div>
+                </div>
                 <div class="header-main">
                     <div class="top-menu">
                         <span class="menu"><img src="<?php echo get_template_directory_uri(); ?>/images/menu-icon.png" alt="" /></span>
@@ -89,7 +94,6 @@
                 </div>
             </div>
         </div>
-        <div class="space_block"></div>
     </div>
 </div>
 <!--header-ends-->

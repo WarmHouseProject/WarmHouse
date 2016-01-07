@@ -7,5 +7,6 @@ class Image
 
     const DB_TABLE_NAME = "wp_image";
 
-    const AVATAR_IMAGE_SIZE = 255;
+    const AVATAR_IMAGE_WIDTH  = 255;
+    const AVATAR_IMAGE_HEIGHT = 348;
 }

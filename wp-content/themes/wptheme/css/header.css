@@ -1,23 +1,12 @@
 #home
 {
-    border-bottom: solid 3px #337ab7;
+    border-bottom: solid 3px #136768;
     z-index: 9999;
 }
 
 .header-container
 {
-    height: 83px;
-}
-
-.header-container .current_page_item a
-{
-    color: #FFF
-}
-
-.header .space_block
-{
-    height: 20px;
-    background-color: #e6e6e6;
+    height: 73px;
 }
 
 .header .header_block
@@ -25,22 +14,88 @@
     background-color: #FFF;
 }
 
+.header .header_block .top-menu ul
+{
+    height: 73px;
+}
+
+.header .header_block .logo-block
+{
+    float: left;
+}
+
 .header .header_block .main_link
 {
     z-index: 999999;
-    position: absolute;
-    top: 0;
     float: left;
+}
+
+.header .header_block .company-info-block
+{
+    float: left;
+    margin-left: 6px;
+    color: #738899;
+}
+
+.header .header_block .company-info-block .company-name
+{
+    font-weight: bold;
+    padding-top: 18px;
+    font-size: 18px;
+}
+
+.header .header_block .company-info-block .company-description
+{
+    padding-top: 6px;
 }
 
 .header .header_block .logo
 {
-    width: 80px;
+    padding: 7PX 0;
+    width: 59px;
 }
 
 .header .top-menu .nav
 {
     float: right;
+}
+
+.header-container .current-menu-item a,
+.header-container .current_page_item a
+{
+    border-bottom: solid 3px #6FBCBD;
+}
+
+.header-container .nav > li > a:hover,
+.header-container .nav > li > a:focus
+{
+    background-color: #6FBCBD;
+    color: #FFF;
+}
+
+.header-container .current_page_item a
+{
+    color: #FFF
+}
+
+.header .header_block .top-menu ul li a
+{
+    padding: 30px 40px;
+}
+
+.banner_block
+{
+    padding: 3em 4em;
+    width: 100%;
+    font-family: 'Roboto-Medium', sans-serif;
+    background-color: #136768;
+    color: #FFF;
+    word-wrap: break-word;
+}
+
+.banner_block h3
+{
+    color: #6FBCBD;
 }
 
 @media screen and (min-width: 992px) {
@@ -53,12 +108,13 @@
 @media screen and (max-width: 768px) {
     .header .header_block
     {
-        background-color: #e6e6e6;
+        background-color: #FFF;
     }
 
     .top-menu ul
     {
         z-index: 9999;
+        top: 70px;
     }
 
     .header .space_block
@@ -67,9 +123,14 @@
         background-color: #e6e6e6;
     }
 
+    .header .header_block .company-info-block .company-name
+    {
+        padding-top: 16px;
+    }
+
     .header .header_block .logo
     {
-        width: 59px;
+        width: 52px;
     }
 
     .header .header_block .main_link
@@ -81,12 +142,44 @@
     {
         height: 62px;
     }
+
+    .header .header_block .top-menu .menu
+    {
+        margin-top: 14px;
+    }
+
+    .header .header_block .top-menu ul li a
+    {
+        padding: 13px 40px;
+    }
+
+    .header-container .nav > li > a:hover,
+    .header-container .nav > li > a:focus
+    {
+        background-color: #6FBCBD;
+        color: #FFF;
+    }
+
+    .header-container .current-menu-item a,
+    .header-container .current_page_item a
+    {
+        border-bottom: none;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .header .header_block .company-info-block
+    {
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .header .header_block .logo
     {
-        width: 54px;
+        width: 47px;
     }
 
     .header .header_block .main_link
@@ -97,6 +190,16 @@
     .header-container
     {
         height: 57px;
+    }
+
+    .header .header_block .company-info-block .company-name
+    {
+        padding-top: 14px;
+    }
+
+    .banner_block h3.head
+    {
+        display: none;
     }
 }
 
@@ -110,10 +213,20 @@
     .header .container {
         width: 970px;
     }
+
+    .banner_block h1.head
+    {
+        font-size: 42px;
+    }
 }
 
 @media (min-width: 1200px) {
     .header .container {
         width: 1170px;
+    }
+
+    .banner_block h1.head
+    {
+        font-size: 50px;
     }
 }

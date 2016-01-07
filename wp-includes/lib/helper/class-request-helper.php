@@ -1,5 +1,5 @@
 <?php
-require_once(ABSPATH . WPINC . '/lib/helper/class-filter-helper.php');
+require_once(ABSPATH . WPINC . '/lib/helper/class-needy-filter-helper.php');
 require_once(ABSPATH . WPINC . '/lib/model/child/class-child.php');
 require_once(ABSPATH . WPINC . '/lib/model/orphanage/class-orphanage.php');
 
@@ -54,6 +54,7 @@ class RequestHelper
         $childInfo[Stock::ID_FIELD]          = self::getParameter(Stock::ID_FIELD);
         $childInfo[Stock::NAME_FIELD]        = self::getParameter(Stock::NAME_FIELD);
         $childInfo[Stock::DESCRIPTION_FIELD] = self::getParameter(Stock::DESCRIPTION_FIELD);
+        $childInfo[Stock::STATUS_FIELD]      = self::getParameter(Stock::STATUS_FIELD);
         $childInfo[Stock::PRIORITY_FIELD]    = self::getParameter(Stock::PRIORITY_FIELD);
         $childInfo{Stock::AVATAR_FIELD}      = self::getFile(Stock::AVATAR_FIELD);
         return $childInfo;
