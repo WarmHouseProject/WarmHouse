@@ -678,7 +678,7 @@ a.tooltips2 span:before {
 }
 .footer {
     padding: 5em 0;
-    background: #4d4d53;
+    background: #FAFBFD;
 }
 .footer-left h3{
 	font-size: 2em;
@@ -907,14 +907,15 @@ a.tooltips2 span:before {
 }
 /* CSS3 STYLE GENERIC */
 .view {
-    width: 255px;
-    height: 255px;
+    width: 216px;
+    height: 295px;
 	margin: auto;
-    margin-bottom: 20px;
+    margin-bottom: 31px;
     overflow: hidden;
     position: relative;
     text-align: center;
     cursor: default;
+	border-radius: 5px;
 }
 .view .mask, .view .content {
     width: 255px;
@@ -941,13 +942,16 @@ a.tooltips2 span:before {
 	width:100%;
 }
 .s-btm {
-    text-align: center;
+	width: 216px;
+	margin: auto;
+    text-align: left;
 }
 .s-btm h4{
 	overflow: hidden;
 	text-overflow: ellipsis;
 	font-size:21px;
     margin: 0;
+	margin-bottom: 20px;
 	font-family: 'Roboto-Medium', sans-serif;
     color: #3d464a;
 }
@@ -958,7 +962,7 @@ a.tooltips2 span:before {
 	text-overflow: ellipsis;
 	font-size:16px;
 	line-height:1.8em;
-	color: #8698a7;
+	color: #738899;
 }
 .services-two{
 	margin-top:3%;
@@ -1374,7 +1378,9 @@ h3.ghj {
     width: 51%;
 }
 .footer {
-    padding: 1em 0 2em 0;
+    padding: 3em 0 3em 0;
+	border-top: 1px solid #F2F3F3;
+	color: #738899;
 }
 .footer-left h3 {
     font-size: 1.85em;
@@ -1431,16 +1437,13 @@ h5.best {
 .callbacks_nav {
     top: 90.4%;
 }
-.view {
-    width: 220px;
-    height: 220px;
-}
 .view .mask, .view .content {
     width: 220px;
     height: 220px;
 }
 .s-btm h4 {
     font-size: 19px;
+	margin-bottom: 17px;
 }
 .s-btm p {
     font-size: 15px;
@@ -1715,8 +1718,8 @@ h5.best {
     padding: 3em 0;
 }
 .view {
-    width: 170px;
-    height: 170px;
+    width: 100%;
+    height: 100%;
 }
 .view .mask, .view .content {
     width: 170px;
@@ -2225,7 +2228,7 @@ a.tooltips1 span:before {
 .view {
     width: 100%;
     height: 100%;
-	margin: 0 0px 14px 0px;
+	margin: 0 0 24px 0;
 }
 .view .mask, .view .content {
     width: 100%;
@@ -2669,10 +2672,6 @@ h4.head {
     padding: 0px 15px;
     width: 100%;
 }
-.view {
-    width: 243px;
-    height: 243px;
-}
 .view .mask, .view .content {
     width: 243px;
     height: 243px;
@@ -2698,6 +2697,7 @@ h4.head {
 }
 .s-btm h4 {
     font-size: 17px;
+	margin-bottom: 13px;
 }
 .s-btm p {
     font-size: 13px;

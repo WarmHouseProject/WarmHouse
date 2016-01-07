@@ -1,6 +1,7 @@
 <?php
 
 require_once(ABSPATH . WPINC . '/lib/model/stock/class-stock.php');
+require_once(ABSPATH . WPINC . '/lib/model/stock/class-stock-status.php');
 
 class StockDBUtils
 {
@@ -11,11 +12,13 @@ class StockDBUtils
             "` (" .
             Stock::NAME_FIELD . ", " .
             Stock::DESCRIPTION_FIELD . ", " .
+            Stock::STATUS_FIELD . ", " .
             Stock::PRIORITY_FIELD . ", " .
             Stock::IMAGE_FIELD .
-            ") VALUES (%s, %s, %d, %d)",
+            ") VALUES (%s, %s, %d, %d, %d)",
             $stockInfo[Stock::NAME_FIELD],
             $stockInfo[Stock::DESCRIPTION_FIELD],
+            $stockInfo[Stock::STATUS_FIELD],
             $stockInfo[Stock::PRIORITY_FIELD],
             $imageId));
     }
@@ -27,11 +30,13 @@ class StockDBUtils
             "` SET " .
             Stock::NAME_FIELD . " = %s, " .
             Stock::DESCRIPTION_FIELD . " = %s, " .
+            Stock::STATUS_FIELD . " = %d, " .
             Stock::PRIORITY_FIELD . " = %d, " .
             Stock::IMAGE_FIELD . " = %d " .
             " WHERE " . Stock::ID_FIELD . " = %d",
             $stockInfo[Stock::NAME_FIELD],
             $stockInfo[Stock::DESCRIPTION_FIELD],
+            $stockInfo[Stock::STATUS_FIELD],
             $stockInfo[Stock::PRIORITY_FIELD],
             $imageId,
             $stockId));
@@ -41,6 +46,20 @@ class StockDBUtils
     {
         global $wpdb;
         return $wpdb->get_results("SELECT * FROM `" . Stock::DB_TABLE_NAME . "` ORDER BY priority DESC");
+    }
+
+    static function getActiveStocks()
+    {
+        global $wpdb;
+        return $wpdb->get_results("SELECT * FROM `" . Stock::DB_TABLE_NAME .
+            "` WHERE " . Stock::STATUS_FIELD . " = " . StockStatus::ACTIVE . " ORDER BY priority DESC");
+    }
+
+    static function getInactiveStocks()
+    {
+        global $wpdb;
+        return $wpdb->get_results("SELECT * FROM `" . Stock::DB_TABLE_NAME .
+            "` WHERE " . Stock::STATUS_FIELD . " = " . StockStatus::INACTIVE . " ORDER BY priority DESC");
     }
 
     static function getStockById($stockId)

@@ -1,6 +1,6 @@
 <?php
 
-class FilterHelper
+class NeedyFilterHelper
 {
     const ALL                       = 0;
     const ALL_CHILDS                = 1;
@@ -10,4 +10,5 @@ class FilterHelper
     const ALL_ORPHANAGES            = 5;
 
     const FILTER_FIELD = "filter";
+    const PAGE_FIELD   = "page";
 }

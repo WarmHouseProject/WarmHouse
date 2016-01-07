@@ -46,6 +46,7 @@ CREATE TABLE `wp_stock` (
   `description` longtext NOT NULL,
   `image_id` int(11) DEFAULT NULL,
   `priority` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
   PRIMARY KEY (`stock_id`),
   KEY `image_id` (`image_id`),
   CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `wp_image` (`image_id`) ON DELETE SET NULL

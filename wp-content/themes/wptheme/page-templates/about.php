@@ -10,7 +10,7 @@ get_header();
         <div class="container">
             <div class="main_header">
                 <div class="col-md-2 logo_container">
-                    <img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="" />
+                    <img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo_grey.png" alt="" />
                 </div>
                 <div class="col-md-10">
                     <h2 class="head blue_text logo_header">Благотворительный фонд помощи детям «Лучик Надежды»</h2>
@@ -25,10 +25,10 @@ get_header();
     </div>
     <div class="information_block white_block">
         <div class="container">
-            <h2 class="head orange_text">Наша миссия</h2>
+            <h2 class="head green_text">Наша миссия</h2>
             <div class="col-md-4">
                 <div class="marker_block">
-                    <div class="marker_image blue_orange">
+                    <div class="marker_image blue_green">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/sev-icons-1-1.png" alt="" />
                     </div>
                 </div>
@@ -38,7 +38,7 @@ get_header();
             </div>
             <div class="col-md-4">
                 <div class="marker_block">
-                    <div class="marker_image second blue_orange">
+                    <div class="marker_image second blue_green">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/sev-icons-2-1.png" alt="" />
                     </div>
                 </div>
@@ -48,7 +48,7 @@ get_header();
             </div>
             <div class="col-md-4">
                 <div class="marker_block">
-                    <div class="marker_image third blue_orange">
+                    <div class="marker_image third blue_green">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/sev-icons-3-1.png" alt="" />
                     </div>
                 </div>
@@ -64,17 +64,18 @@ get_header();
             <h2 class="head blue_text">Основные задачи Фонда</h2>
             <div class="col-md-6">
                 <ul class="text_block">
-                    <li><span class="marker_middle list orange">1</span>привлечение спонсорской и благотворительной помощи от организаций и частных лиц</li>
-                    <li><span class="marker_middle list orange">2</span>содействие разработке и реализации некоммерческих проектов, программ в области здравоохранения</li>
-                    <li><span class="marker_middle list orange">3</span>оказание благотворительной помощи в области здравоохранения в соответствии с основной целью фонда</li>
-                    <li><span class="marker_middle list orange">4</span>содействие организации лечебно-диагностической помощи тяжело больным детям, детям-инвалидам и членам их семей</li>
+                    <li><span class="marker_middle list green">1</span>реализация социально-значимых проектов, направленных на профилактику социального сиротства, на поддержку материнства и детства</li>
+                    <li><span class="marker_middle list green">2</span>социальная реабилитация детей-сирот, детей, оставшихся без попечения родителей, безнадзорных детей, детей находящихся в трудной жизненной ситуации;3. реализация социально-значимых проектов, направленных на социальную адаптацию детей-инвалидов и их семей</li>
+                    <li><span class="marker_middle list green">3</span>оказание психолого-педагогический, информационной, консультационной, правовой помощи детям-сиротам, детям-инвалидам, больным детям и их родителям</li>
+                    <li><span class="marker_middle list green">4</span>развитие добровольческого движения и волонтерства</li>
                 </ul>
             </div>
             <div class="col-md-6">
                 <ul class="text_block">
-                    <li><span class="marker_middle list orange">5</span>проведение благотворительных мероприятий</li>
-                    <li><span class="marker_middle list orange">6</span>содействие профилактике, охране, восстановлению здоровья детей, пропаганда здорового образа жизни и улучшения морально-психологического климата в обществе</li>
-                    <li><span class="marker_middle list orange">7</span>улучшение имиджа бизнес структур, оказывающих благотворительную помощь</li>
+                    <li><span class="marker_middle list green">5</span>продвижение идей интеграции детей-инвалидов в общество</li>
+                    <li><span class="marker_middle list green">6</span>развитие физической культуры и массового спорта, а так же развитие спорта среди детей-инвалидов, детей-сирот, многодетных и малообеспеченных семей</li>
+                    <li><span class="marker_middle list green">7</span>привлечение финансовых и иных ресурсов, оказание поддержки больным детям, их семьям, детям-сиротам и малообеспеченным семьям</li>
+                    <li><span class="marker_middle list green">8</span>содействие деятельности в области образования, науки, культуры, исскуства</li>
                 </ul>
             </div>
             <div class="clearfix"></div>

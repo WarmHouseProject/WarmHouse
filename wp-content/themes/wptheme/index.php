@@ -19,28 +19,32 @@ require_once(ABSPATH . WPINC . '/lib/utils/db/class-child-db-utils.php');
 require_once(ABSPATH . WPINC . '/lib/utils/db/class-image-db-utils.php');
 require_once(ABSPATH . WPINC . '/lib/utils/class-needy-item-utils.php');
 require_once(ABSPATH . WPINC . '/lib/utils/class-template-utils.php');
-require_once(ABSPATH . WPINC . '/lib/helper/class-filter-helper.php');
+require_once(ABSPATH . WPINC . '/lib/helper/class-needy-filter-helper.php');
 
 $needyItems = NeedyItemDBUtils::getAllNeedyItems();
-$data = ["needyItems" => $needyItems];
+$needyItemsCountPages = NeedyItemDBUtils::getAllNeedyItemsCountPages();
+$data = ["needyItems" => $needyItems, "needyItemsCountPages" => $needyItemsCountPages];
 
 get_header();
 ?>
 
 <div class="services">
     <div class="container">
-        <div class="services-top heading">
-            <h2>Вы можете им помочь</h2>
+        <div class="col-md-6">
+            <?php if (is_user_logged_in()): ?>
+                <div class="btn-group float-left">
+                    <a href="<?= get_site_url(); ?>/add-child-page-controller.php"><span class="btn btn-primary">Добавить ребёнка</span></a>
+                    <a href="<?= get_site_url(); ?>/add-orphanage-page-controller.php"><span class="btn btn-primary">Добавить детдом</span></a>
+                </div>
+                <div class="clearfix"></div>
+            <?php else:?>
+                <div class="services-top heading">
+                    <h2 id="helpTitle">Кто нуждается в помощи</h2>
+                </div>
+            <?php endif; ?>
         </div>
-        <?php if (is_user_logged_in()): ?>
+        <div class="col-md-6">
             <div class="btn-group float-right">
-                <a href="<?= get_site_url(); ?>/add-child-page-controller.php"><span class="btn btn-primary">Добавить ребёнка</span></a>
-                <a href="<?= get_site_url(); ?>/add-orphanage-page-controller.php"><span class="btn btn-primary">Добавить детдом</span></a>
-            </div>
-            <div class="clearfix"></div>
-        <?php endif; ?>
-        <div class="col-md-12">
-            <div class="btn-group">
                 <button type="button" class="btn btn-primary" id="allNeedy">Все</button>
 
                 <div class="btn-group dropdown-toggle-button">
@@ -67,44 +71,92 @@ get_header();
                 });
             });
         </script>
-        <div id="NeedyBlock">
+        <div id="needyBlock">
             <?php TemplateUtils::includeTemplate(get_template_directory() . '/page-templates/needy-item-info-block.php', $data); ?>
         </div>
+    </div>
+</div>
+<div class="contact-information-block">
+    <div class="container">
+        <div class="col-md-7 main-info">
+            <div class="contact-info-top heading">
+                <h2>Контактная информация</h2>
+            </div>
+            <div class="text_block">
+                Наш фонд создан для помощи тем, кто в ней нуждается больше всего - больным детям, детям из детских домов и приютов. У нас есть силы и желание помогать. Быть полезными. Мы хотим подарить прекрасное и здоровое детство.
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-6">
+            <div class="contact-info">
+                <h3 class="heading">Лучик Надежды</h3>
+                <div class="text_block">
+                    424002, г.Йошкар-Ола,<br/>
+                    проспект Ленинский, дом 21, офис 25<br/>
+                    Телефон: <span class="phone">+7 8362 43-43-19</span><br/>
+                    Электронная почта:
+                    <script type="text/javascript">//
+                        // <![CDATA[
+                        function gtfef(pe){return pe.replace(/[a-zA-Z]/g, function (m){return String.fromCharCode((m <= "Z" ? 210 : 3) >= (m = m.charCodeAt(0) + 41) ? m : m-46);})}document.write ('<a class="mailto"  href="mailto:' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '">' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '</a>');//]]>
+                    </script>
+                </div>
+            </div>
+            <div class="send-email">
+                <a class="send-email-button" href="<?=home_url( '/contacts'); ?>">Обратиться с просьбой о помощи</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="map">
+                <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=jvLHUi_7jPxGA7lLGvNI4TqFpFtANSYb&width=100%&height=399&lang=ru_RU&sourceType=constructor"></script>
+            </div>
+        </div>
+        <div class="clearfix"></div>
     </div>
 </div>
 <!--services-end-->
 <script>
     jQuery(document).ready(function($) {
-        var needyBlock = $("#NeedyBlock");
+        var needyBlock = $("#needyBlock");
+        var needyPaginationBlock = $("#needyPaginationBlock");
+        var currentFilter = <?= NeedyFilterHelper::ALL ?>;
 
         $('#allNeedy').click(function(){
-            changeFilter(<?= FilterHelper::ALL ?>);
+            changeFilter(<?= NeedyFilterHelper::ALL ?>, 'Кто нуждается в помощи');
         });
         $('#allChilds').click(function(){
-            changeFilter(<?= FilterHelper::ALL_CHILDS ?>);
+            changeFilter(<?= NeedyFilterHelper::ALL_CHILDS ?>, 'Кто нуждается в помощи');
         });
         $('#urgentlyNeedHelpChilds').click(function(){
-            changeFilter(<?= FilterHelper::URGENTLY_NEED_HELP_CHILDS ?>);
+            changeFilter(<?= NeedyFilterHelper::URGENTLY_NEED_HELP_CHILDS ?>, 'Срочно нужна помощь');
         });
         $('#needHelpChilds').click(function(){
-            changeFilter(<?= FilterHelper::NEED_HELP_CHILDS ?>);
+            changeFilter(<?= NeedyFilterHelper::NEED_HELP_CHILDS ?>, 'Кто нуждается в помощи');
         });
         $('#helpedChilds').click(function(){
-            changeFilter(<?= FilterHelper::HELPED_CHILDS ?>);
+            changeFilter(<?= NeedyFilterHelper::HELPED_CHILDS ?>, 'Кому Вы помогли');
         });
         $('#allOrphanages').click(function(){
-            changeFilter(<?= FilterHelper::ALL_ORPHANAGES ?>);
+            changeFilter(<?= NeedyFilterHelper::ALL_ORPHANAGES ?>, 'Детские дома');
         });
 
-        function changeFilter(filter)
+        $('.pagination .page').live('click', (function(){
+            var page = $(this).text();
+            changeFilter(currentFilter, null, page);
+        }));
+
+        function changeFilter(filter, title, page)
         {
             $.ajax({
                 method: "POST",
                 url: "/needy-item-info-controller-ajax.php",
-                data: {filter: filter}
+                data: {filter: filter, page: page}
             })
                 .done(function(content) {
+                    currentFilter = filter;
                     needyBlock.html(content);
+                    if (title) {
+                        $('#helpTitle').text(title);
+                    }
                 });
         }
     });

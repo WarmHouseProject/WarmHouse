@@ -1,7 +1,7 @@
 <?php
 
     require_once(__DIR__ . '/wp-load.php');
-    require_once(ABSPATH . WPINC . '/lib/helper/class-filter-helper.php');
+    require_once(ABSPATH . WPINC . '/lib/helper/class-needy-filter-helper.php');
     require_once(ABSPATH . WPINC . '/lib/helper/class-request-helper.php');
     require_once(ABSPATH . WPINC . '/lib/utils/db/class-needy-item-db-utils.php');
     require_once(ABSPATH . WPINC . '/lib/utils/class-template-utils.php');
@@ -9,33 +9,43 @@
     require_once(ABSPATH . WPINC . '/lib/utils/db/class-image-db-utils.php');
     require_once(ABSPATH . WPINC . '/lib/utils/class-needy-item-utils.php');
 
-    $filter = RequestHelper::getParameter(FilterHelper::FILTER_FIELD);
+    $filter = RequestHelper::getParameter(NeedyFilterHelper::FILTER_FIELD);
+    $page   = RequestHelper::getParameter(NeedyFilterHelper::PAGE_FIELD) - 1;
+
+    $page = ($page && $page > 0) ? $page : 0;
 
     $needyItems = [];
-    if ($filter == FilterHelper::ALL)
+    $needyItemsCountPages = 0;
+    if ($filter == NeedyFilterHelper::ALL)
     {
-        $needyItems = NeedyItemDBUtils::getAllNeedyItems();
+        $needyItems = NeedyItemDBUtils::getAllNeedyItems($page);
+        $needyItemsCountPages = NeedyItemDBUtils::getAllNeedyItemsCountPages();
     }
-    elseif ($filter == FilterHelper::ALL_CHILDS)
+    elseif ($filter == NeedyFilterHelper::ALL_CHILDS)
     {
-        $needyItems = NeedyItemDBUtils::getAllChildsItems();
+        $needyItems = NeedyItemDBUtils::getAllChildsItems($page);
+        $needyItemsCountPages = NeedyItemDBUtils::getAllChildsItemsCountPages();
     }
-    elseif ($filter == FilterHelper::URGENTLY_NEED_HELP_CHILDS)
+    elseif ($filter == NeedyFilterHelper::URGENTLY_NEED_HELP_CHILDS)
     {
-        $needyItems = NeedyItemDBUtils::getUrgentlyNeedHelpChildsItems();
+        $needyItems = NeedyItemDBUtils::getUrgentlyNeedHelpChildsItems($page);
+        $needyItemsCountPages = NeedyItemDBUtils::getUrgentlyNeedHelpChildsItemsCountPages();
     }
-    elseif ($filter == FilterHelper::NEED_HELP_CHILDS)
+    elseif ($filter == NeedyFilterHelper::NEED_HELP_CHILDS)
     {
-        $needyItems = NeedyItemDBUtils::getNeedHelpChildsItems();
+        $needyItems = NeedyItemDBUtils::getNeedHelpChildsItems($page);
+        $needyItemsCountPages = NeedyItemDBUtils::getNeedHelpChildsItemsCountPages();
     }
-    elseif ($filter == FilterHelper::HELPED_CHILDS)
+    elseif ($filter == NeedyFilterHelper::HELPED_CHILDS)
     {
-        $needyItems = NeedyItemDBUtils::getHelpedChildsItems();
+        $needyItems = NeedyItemDBUtils::getHelpedChildsItems($page);
+        $needyItemsCountPages = NeedyItemDBUtils::getHelpedChildsItemsCountPages();
     }
-    elseif ($filter == FilterHelper::ALL_ORPHANAGES)
+    elseif ($filter == NeedyFilterHelper::ALL_ORPHANAGES)
     {
-        $needyItems = NeedyItemDBUtils::getAllOrphanagesItems();
+        $needyItems = NeedyItemDBUtils::getAllOrphanagesItems($page);
+        $needyItemsCountPages = NeedyItemDBUtils::getAllOrphanagesItemsCountPages();
     }
 
-    $data = ["needyItems" => $needyItems];
+    $data = ["needyItems" => $needyItems, "needyItemsCountPages" => $needyItemsCountPages, "page" => $page];
     echo TemplateUtils::includeTemplate(get_template_directory() . '/page-templates/needy-item-info-block.php', $data);

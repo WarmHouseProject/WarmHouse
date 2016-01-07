@@ -1,6 +1,7 @@
 <?php
 require_once(ABSPATH . WPINC . '/lib/helper/class-validate-helper.php');
 require_once(ABSPATH . WPINC . '/lib/model/stock/class-stock-priority.php');
+require_once(ABSPATH . WPINC . '/lib/model/stock/class-stock-status.php');
 
 class StockFormValidator
 {
@@ -23,6 +24,7 @@ class StockFormValidator
     {
         return (isset($parameters[Stock::NAME_FIELD]) && ValidateHelper::validateTextField($parameters[Stock::NAME_FIELD], Stock::MIN_NAME_LENGTH, Stock::MAX_NAME_LENGTH)) &&
         (isset($parameters[Stock::DESCRIPTION_FIELD]) && ValidateHelper::validateTextField($parameters[Stock::DESCRIPTION_FIELD], Stock::MIN_DESCRIPTION_LENGTH, Stock::MAX_DESCRIPTION_LENGTH)) &&
+        (isset($parameters[Stock::STATUS_FIELD]) && ValidateHelper::validateSelectField($parameters[Stock::STATUS_FIELD], StockStatus::getStockStatuses())) &&
         (isset($parameters[Stock::PRIORITY_FIELD]) && ValidateHelper::validateNumberField($parameters[Stock::PRIORITY_FIELD], StockPriority::MIN_PRIORITY, StockPriority::MAX_PRIORITY));
     }
 

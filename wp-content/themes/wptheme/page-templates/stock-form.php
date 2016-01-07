@@ -5,9 +5,11 @@ Template Name: Stock Form
 
     require_once(ABSPATH . WPINC . '/lib/model/stock/class-stock.php');
     require_once(ABSPATH . WPINC . '/lib/model/stock/class-stock-priority.php');
+    require_once(ABSPATH . WPINC . '/lib/model/stock/class-stock-status.php');
 
     $avatar        = "";
     $name          = "";
+    $stockStatus   = StockStatus::DEFAULT_STOCK_STATUS;
     $stockPriority = StockPriority::DEFAULT_STOCK_PRIORITY;
     $description   = "";
     $contactInfo   = "";
@@ -17,12 +19,16 @@ Template Name: Stock Form
     {
         $avatar        = "<img src='" . get_site_url() . ImageDBUtils::getImageLinkByImageId($stock->image_id) . "' class='file-preview-image' alt='avatar' title='avatar'>";
         $name          = $stock->name;
+        $stockStatus   = $stock->status;
         $stockPriority = $stock->priority;
         $description   = $stock->description;
         $contactInfo   = $stock->contact_info;
 
         $formRequestUrl = "/edit-stock-controller.php";
     }
+
+    $stockStatusesText = StockStatus::getStockStatusesText();
+    $stockStatuses     = implode(",", StockStatus::getStockStatuses());
 
     get_header();
 ?>
@@ -61,6 +67,17 @@ Template Name: Stock Form
                                 });
                             });
                         </script>
+                        <div class="form-group">
+                            <label for="<?= Stock::STATUS_FIELD ?>">Статус:</label>
+                            <div class="input-block">
+                                <select class="form-control" name="<?= Stock::STATUS_FIELD ?>" id="<?= Stock::STATUS_FIELD ?>">
+                                    <?php foreach ($stockStatusesText as $key => $value):?>
+                                        <option value="<?= $key ?>" <?php if ($key == $stockStatus): ?>selected<?php endif; ?>><?= $value ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <span class="glyphicon form-control-feedback"></span>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="<?= Stock::PRIORITY_FIELD ?>">Приоритет:</label>
                             <div class="input-block">
@@ -108,6 +125,7 @@ Template Name: Stock Form
                         return validateTextField($('#<?= Stock::NAME_FIELD ?>'), <?= Stock::MIN_NAME_LENGTH ?>, <?= Stock::MAX_NAME_LENGTH ?>) &&
                             validateTextField($('#<?= Stock::DESCRIPTION_FIELD ?>'), <?= Stock::MIN_DESCRIPTION_LENGTH ?>, <?= Stock::MAX_DESCRIPTION_LENGTH ?>) &&
                             validateImageUploadingField($('.kv-avatar .file-input')) &&
+                            validateSelectField($('#<?= Stock::STATUS_FIELD ?>'), [<?= $stockStatuses ?>]) &&
                             validateNumberField($('#<?= Stock::PRIORITY_FIELD ?>'), <?= stockPriority::MIN_PRIORITY ?>, <?= stockPriority::MAX_PRIORITY ?>);
                     });
                 });
