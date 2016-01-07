@@ -1586,14 +1586,6 @@ body {
 		font-weight: bold;
 	}
 
-	.current_page_item {
-		background: #337ab7;
-	}
-
-	.current_page_item a {
-		color: #fff;
-	}
-
 	.tabs-list .current_page_item {
 		background: none;
 	}
