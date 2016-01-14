@@ -2,52 +2,11 @@
     padding-top: 30px;
 }
 
-.alert span {
-    margin-right: 5px;
-    box-sizing: border-box;
-    display: inline-block;
-    font-size: 35px;
-    font-style: normal;
-    font-weight: normal;
-    text-align: center;
-    vertical-align: top;
-}
-
-.alert p {
-    display: inline-block;
-}
-
-.mail-form-container {
-    padding: 2px;
-    border: 1px solid #44479A;
-}
-
-.mail-form {
-    padding-top: 11px;
-    padding-bottom: 11px;
-    text-align: center;
-    border: 1px solid #44479A;
-    border-radius: 3px;
-}
-
-.mail-form label {
-    padding-bottom: 5px;
-}
-
-.g-recaptcha {
-    display: inline-block;
-}
-
-.contact-info {
-    margin-top: 30px;
-}
-
 .address-left {
     padding: 1.5em 15px;
-    background: #E1A20C;
+    background: #1A8D8E;
     text-align: center;
     font-size: 100%;
-
     height:100%;
 }
 
@@ -57,6 +16,11 @@
     font-size: 15px;
     margin-left: 1px;
     color: #FFF;
+}
+
+.main-text-info {
+    border: 2px solid #136768;
+    border-radius: 4px;
 }
 
 .address-left span {
@@ -84,7 +48,7 @@
 }
 
 .address-right a:hover {
-    color: black;
+    color: orange;
 }
 
 .address-middle span {
@@ -100,15 +64,65 @@
 }
 
 .full-text-info label {
-    margin-right: 10px;
+    margin-right: 16px;
 }
 
 .full-text-info table {
     margin-top: 5px;
 }
 
+.full-text-info td {
+    vertical-align: bottom;
+}
 
 .map {
     margin-top: 30px;
     padding-bottom: 20px;
+}
+
+.mail-section {
+    text-align: center;
+    background-color: orange;
+}
+
+.alert span {
+    margin-right: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: top;
+}
+
+.alert p {
+    display: inline-block;
+}
+
+.mail-form-container {
+    padding: 2px;
+    margin-bottom: 30px;
+    border-left: 2px solid #136768;
+}
+
+.mail-form {
+    padding-top: 0;
+    padding-bottom: 11px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.mail-form label {
+    padding-bottom: 5px;
+}
+
+.required-field-mark {
+    color: #BA0000;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.g-recaptcha {
+    display: inline-block;
 }

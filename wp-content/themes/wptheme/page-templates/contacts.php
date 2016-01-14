@@ -11,120 +11,122 @@ Template Name: Contacts Form
 ?>
 <div class="contacts-form">
     <div class="container">
-        <div class="mail-form-container">
-            <form class="mail-form" role="form" action="<?= esc_url( home_url( $emailSenderURL ) ); ?>">
-                <div class="col col-md-12">
-                    <div class="alert alert-danger collapse" style="display: none;" id="wrong_email_error_block">
-                        <span class="glyphicon glyphicon-remove"></span>
-                        <p>Введите правильный email адрес</p>
+        <div class="row">
+            <div class="contact-info col-md-7">
+                <div class="text-info">
+                    <div class="main-text-info">
+                        <div class="col-md-12 address-left">
+                            <div class="address-left-content">
+                                <span class="glyphicon glyphicon-map-marker"></span>
+                                <p>Адрес: г. Йошкар-Ола, проспект Ленинский, д. 21, оф. 25</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 address-left address-middle">
+                            <div class="address-middle-content">
+                                <span class="glyphicon glyphicon-earphone" style="color:#000"></span>
+                                <p>Телефон: +7 8362 43 43 19</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 address-left address-right">
+                            <div class="address-right-content">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                                <p>
+                                    E-Mail:
+                                    <script type="text/javascript">//
+                                        // <![CDATA[
+                                        function gtfef(pe){return pe.replace(/[a-zA-Z]/g, function (m){return String.fromCharCode((m <= "Z" ? 210 : 3) >= (m = m.charCodeAt(0) + 41) ? m : m-46);})}document.write ('<a class="mailto"  href="mailto:' + gtfef('CLhmnB.sfijQmiP@PfsijO.Iz') + '">' + gtfef('CLhmnB.sfijQmiP@PfsijO.Iz') + '</a>');//]]>
+                                    </script>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-                    <div class="alert alert-danger collapse" style="display: none;" id="no_email_error_block">
-                        <span class="glyphicon glyphicon-remove"></span>
-                        <p>Введите свой email адрес, чтобы мы смогли вам ответить</p>
-                    </div>
-                    <div class="alert alert-danger collapse" style="display: none;" id="no_message_error_block">
-                        <span class="glyphicon glyphicon-remove"></span>
-                        <p>Введите своё сообщение</p>
-                    </div>
-                    <div class="alert alert-danger collapse" style="display: none;" id="internal_failure_block">
-                        <span class="glyphicon glyphicon-wrench"></span>
-                        <p>Внутренняя ошибка сайта. Не удалось отправить сообщение. Попробуйте отправить своё сообщение через несколько минут.</p>
-                    </div>
-                    <div class="alert alert-success collapse" style="display: none;" id="captcha_check_error_block">
-                        <span class="glyphicon glyphicon-user"></span>
-                        <p>Чтобы завершить отправку сообщения, пожалуйста подтвердите, что вы не робот</p>
-                    </div>
-                    <div class="alert alert-success collapse" style="display: none;" id="success_block">
-                        <span class="glyphicon glyphicon-ok"></span>
-                        <p>Ваше сообщение успешно отправлено</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="col-md-6 form-group">
-                        <label>Ваше имя</label>
-                        <input type="text" class="form-control" name="user_name">
-                    </div>
-                    <div class="col-md-6 form-group">
-                        <label>Ваш e-mail</label>
-                        <input type="text" class="form-control" name="user_email">
-                    </div>
-                </div>
-                <div class="col-md-12 form-group">
-                    <label>Ваше сообщение</label>
-                    <textarea class="form-control" rows="10" name="user_message"></textarea>
-                </div>
-                <div class="clearfix"></div>
-                <script src='https://www.google.com/recaptcha/api.js?render=explicit'></script>
-                <div class="recaptcha-container collapse"></div>
-                <div><button type="submit" class="btn btn-primary btn-send-email">Отправить сообщение</button></div>
-            </form>
-        </div>
-        <div class="contact-info" style="width:100%;">
-            <div class="text-info">
-                <div class="main-text-info">
-                    <div class="col-md-4 address-left">
-                        <div class="address-left-content">
-                            <span class="glyphicon glyphicon-map-marker"></span>
-                            <p>Адрес: г. Йошкар-Ола, проспект Ленинский, д. 21, оф. 25</p>
+                    <div class="full-text-info">
+                        <button class="btn btn-default btn-xs btn-full-info" id="showFullInfoButton">Подробнее</button>
+                        <div class="collapse" id="fullInfo">
+                            <table>
+                                <tr>
+                                    <td><label>Полное наименование: </label></td>
+                                    <td><span>Благотворительный фонд помощи детям "Лучик Надежды"</span></td>
+                                </tr>
+                                <tr>
+                                    <td><label>ИНН: </label></td>
+                                    <td><span>1215192745</span></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Юридический адрес: </label></td>
+                                    <td><span>г. Йошкар-Ола, проспект Ленинский, дом 21</span></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Почтовый адрес: </label></td>
+                                    <td><span>г. Йошкар-Ола, проспект Ленинский, дом 21, офис 25</span></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Контактный телефон: </label></td>
+                                    <td><span>+7 8362 43-43-19</span></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Контактный e-mail: </label></td>
+                                    <td><span><script type="text/javascript">//
+                                            // <![FREAD[
+                                        function gtfef(pe){return pe.replace(/[a-zA-Z]/g, function (m){return String.fromCharCode((m <= "Z" ? 210 : 3) >= (m = m.charCodeAt(0) + 41) ? m : m-46);})}document.write ('<a class="mailto"  href="mailto:' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '">' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '</a>');//]]>
+                                    </script></span></td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
-                    <div class="col-md-4 address-left address-middle">
-                        <div class="address-middle-content">
-                            <span class="glyphicon glyphicon-earphone" style="color:#000"></span>
-                            <p>Телефон: +7 8362 43 43 19</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 address-left address-right">
-                        <div class="address-right-content">
-                            <span class="glyphicon glyphicon-envelope"></span>
-                            <p>
-                                E-Mail:
-                                <script type="text/javascript">//
-                                    // <![CDATA[
-                                    function gtfef(pe){return pe.replace(/[a-zA-Z]/g, function (m){return String.fromCharCode((m <= "Z" ? 210 : 3) >= (m = m.charCodeAt(0) + 41) ? m : m-46);})}document.write ('<a class="mailto"  href="mailto:' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '">' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '</a>');//]]>
-                                </script>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
                 </div>
-                <div class="full-text-info">
-                    <button class="btn btn-default btn-xs btn-full-info" id="showFullInfoButton">Подробнее</button>
-                    <div class="collapse" id="fullInfo">
-                        <table>
-                            <tr>
-                                <td><label>Полное наименование: </label></td>
-                                <td><span>Благотворительный фонд помощи детям "Лучик Надежды"</span></td>
-                            </tr>
-                            <tr>
-                                <td><label>ИНН: </label></td>
-                                <td><span>1215192745</span></td>
-                            </tr>
-                            <tr>
-                                <td><label>Юридический адрес: </label></td>
-                                <td><span>г. Йошкар-Ола, проспект Ленинский, дом 21</span></td>
-                            </tr>
-                            <tr>
-                                <td><label>Почтовый адрес: </label></td>
-                                <td><span>г. Йошкар-Ола, проспект Ленинский, дом 21, офис 25</span></td>
-                            </tr>
-                            <tr>
-                                <td><label>Контактный телефон: </label></td>
-                                <td><span>+7 8362 43-43-19</span></td>
-                            </tr>
-                            <tr>
-                                <td><label>Контактный e-mail: </label></td>
-                                <td><span><script type="text/javascript">//
-                                        // <![FREAD[
-                                    function gtfef(pe){return pe.replace(/[a-zA-Z]/g, function (m){return String.fromCharCode((m <= "Z" ? 210 : 3) >= (m = m.charCodeAt(0) + 41) ? m : m-46);})}document.write ('<a class="mailto"  href="mailto:' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '">' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '</a>');//]]>
-                                </script></span></td>
-                            </tr>
-                        </table>
-                    </div>
+                <div class="map">
+                    <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=AjQJ-SA-CG5M72uIGoWAHliLyCgBm3Y4&width=100%&height=400&lang=ru_RU&sourceType=constructor"></script>
                 </div>
             </div>
-            <div class="map">
-                <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=jvLHUi_7jPxGA7lLGvNI4TqFpFtANSYb&width=100%&height=399&lang=ru_RU&sourceType=constructor"></script>
+            <div class="col-md-offset-1 col-md-4">
+                <div class="mail-form-container">
+                    <form class="mail-form" role="form" action="<?= esc_url( home_url( $emailSenderURL ) ); ?>">
+                        <div class="col col-md-12">
+                            <div class="alert alert-danger collapse" style="display: none;" id="wrong_email_error_block">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                <p>Введите правильный email адрес</p>
+                            </div>
+                            <div class="alert alert-danger collapse" style="display: none;" id="no_email_error_block">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                <p>Введите свой email адрес, чтобы мы смогли вам ответить</p>
+                            </div>
+                            <div class="alert alert-danger collapse" style="display: none;" id="no_message_error_block">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                <p>Введите своё сообщение</p>
+                            </div>
+                            <div class="alert alert-danger collapse" style="display: none;" id="internal_failure_block">
+                                <span class="glyphicon glyphicon-wrench"></span>
+                                <p>Внутренняя ошибка сайта. Не удалось отправить сообщение. Попробуйте отправить своё сообщение через несколько минут.</p>
+                            </div>
+                            <div class="alert alert-success collapse" style="display: none;" id="captcha_check_error_block">
+                                <span class="glyphicon glyphicon-user"></span>
+                                <p>Чтобы завершить отправку сообщения, пожалуйста, подтвердите, что вы не робот</p>
+                            </div>
+                            <div class="alert alert-success collapse" style="display: none;" id="success_block">
+                                <span class="glyphicon glyphicon-ok"></span>
+                                <p>Ваше сообщение успешно отправлено</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>Ваше имя</label>
+                            <input type="text" class="form-control" name="user_name">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>Ваш e-mail</label><span class="required-field-mark"> *</span>
+                            <input type="text" class="form-control" name="user_email">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>Ваше сообщение</label><span class="required-field-mark"> *</span>
+                            <textarea class="form-control" rows="10" name="user_message"></textarea>
+                        </div>
+                        <div class="clearfix"></div>
+                        <script src='https://www.google.com/recaptcha/api.js?render=explicit'></script>
+                        <div class="recaptcha-container collapse"></div>
+                        <div><button type="submit" class="btn btn-primary btn-send-email">Отправить сообщение</button></div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -224,7 +226,7 @@ Template Name: Contacts Form
         {
             invalidateSendMessageErrorPanel();
             invalidateCaptchaPanel();
-            invalidateContactInfoPanel();
+            //invalidateContactInfoPanel();
         }
 
         function invalidateSendMessageErrorPanel()
