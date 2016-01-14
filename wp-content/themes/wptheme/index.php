@@ -107,7 +107,7 @@ get_header();
         </div>
         <div class="col-md-6">
             <div class="map">
-                <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=jvLHUi_7jPxGA7lLGvNI4TqFpFtANSYb&width=100%&height=399&lang=ru_RU&sourceType=constructor"></script>
+                <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=AjQJ-SA-CG5M72uIGoWAHliLyCgBm3Y4&width=100%&height=400&lang=ru_RU&sourceType=constructor"></script>
             </div>
         </div>
         <div class="clearfix"></div>
