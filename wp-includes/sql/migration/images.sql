@@ -1,0 +1,1 @@
+ALTER TABLE `wp_image` ADD COLUMN `original_image_link` varchar(255) NOT NULL;

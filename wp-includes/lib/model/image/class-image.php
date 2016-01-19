@@ -4,6 +4,7 @@ class Image
 {
     const ID_FIELD   = "image_id";
     const LINK_FIELD = "link";
+    const ORIGINAL_IMAGE_LINK_FIELD = "original_image_link";
 
     const DB_TABLE_NAME = "wp_image";
 

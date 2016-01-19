@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS `wp_image`;
 CREATE TABLE `wp_image` (
   `image_id` int(11) NOT NULL AUTO_INCREMENT,
   `link` varchar(255) NOT NULL,
+  `original_image_link` varchar(255) NOT NULL,
   PRIMARY KEY (`image_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
