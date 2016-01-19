@@ -2,6 +2,7 @@
 
     require_once(ABSPATH . WPINC . '/lib/model/image/class-image.php');
     require_once(ABSPATH . WPINC . '/lib/utils/db/class-image-db-utils.php');
+    require_once(ABSPATH . 'wp-admin/includes/file.php');
 
     class ImageUtils
     {
@@ -60,6 +61,9 @@
             $image = ImageDBUtils::createImage($fileInfo->getExtension());
             if ($image && move_uploaded_file($tmpName, ABSPATH . $image->link))
             {
+                WP_Filesystem();
+                global $wp_filesystem;
+                $wp_filesystem->copy(ABSPATH . $image->link, ABSPATH . $image->original_image_link, true, FS_CHMOD_FILE);
                 self::resizeAvatarImage(ABSPATH . $image->link);
                 $result = $image;
             }
@@ -69,7 +73,9 @@
         static function deleteImageById($imageId)
         {
             $imageLink = ImageDBUtils::getImageLinkByImageId($imageId);
+            $originalImageLink = ImageDBUtils::getOriginalImageLinkByImageId($imageId);
             ImageDBUtils::deleteImageById($imageId);
             @unlink(ABSPATH . $imageLink);
+            @unlink(ABSPATH . $originalImageLink);
         }
     }
