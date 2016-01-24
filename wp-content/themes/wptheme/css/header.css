@@ -51,7 +51,7 @@
 
 .header .header_block .logo
 {
-    padding: 7PX 0;
+    padding: 7px 0;
     width: 59px;
 }
 
@@ -97,6 +97,11 @@
     .header .header_block .main_link
     {
         margin-left: 40px;
+    }
+
+    .header .header_block .top-menu ul li a
+    {
+        padding: 30px 29px;
     }
 }
 
@@ -202,6 +207,11 @@
     .header .container {
         width: 800px;
     }
+
+    .header .header_block .top-menu ul li a
+    {
+        padding: 30px 16px;
+    }
 }
 
 @media (min-width: 992px) {
@@ -213,6 +223,11 @@
     {
         font-size: 42px;
     }
+
+    .header .header_block .top-menu ul li a
+    {
+        padding: 30px 29px;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -223,5 +238,10 @@
     .banner_block h1.head
     {
         font-size: 50px;
+    }
+
+    .header .header_block .top-menu ul li a
+    {
+        padding: 30px 40px;
     }
 }
