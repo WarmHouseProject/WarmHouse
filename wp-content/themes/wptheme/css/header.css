@@ -223,6 +223,11 @@
     {
         font-size: 42px;
     }
+
+    .header .header_block .top-menu ul li a
+    {
+        padding: 30px 29px;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -233,5 +238,10 @@
     .banner_block h1.head
     {
         font-size: 50px;
+    }
+
+    .header .header_block .top-menu ul li a
+    {
+        padding: 30px 40px;
     }
 }
