@@ -12,7 +12,7 @@
 <div class="footer">
 	<div class="container">
 		<div class="col-md-12 footer-text">
-			<p>© Благотвирительный фонд помощи детям <span>«Лучик Надежды»</span></p>
+			<p>© Благотворительный фонд помощи детям <span>«Лучик Надежды»</span></p>
 		</div>
 		<div class="clearfix"></div>
 	</div>
