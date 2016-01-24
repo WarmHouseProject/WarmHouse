@@ -205,3 +205,44 @@
 {
     margin-top: 0;
 }
+
+#element_to_pop_up
+{
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 25px 5px #999;
+    color: #111;
+    display: none;
+    min-width: 450px;
+    padding: 25px;
+}
+
+#element_to_pop_up .content
+{
+    font-size: 1.2em;
+    color: #738899;
+    line-height: 2em;
+    text-align: justify;
+}
+
+.button.b-close
+{
+    border-radius: 7px 7px 7px 7px;
+    box-shadow: none;
+    font: bold 131% sans-serif;
+    padding: 0 6px 2px;
+    position: absolute;
+    right: -7px;
+    top: -7px;
+    background-color: #136768;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button.b-close:hover
+{
+    background-color: #69AFAF;
+}

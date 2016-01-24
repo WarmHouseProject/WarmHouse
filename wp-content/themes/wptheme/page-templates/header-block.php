@@ -35,6 +35,7 @@
     <link href="<?php echo get_template_directory_uri(); ?>/css/style.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/header.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/about.css" rel='stylesheet' type='text/css' />
+    <link href="<?php echo get_template_directory_uri(); ?>/css/projects.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/fileinput.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/stocks-page.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo get_template_directory_uri(); ?>/css/childs-list.css" rel='stylesheet' type='text/css' />
@@ -47,6 +48,7 @@
     <?php wp_head(); ?>
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/move-top.js"></script>
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/easing.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.bpopup.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
