@@ -13,3 +13,8 @@
 {
     margin-bottom: 20px;
 }
+
+#element_to_pop_up .content
+{
+    max-width: 600px;
+}
