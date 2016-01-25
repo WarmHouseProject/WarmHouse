@@ -42,38 +42,67 @@ Template Name: Contacts Form
                         <div class="clearfix"></div>
                     </div>
                     <div class="full-text-info">
-                        <button class="btn btn-default btn-xs btn-full-info" id="showFullInfoButton">Подробнее</button>
-                        <div class="collapse" id="fullInfo">
-                            <table>
-                                <tr>
-                                    <td><label>Полное наименование: </label></td>
-                                    <td><span>Благотворительный фонд помощи детям "Лучик Надежды"</span></td>
-                                </tr>
-                                <tr>
-                                    <td><label>ИНН: </label></td>
-                                    <td><span>1215192745</span></td>
-                                </tr>
-                                <tr>
-                                    <td><label>Юридический адрес: </label></td>
-                                    <td><span>г. Йошкар-Ола, проспект Ленинский, дом 21</span></td>
-                                </tr>
-                                <tr>
-                                    <td><label>Почтовый адрес: </label></td>
-                                    <td><span>г. Йошкар-Ола, проспект Ленинский, дом 21, офис 25</span></td>
-                                </tr>
-                                <tr>
-                                    <td><label>Контактный телефон: </label></td>
-                                    <td><span>+7 8362 43-43-19</span></td>
-                                </tr>
-                                <tr>
-                                    <td><label>Контактный e-mail: </label></td>
-                                    <td><span><script type="text/javascript">//
-                                            // <![FREAD[
-                                        function gtfef(pe){return pe.replace(/[a-zA-Z]/g, function (m){return String.fromCharCode((m <= "Z" ? 210 : 3) >= (m = m.charCodeAt(0) + 41) ? m : m-46);})}document.write ('<a class="mailto"  href="mailto:' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '">' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '</a>');//]]>
-                                    </script></span></td>
-                                </tr>
-                            </table>
-                        </div>
+                        <h2>Контактная информация</h2>
+                        <table>
+                            <tr>
+                                <td><label>Полное наименование: </label></td>
+                                <td><span>Благотворительный фонд помощи детям "Лучик Надежды"</span></td>
+                            </tr>
+                            <tr>
+                                <td><label>ИНН: </label></td>
+                                <td><span>1215192745</span></td>
+                            </tr>
+                            <tr>
+                                <td><label>Юридический адрес: </label></td>
+                                <td><span>г. Йошкар-Ола, проспект Ленинский, дом 21</span></td>
+                            </tr>
+                            <tr>
+                                <td><label>Почтовый адрес: </label></td>
+                                <td><span>г. Йошкар-Ола, проспект Ленинский, дом 21, офис 25</span></td>
+                            </tr>
+                            <tr>
+                                <td><label>Контактный телефон: </label></td>
+                                <td><span>+7 8362 43-43-19</span></td>
+                            </tr>
+                            <tr>
+                                <td><label>Контактный e-mail: </label></td>
+                                <td><span><script type="text/javascript">//
+                                            // <![CDATA[
+                                            function gtfef(pe){return pe.replace(/[a-zA-Z]/g, function (m){return String.fromCharCode((m <= "Z" ? 210 : 3) >= (m = m.charCodeAt(0) + 41) ? m : m-46);})}document.write ('<a class="mailto"  href="mailto:' + gtfef('CLhmnB.sfijQmiP@PfsijO.Iz') + '">' + gtfef('CLhmnB.sfijQmiP@PfsijO.Iz') + '</a>');//]]>
+                                </script></span></td>
+                            </tr>
+                        </table>
+                        <h2>Банковские реквизиты</h2>
+                        <table>
+                            <tr>
+                                <td><label>Наименование банка: </label></td>
+                                <td><span>ПАО «Норвик Банк»</span></td>
+                            </tr>
+                            <tr>
+                                <td><label>р/счет: </label></td>
+                                <td><span>40703 810 8 0056 0146 114</span></td>
+                            </tr>
+                            <tr>
+                                <td><label>БИК: </label></td>
+                                <td><span>043304728</span></td>
+                            </tr>
+                            <tr>
+                                <td><label>ИНН: </label></td>
+                                <td><span>4346001485</span></td>
+                            </tr>
+                            <tr>
+                                <td><label>КПП: </label></td>
+                                <td><span>434501001</span></td>
+                            </tr>
+                            <tr>
+                                <td><label>К/счет: </label></td>
+                                <td><span>30101 810 3 0000 0000 728</span></td>
+                            </tr>
+                            <tr>
+                                <td><label>ОГРН: </label></td>
+                                <td><span>1024300004739</span></td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
                 <div class="map">
@@ -84,6 +113,7 @@ Template Name: Contacts Form
                 <div class="mail-form-container">
                     <form class="mail-form" role="form" action="<?= esc_url( home_url( $emailSenderURL ) ); ?>">
                         <div class="col col-md-12">
+                            <h2>Если у вас есть вопросы</h2>
                             <div class="alert alert-danger collapse" style="display: none;" id="wrong_email_error_block">
                                 <span class="glyphicon glyphicon-remove"></span>
                                 <p>Введите правильный email адрес</p>
@@ -130,13 +160,6 @@ Template Name: Contacts Form
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function($) {
-            $('#showFullInfoButton').click(function(){
-                $('#fullInfo').slideToggle("slow");
-            });
-        });
-    </script>
     <script>
         $(document).ready(registerSubmitHandler());
         function registerSubmitHandler()

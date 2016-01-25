@@ -113,8 +113,16 @@
     border-radius: 3px;
 }
 
+.mail-form h2 {
+    margin-top: 0;
+}
+
 .mail-form label {
     padding-bottom: 5px;
+}
+
+.mail-form textarea {
+    resize: none;
 }
 
 .required-field-mark {
