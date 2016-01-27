@@ -97,7 +97,7 @@ get_header();
                     Электронная почта:
                     <script type="text/javascript">//
                         // <![CDATA[
-                        function gtfef(pe){return pe.replace(/[a-zA-Z]/g, function (m){return String.fromCharCode((m <= "Z" ? 210 : 3) >= (m = m.charCodeAt(0) + 41) ? m : m-46);})}document.write ('<a class="mailto"  href="mailto:' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '">' + gtfef('nEkt@CLhmnBsfijQmiP.Iz') + '</a>');//]]>
+                        function gtfef(pe){return pe.replace(/[a-zA-Z]/g, function (m){return String.fromCharCode((m <= "Z" ? 210 : 3) >= (m = m.charCodeAt(0) + 41) ? m : m-46);})}document.write ('<a class="mailto"  href="mailto:' + gtfef('CLhmnB.sfijQmiP@PfsijO.Iz') + '">' + gtfef('CLhmnB.sfijQmiP@PfsijO.Iz') + '</a>');//]]>
                     </script>
                 </div>
             </div>
