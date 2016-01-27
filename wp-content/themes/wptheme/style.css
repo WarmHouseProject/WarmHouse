@@ -1831,3 +1831,8 @@ body {
 		margin-left: 3.57142857rem;
 	}
 }
+
+.entry-content .leyka-tpl-toggles #leyka-payment-form input[type="checkbox"] {
+	margin-right: 4px;
+	position: relative;
+}

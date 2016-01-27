@@ -2764,3 +2764,8 @@ h1.entry-title {
 	width: 350px;
 	margin: 0 auto;
 }
+
+.entry-content .leyka-tpl-toggles #leyka-payment-form input[type="checkbox"] {
+	margin-right: 4px;
+	position: relative;
+}

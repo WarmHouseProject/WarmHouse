@@ -25,7 +25,7 @@
 // Set up the content width value based on the theme's design and stylesheet.
 if ( ! isset( $content_width ) )
 	$content_width = 625;
-
+add_filter('login_errors',create_function('$a', "return null;"));
 /**
  * Twenty Twelve setup.
  *

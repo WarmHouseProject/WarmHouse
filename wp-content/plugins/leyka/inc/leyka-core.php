@@ -62,7 +62,7 @@ class Leyka {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_styles')); // wp_footer
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts')); // wp_footer
 
-        add_action('init', array($this, 'register_post_types'), 1);
+        add_action('init', array($this, 'register_post_types'), 1)  ;
 
         add_action('init', array($this, 'register_user_capabilities'), 1);
 
