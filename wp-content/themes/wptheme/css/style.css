@@ -947,8 +947,7 @@ a.tooltips2 span:before {
     text-align: left;
 }
 .s-btm h4{
-	overflow: hidden;
-	text-overflow: ellipsis;
+	word-break: break-all;
 	font-size:21px;
     margin: 0;
 	margin-bottom: 20px;

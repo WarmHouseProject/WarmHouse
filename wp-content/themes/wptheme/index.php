@@ -39,7 +39,7 @@ get_header();
                 <div class="clearfix"></div>
             <?php else:?>
                 <div class="services-top heading">
-                    <h2 id="helpTitle">Кто нуждается в помощи</h2>
+                    <h2 id="helpTitle">Нуждаются в помощи</h2>
                 </div>
             <?php endif; ?>
         </div>
@@ -121,19 +121,19 @@ get_header();
         var currentFilter = <?= NeedyFilterHelper::ALL ?>;
 
         $('#allNeedy').click(function(){
-            changeFilter(<?= NeedyFilterHelper::ALL ?>, 'Кто нуждается в помощи');
+            changeFilter(<?= NeedyFilterHelper::ALL ?>, 'Нуждаются в помощи');
         });
         $('#allChilds').click(function(){
-            changeFilter(<?= NeedyFilterHelper::ALL_CHILDS ?>, 'Кто нуждается в помощи');
+            changeFilter(<?= NeedyFilterHelper::ALL_CHILDS ?>, 'Нуждаются в помощи');
         });
         $('#urgentlyNeedHelpChilds').click(function(){
             changeFilter(<?= NeedyFilterHelper::URGENTLY_NEED_HELP_CHILDS ?>, 'Срочно нужна помощь');
         });
         $('#needHelpChilds').click(function(){
-            changeFilter(<?= NeedyFilterHelper::NEED_HELP_CHILDS ?>, 'Кто нуждается в помощи');
+            changeFilter(<?= NeedyFilterHelper::NEED_HELP_CHILDS ?>, 'Нуждаются в помощи');
         });
         $('#helpedChilds').click(function(){
-            changeFilter(<?= NeedyFilterHelper::HELPED_CHILDS ?>, 'Кому Вы помогли');
+            changeFilter(<?= NeedyFilterHelper::HELPED_CHILDS ?>, 'Вы им помогли');
         });
         $('#allOrphanages').click(function(){
             changeFilter(<?= NeedyFilterHelper::ALL_ORPHANAGES ?>, 'Детские дома');
