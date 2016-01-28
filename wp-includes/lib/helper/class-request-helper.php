@@ -7,12 +7,34 @@ class RequestHelper
 {
     static function getParameter($parameterName)
     {
+        self::stripsParameters();
         $parameter = isset($_GET[$parameterName]) ? $_GET[$parameterName] : null;
         if (!$parameter)
         {
             $parameter = isset($_POST[$parameterName]) ? $_POST[$parameterName] : null;
         }
         return $parameter;
+    }
+
+    static function stripsParameters()
+    {
+        self::strips($_POST);
+        self::strips($_GET);
+    }
+
+    static function strips(&$parameter)
+    {
+        if (is_array($parameter))
+        {
+            foreach($parameter as $k => $v)
+            {
+                $parameter[$k] = stripslashes($parameter[$k]);
+            }
+        }
+        else
+        {
+            $parameter = stripslashes($parameter);
+        }
     }
 
     static function getFile($parameterName)
