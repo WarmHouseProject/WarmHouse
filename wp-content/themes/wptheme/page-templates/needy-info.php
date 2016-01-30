@@ -52,7 +52,10 @@ get_header(); ?>
                     </div>
                     <form class="inner-container heading" action="/campaign/donate  " method="post">
                         <div class="well short-description"><?= $child->short_description ?></div>
-                        <div class="well well-sm contact-info"><?= $child->contact_info ?></div>
+                        <?php if ($child->purpose): ?>
+                          <div class="well purpose"><?= "Нужно: " . $child->purpose ?></div>
+                        <?php endif; ?>
+                        <div class="well contact-info"><?= $child->contact_info ?></div>
                         <input type="hidden" name="<?= $donateHiddenId ?>" value="<?= $needyId; ?>">
                         <?php if (!isset($child->status ) || $child->status != NeedyStatus::HELPED): ?>
                             <button type="submit" class="btn btn-success donate">Пожертвовать</button>

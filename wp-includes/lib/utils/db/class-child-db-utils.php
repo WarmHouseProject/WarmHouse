@@ -13,14 +13,16 @@ class ChildDBUtils
                                                     Child::NAME_FIELD . ", " .
                                                     Child::SHORT_DESCRIPTION_FIELD . ", " .
                                                     Child::LONG_DESCRIPTION_FIELD . ", " .
+                                                    Child::PURPOSE_FIELD . ", " .
                                                     Child::CONTACT_INFO_FIELD . ", " .
                                                     Child::STATUS_FIELD . ", " .
                                                     Child::PRIORITY_FIELD . ", " .
                                                     Child::IMAGE_FIELD .
-                                             ") VALUES (%s, %s, %s, %s, %d, %d, %d)",
+                                             ") VALUES (%s, %s, %s, %s, %s, %d, %d, %d)",
                                                     $userInfo[Child::NAME_FIELD],
                                                     $userInfo[Child::SHORT_DESCRIPTION_FIELD],
                                                     $userInfo[Child::LONG_DESCRIPTION_FIELD],
+                                                    $userInfo[Child::PURPOSE_FIELD],
                                                     $userInfo[Child::CONTACT_INFO_FIELD],
                                                     $userInfo[Child::STATUS_FIELD],
                                                     $userInfo[Child::PRIORITY_FIELD],
@@ -35,6 +37,7 @@ class ChildDBUtils
             Child::NAME_FIELD . " = %s, " .
             Child::SHORT_DESCRIPTION_FIELD . " = %s, " .
             Child::LONG_DESCRIPTION_FIELD . " = %s, " .
+            Child::PURPOSE_FIELD . " = %s, " .
             Child::CONTACT_INFO_FIELD . " = %s, " .
             Child::STATUS_FIELD . " = %d, " .
             Child::PRIORITY_FIELD . " = %d, " .
@@ -43,6 +46,7 @@ class ChildDBUtils
             $userInfo[Child::NAME_FIELD],
             $userInfo[Child::SHORT_DESCRIPTION_FIELD],
             $userInfo[Child::LONG_DESCRIPTION_FIELD],
+            $userInfo[Child::PURPOSE_FIELD],
             $userInfo[Child::CONTACT_INFO_FIELD],
             $userInfo[Child::STATUS_FIELD],
             $userInfo[Child::PRIORITY_FIELD],

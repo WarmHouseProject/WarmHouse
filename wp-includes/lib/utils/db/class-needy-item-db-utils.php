@@ -25,6 +25,7 @@ class NeedyItemDBUtils
                      Child::NAME_FIELD . " as " . NeedyItem::NAME_FIELD . "," .
                      Child::SHORT_DESCRIPTION_FIELD . " as " . NeedyItem::SHORT_DESCRIPTION_FIELD . "," .
                      Child::LONG_DESCRIPTION_FIELD . " as " . NeedyItem::LONG_DESCRIPTION_FIELD . "," .
+                     Child::PURPOSE_FIELD . " as " . NeedyItem::PURPOSE_FIELD . "," .
                      Child::CONTACT_INFO_FIELD . " as " . NeedyItem::CONTACT_INFO_FIELD . "," .
                      Child::STATUS_FIELD . " as " . NeedyItem::STATUS_FIELD . "," .
                      Child::PRIORITY_FIELD . " as " . NeedyItem::PRIORITY_FIELD . "," .
@@ -39,6 +40,7 @@ class NeedyItemDBUtils
                      Orphanage::NAME_FIELD . " as " . NeedyItem::NAME_FIELD . "," .
                      Orphanage::SHORT_DESCRIPTION_FIELD . " as " . NeedyItem::SHORT_DESCRIPTION_FIELD . "," .
                      Orphanage::LONG_DESCRIPTION_FIELD . " as " . NeedyItem::LONG_DESCRIPTION_FIELD . "," .
+                     Orphanage::PURPOSE_FIELD . " as " . NeedyItem::PURPOSE_FIELD . "," .
                      Orphanage::CONTACT_INFO_FIELD . " as " . NeedyItem::CONTACT_INFO_FIELD . "," .
                      NeedyStatus::DEFAULT_NEEDY_STATUS . " as " . NeedyItem::STATUS_FIELD . "," .
                      Orphanage::PRIORITY_FIELD . " as " . NeedyItem::PRIORITY_FIELD . "," .
@@ -85,6 +87,7 @@ class NeedyItemDBUtils
                 Child::NAME_FIELD . " as " . NeedyItem::NAME_FIELD . "," .
                 Child::SHORT_DESCRIPTION_FIELD . " as " . NeedyItem::SHORT_DESCRIPTION_FIELD . "," .
                 Child::LONG_DESCRIPTION_FIELD . " as " . NeedyItem::LONG_DESCRIPTION_FIELD . "," .
+                Child::PURPOSE_FIELD . " as " . NeedyItem::PURPOSE_FIELD . "," .
                 Child::CONTACT_INFO_FIELD . " as " . NeedyItem::CONTACT_INFO_FIELD . "," .
                 Child::STATUS_FIELD . " as " . NeedyItem::STATUS_FIELD . "," .
                 Child::PRIORITY_FIELD . " as " . NeedyItem::PRIORITY_FIELD . "," .
@@ -149,6 +152,7 @@ class NeedyItemDBUtils
                 Child::NAME_FIELD . " as " . NeedyItem::NAME_FIELD . "," .
                 Child::SHORT_DESCRIPTION_FIELD . " as " . NeedyItem::SHORT_DESCRIPTION_FIELD . "," .
                 Child::LONG_DESCRIPTION_FIELD . " as " . NeedyItem::LONG_DESCRIPTION_FIELD . "," .
+                Child::PURPOSE_FIELD . " as " . NeedyItem::PURPOSE_FIELD . "," .
                 Child::CONTACT_INFO_FIELD . " as " . NeedyItem::CONTACT_INFO_FIELD . "," .
                 Child::STATUS_FIELD . " as " . NeedyItem::STATUS_FIELD . "," .
                 Child::PRIORITY_FIELD . " as " . NeedyItem::PRIORITY_FIELD . "," .
@@ -179,6 +183,7 @@ class NeedyItemDBUtils
                 Orphanage::NAME_FIELD . " as " . NeedyItem::NAME_FIELD . "," .
                 Orphanage::SHORT_DESCRIPTION_FIELD . " as " . NeedyItem::SHORT_DESCRIPTION_FIELD . "," .
                 Orphanage::LONG_DESCRIPTION_FIELD . " as " . NeedyItem::LONG_DESCRIPTION_FIELD . "," .
+                Orphanage::PURPOSE_FIELD . " as " . NeedyItem::PURPOSE_FIELD . "," .
                 Orphanage::CONTACT_INFO_FIELD . " as " . NeedyItem::CONTACT_INFO_FIELD . "," .
                 NeedyStatus::DEFAULT_NEEDY_STATUS . " as " . NeedyItem::STATUS_FIELD . "," .
                 Orphanage::PRIORITY_FIELD . " as " . NeedyItem::PRIORITY_FIELD . "," .

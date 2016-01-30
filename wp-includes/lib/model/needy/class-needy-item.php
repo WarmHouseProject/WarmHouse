@@ -7,6 +7,7 @@ class NeedyItem
     const NAME_FIELD              = "name";
     const SHORT_DESCRIPTION_FIELD = "short_description";
     const LONG_DESCRIPTION_FIELD  = "long_description";
+    const PURPOSE_FIELD           = "purpose";
     const CONTACT_INFO_FIELD      = "contact_info";
     const STATUS_FIELD            = "status";
     const PRIORITY_FIELD          = "priority";
@@ -21,6 +22,8 @@ class NeedyItem
     const MAX_SHORT_DESCRIPTION_LENGTH = -1;
     const MIN_LONG_DESCRIPTION_LENGTH  = 30;
     const MAX_LONG_DESCRIPTION_LENGTH  = -1;
+    const MIN_PURPOSE_LENGTH           = 0;
+    const MAX_PURPOSE_LENGTH           = 64;
     const MAX_CONTACT_LENGTH           = 255;
     const MIN_CONTACT_LENGTH           = 5;
 }
