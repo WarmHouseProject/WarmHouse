@@ -18,7 +18,7 @@
     height: 2px;
     width: 100px;
     background-color: #6FBCBD;
-    margin-bottom: 20px;
+    margin-bottom: 13px;
 }
 
 .s-btm.urgently-need-help .underline
@@ -37,7 +37,7 @@
         margin: auto;
     }
 
-    .col-md-3.services-left {
+    .col-md-3.services-left .needy-item {
         margin-bottom: 40px;
     }
 }
@@ -51,7 +51,7 @@
         width: 100%;
     }
 
-    .col-md-3.services-left {
+    .col-md-3.services-left .needy-item {
         margin-bottom: 35px;
     }
 }
@@ -61,7 +61,7 @@
         width: 90px;
     }
 
-    .col-md-3.services-left {
+    .col-md-3.services-left .needy-item {
         margin-bottom: 30px;
     }
 }
@@ -71,7 +71,7 @@
         width: 80px;
     }
 
-    .col-md-3.services-left {
+    .col-md-3.services-left .needy-item {
         margin-bottom: 25px;
     }
 }
@@ -81,7 +81,7 @@
         width: 70px;
     }
 
-    .col-md-3.services-left {
+    .col-md-3.services-left .needy-item {
         margin-bottom: 20px;
     }
 }

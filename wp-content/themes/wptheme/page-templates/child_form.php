@@ -13,6 +13,7 @@ Template Name: Child Form
     $childPriority    = ChildPriority::DEFAULT_PRIORITY;
     $shortDescription = "";
     $longDescription  = "";
+    $purpose          = "";
     $contactInfo      = "";
 
     $formRequestUrl = "/child-form-controller.php";
@@ -25,6 +26,7 @@ Template Name: Child Form
         $shortDescription = $child->short_description;
         $longDescription  = $child->long_description;
         $contactInfo      = $child->contact_info;
+        $purpose          = $child->purpose;
 
         $formRequestUrl = "/edit-child-controller.php";
     }
@@ -114,6 +116,14 @@ Template Name: Child Form
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="<?= Child::PURPOSE_FIELD ?>">Нужно:</label>
+                        <div class="input-block">
+                            <input type="text" name="<?= Child::PURPOSE_FIELD ?>" maxlength="<?= Child::MAX_PURPOSE_LENGTH ?>" class="form-control" id="<?= Child::PURPOSE_FIELD ?>" value="<?= $purpose ?>">
+                            <span class="glyphicon form-control-feedback"></span>
+                            <span class="error-message">допустимая длина текста от <?= Child::MIN_PURPOSE_LENGTH ?> до <?= Child::MAX_PURPOSE_LENGTH ?></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="<?= Child::CONTACT_INFO_FIELD ?>">Контактные данные:</label>
                         <div class="input-block">
                             <input type="text" name="<?= Child::CONTACT_INFO_FIELD ?>" maxlength="<?= Child::MAX_CONTACT_LENGTH ?>" class="form-control" id="<?= Child::CONTACT_INFO_FIELD ?>" value="<?= $contactInfo ?>">
@@ -143,6 +153,7 @@ Template Name: Child Form
                     return validateTextField($('#<?= Child::NAME_FIELD ?>'), <?= Child::MIN_NAME_LENGTH ?>, <?= Child::MAX_NAME_LENGTH ?>) &&
                            validateTextField($('#<?= Child::SHORT_DESCRIPTION_FIELD ?>'), <?= Child::MIN_SHORT_DESCRIPTION_LENGTH ?>, <?= Child::MAX_SHORT_DESCRIPTION_LENGTH ?>) &&
                            validateTextField($('#<?= Child::LONG_DESCRIPTION_FIELD ?>'), <?= Child::MIN_LONG_DESCRIPTION_LENGTH ?>, <?= Child::MAX_LONG_DESCRIPTION_LENGTH ?>) &&
+                           validateTextField($('#<?= Child::PURPOSE_FIELD ?>'), <?= Child::MIN_PURPOSE_LENGTH ?>, <?= Child::MAX_PURPOSE_LENGTH ?>) &&
                            validateTextField($('#<?= Child::CONTACT_INFO_FIELD ?>'), <?= Child::MIN_CONTACT_LENGTH ?>, <?= Child::MAX_CONTACT_LENGTH ?>) &&
                            validateImageUploadingField($('.kv-avatar .file-input')) &&
                            validateSelectField($('#<?= Child::STATUS_FIELD ?>'), [<?= $childStatuses ?>]) &&

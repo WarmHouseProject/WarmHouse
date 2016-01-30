@@ -190,7 +190,7 @@ body a:hover{
 	display:inline-block;
 }
 
-.col-md-3.services-left {
+.col-md-3.services-left .needy-item {
 	margin-bottom: 45px;
 }
 
@@ -947,7 +947,7 @@ a.tooltips2 span:before {
     text-align: left;
 }
 .s-btm h4{
-	word-break: break-all;
+	word-wrap: break-word;
 	font-size:21px;
     margin: 0;
 	margin-bottom: 20px;
@@ -955,13 +955,20 @@ a.tooltips2 span:before {
     color: #3d464a;
 }
 .s-btm p{
-	height: 80px;
 	word-wrap: break-word;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	font-size:16px;
 	line-height:1.8em;
+}
+.s-btm p.short-info{
+	font-size:15px;
 	color: #738899;
+	margin-bottom: 15px;
+}
+.s-btm p.purpose span{
+	color: #444;
+}
+.s-btm p.purpose{
+	font-size:16px;
+	color: #BA3522;
 }
 .services-two{
 	margin-top:3%;
@@ -1444,8 +1451,11 @@ h5.best {
     font-size: 19px;
 	margin-bottom: 17px;
 }
-.s-btm p {
-    font-size: 15px;
+.s-btm p.short-info {
+    font-size: 14px;
+}
+.s-btm p.purpose{
+	font-size:15px;
 }
 .services-two {
     margin-top: 2%;
@@ -1698,8 +1708,11 @@ a.tooltips2 span:before {
     font-size: 12px;
     padding: 5px 17px;
 }
-.s-btm p {
-    font-size: 14px;
+.s-btm p.short-info {
+    font-size: 13px;
+}
+.s-btm p.purpose{
+	font-size:14px;
 }
 h5.best {
     font-size: 1.4em;
@@ -2698,8 +2711,11 @@ h4.head {
     font-size: 17px;
 	margin-bottom: 13px;
 }
-.s-btm p {
-    font-size: 13px;
+.s-btm p.short-info {
+    font-size: 12px;
+}
+.s-btm p.purpose{
+	font-size:13px;
 }
 .flex-in h4 {
     font-size: 1.1em;

@@ -50,6 +50,7 @@ class RequestHelper
         $childInfo[Child::NAME_FIELD]              = self::getParameter(Child::NAME_FIELD);
         $childInfo[Child::SHORT_DESCRIPTION_FIELD] = self::getParameter(Child::SHORT_DESCRIPTION_FIELD);
         $childInfo[Child::LONG_DESCRIPTION_FIELD]  = self::getParameter(Child::LONG_DESCRIPTION_FIELD);
+        $childInfo[Child::PURPOSE_FIELD]           = self::getParameter(Child::PURPOSE_FIELD);
         $childInfo[Child::CONTACT_INFO_FIELD]      = self::getParameter(Child::CONTACT_INFO_FIELD);
         $childInfo[Child::STATUS_FIELD]            = self::getParameter(Child::STATUS_FIELD);
         $childInfo[Child::PRIORITY_FIELD]          = self::getParameter(Child::PRIORITY_FIELD);
