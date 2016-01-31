@@ -23,13 +23,15 @@
                         </a>
                     </div>
                 </div>
-                <form class="s-btm <?php if (NeedyItemUtils::isItemSupportStatus($needyItem)): ?><?= NeedyStatus::getNeedyClassByStatuses($needyItem->status); ?><?php endif; ?>" action="/campaign/donate  " method="post">
+                <form class="s-btm <?php if (NeedyItemUtils::isItemSupportStatus($needyItem)): ?><?= NeedyStatus::getNeedyClassByStatuses($needyItem->status); ?><?php endif; ?>" action="/campaign/donate" method="post">
                     <h4><?= $needyItem->name ?></h4>
                     <div class="underline"></div>
                     <p class="short-info"><?= $needyItem->short_description ?></p>
                     <?php if ($needyItem->purpose): ?>
                       <p class="purpose"><span>Нужно: </span><?= $needyItem->purpose ?></p>
                     <?php endif; ?>
+                    <input type="hidden" name="needy_type" value="<?= $needyItem->needy_type; ?>">
+                    <input type="hidden" name="needy_id" value="<?= $needyItem->needy_id; ?>">
                     <button style="width:100%;" type="submit" class="btn btn-primary btn-send-email">Пожертвовать</button>
                 </form>
             </div>
