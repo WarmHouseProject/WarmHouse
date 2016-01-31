@@ -11,19 +11,27 @@
           <div class="col-md-3 services-left">
           <?php foreach ($subNeedyItems as $needyItem): ?>
             <div class="needy-item">
-                <div class="view fifth-effect">
-                    <a href="<?= esc_url( home_url( '/needy_info?needy_id=' .  $needyItem->needy_id . '&"needy_type=' . $needyItem->needy_type ) ); ?>" title="Подробная информация">
-                        <img src="<?= get_site_url() . ImageDBUtils::getImageLinkByImageId($needyItem->image_id) ?>" alt="<?= $needyItem->name ?>"/>
-                    </a>
+                <div class="view fifth-effect needy-image-container">
+                    <div class="view">
+                        <a href="<?= esc_url( home_url( '/needy_info?needy_id=' .  $needyItem->needy_id . '&"needy_type=' . $needyItem->needy_type ) ); ?>" title="Подробная информация">
+                            <img src="<?= get_site_url() . ImageDBUtils::getImageLinkByImageId($needyItem->image_id) ?>" alt="<?= $needyItem->name ?>"/>
+                        </a>
+                    </div>
+                    <div href="\" class="view status-overlay <?php if (NeedyItemUtils::isItemSupportStatus($needyItem)): ?><?= NeedyStatus::getNeedyClassByStatuses($needyItem->status); ?><?php endif; ?>">
+                        <a href="<?= esc_url( home_url( '/needy_info?needy_id=' .  $needyItem->needy_id . '&"needy_type=' . $needyItem->needy_type ) ); ?>" title="Подробная информация">
+                            <img style="" src="<?php echo get_template_directory_uri(); ?>/images/urgent.png" alt="" />
+                        </a>
+                    </div>
                 </div>
-                <div class="s-btm <?php if (NeedyItemUtils::isItemSupportStatus($needyItem)): ?><?= NeedyStatus::getNeedyClassByStatuses($needyItem->status); ?><?php endif; ?>">
+                <form class="s-btm <?php if (NeedyItemUtils::isItemSupportStatus($needyItem)): ?><?= NeedyStatus::getNeedyClassByStatuses($needyItem->status); ?><?php endif; ?>" action="/campaign/donate  " method="post">
                     <h4><?= $needyItem->name ?></h4>
                     <div class="underline"></div>
                     <p class="short-info"><?= $needyItem->short_description ?></p>
                     <?php if ($needyItem->purpose): ?>
                       <p class="purpose"><span>Нужно: </span><?= $needyItem->purpose ?></p>
                     <?php endif; ?>
-                </div>
+                    <button style="width:100%;" type="submit" class="btn btn-primary btn-send-email">Пожертвовать</button>
+                </form>
             </div>
           <?php endforeach; ?>
           </div>

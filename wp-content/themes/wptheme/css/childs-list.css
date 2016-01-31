@@ -21,13 +21,52 @@
     margin-bottom: 13px;
 }
 
-.s-btm.urgently-need-help .underline
-{
-    background-color: #E04D47;
+.needy-image-container {
+    position:relative;
+    top:0;
+    left:0;
+    overflow: visible;
 }
 
-.services-top.heading h2
-{
+.status-overlay {
+    position: absolute;
+    top:0;
+    right:0;
+    overflow:visible;
+    display:none;
+}
+
+.status-overlay a {
+    width:100%;
+    height: 100%;
+}
+
+.status-overlay.urgently-need-help {
+    display: block;
+}
+
+.status-overlay img {
+    width: 30%;
+    position:absolute;
+    right:-8%;
+    top:-6%;
+}
+
+.s-btm.urgently-need-help .underline {
+    background-color: #B63F24;
+}
+
+.s-btm.urgently-need-help button {
+    background-color: #B63F24;
+    border-color: #E8502E;
+}
+
+.s-btm.urgently-need-help button:hover {
+    background-color: #E8502E;
+    border-color: #B63F24;
+}
+
+.services-top.heading h2 {
     text-align: left;
 }
 
