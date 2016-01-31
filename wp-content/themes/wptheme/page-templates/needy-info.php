@@ -50,13 +50,15 @@ get_header(); ?>
                     <div class="inner-container heading">
                         <h2 class="head"><?= $child->name ?></h2>
                     </div>
-                    <form class="inner-container heading" action="/campaign/donate  " method="post">
+                    <form class="inner-container heading" action="/campaign/donate" method="post">
                         <div class="well short-description"><?= $child->short_description ?></div>
                         <?php if ($child->purpose): ?>
                           <div class="well purpose"><?= "Нужно: " . $child->purpose ?></div>
                         <?php endif; ?>
                         <div class="well contact-info"><?= $child->contact_info ?></div>
                         <input type="hidden" name="<?= $donateHiddenId ?>" value="<?= $needyId; ?>">
+                        <input type="hidden" name="needy_type" value="<?= $needyType; ?>">
+                        <input type="hidden" name="needy_id" value="<?= $needyId; ?>">
                         <?php if (!isset($child->status ) || $child->status != NeedyStatus::HELPED): ?>
                             <button type="submit" class="btn btn-success donate">Пожертвовать</button>
                         <?php endif; ?>

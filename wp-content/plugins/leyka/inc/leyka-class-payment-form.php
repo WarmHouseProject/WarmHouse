@@ -442,6 +442,14 @@ function leyka_pf_get_campaign_id_value() {
     return empty($_POST['leyka_campaign_id']) ? 0 : $_POST['leyka_campaign_id'];
 }
 
+function leyka_pf_get_needy_type_value() {
+	return empty($_POST['leyka_needy_type']) ? '' : $_POST['leyka_needy_type'];
+}
+
+function leyka_pf_get_needy_id_id_value() {
+	return empty($_POST['leyka_needy_id']) ? 0 : $_POST['leyka_needy_id'];
+}
+
 function leyka_pf_get_payment_method_value() {
     $pm = empty($_POST['leyka_payment_method']) ? '' : explode('-', $_POST['leyka_payment_method']);
 

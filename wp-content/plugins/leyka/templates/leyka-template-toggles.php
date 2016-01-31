@@ -3,8 +3,12 @@
  * Leyka Template: Toggles
  * Description: Toggled options for each payment method
  **/
+require_once(ABSPATH . WPINC . '/lib/helper/class-request-helper.php');
 
 $active_pm = apply_filters('leyka_form_pm_order', leyka_get_pm_list(true));
+
+$needyId   = RequestHelper::getParameter("needy_id");
+$needyType = RequestHelper::getParameter("needy_type");
 
 leyka_pf_submission_errors();?>
 
@@ -30,6 +34,8 @@ leyka_pf_submission_errors();?>
 
 	<input name="leyka_payment_method" value="<?php echo esc_attr($pm->full_id);?>" type="hidden">
 	<input name="leyka_ga_payment_method" value="<?php echo esc_attr($pm->label);?>" type="hidden">
+		<input type='hidden' name="leyka_needy_id" value="<?= $needyId ?>" />
+		<input type='hidden' name="leyka_needy_type" value="<?= $needyType ?>" />
 	<div class='leyka-user-data'>
 
 	<?php echo leyka_pf_get_name_field().leyka_pf_get_email_field().leyka_pf_get_pm_fields();?>

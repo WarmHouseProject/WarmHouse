@@ -1222,6 +1222,16 @@ class Leyka_Donation {
             add_post_meta($id, 'leyka_recurrents_cancel_date', 0);
         }
 
+        add_post_meta(
+            $id, 'leyka_needy_type',
+            empty($params['leyka_needy_type']) ? leyka_pf_get_needy_type_value() : $params['leyka_needy_type']
+        );
+
+        add_post_meta(
+            $id, 'leyka_needy_id',
+            empty($params['leyka_needy_id']) ? leyka_pf_get_needy_id_id_value() : $params['leyka_needy_id']
+        );
+
         return $id;
     }
 
