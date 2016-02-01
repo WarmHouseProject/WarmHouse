@@ -17,9 +17,9 @@
                             <img src="<?= get_site_url() . ImageDBUtils::getImageLinkByImageId($needyItem->image_id) ?>" alt="<?= $needyItem->name ?>"/>
                         </a>
                     </div>
-                    <div href="\" class="view status-overlay <?php if (NeedyItemUtils::isItemSupportStatus($needyItem)): ?><?= NeedyStatus::getNeedyClassByStatuses($needyItem->status); ?><?php endif; ?>">
+                    <div class="view status-overlay <?php if (NeedyItemUtils::isItemSupportStatus($needyItem)): ?><?= NeedyStatus::getNeedyClassByStatuses($needyItem->status); ?><?php endif; ?>">
                         <a href="<?= esc_url( home_url( '/needy_info?needy_id=' .  $needyItem->needy_id . '&"needy_type=' . $needyItem->needy_type ) ); ?>" title="Подробная информация">
-                            <img style="" src="<?php echo get_template_directory_uri(); ?>/images/urgent.png" alt="" />
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/urgent.png" alt="" />
                         </a>
                     </div>
                 </div>
@@ -30,9 +30,10 @@
                     <?php if ($needyItem->purpose): ?>
                       <p class="purpose"><span>Нужно: </span><?= $needyItem->purpose ?></p>
                     <?php endif; ?>
+                    
                     <input type="hidden" name="needy_type" value="<?= $needyItem->needy_type; ?>">
                     <input type="hidden" name="needy_id" value="<?= $needyItem->needy_id; ?>">
-                    <button style="width:100%;" type="submit" class="btn btn-primary btn-send-email">Пожертвовать</button>
+                    <button type="submit" class="btn btn-primary">Пожертвовать</button>
                 </form>
             </div>
           <?php endforeach; ?>
@@ -44,7 +45,7 @@
     <div class="col-md-12">
         <ul class="pagination">
             <?php for ($index = 0; $index <= $needyItemsCountPages; ++$index): ?>
-                <li class="page <?php if ($index == $page): ?><?= "active" ?><?php endif; ?>"><a href="javascript:void(0)"><?= $index + 1 ?></a></li>
+                <li class="page <?php if ($index == $page): ?><?= "active" ?><?php endif; ?>"><a href="#top"><?= $index + 1 ?></a></li>
             <?php endfor; ?>
         </ul>
     </div>
