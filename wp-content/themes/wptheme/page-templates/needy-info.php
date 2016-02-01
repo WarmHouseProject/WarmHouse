@@ -50,6 +50,7 @@ get_header(); ?>
                             <img src="<?php echo get_template_directory_uri(); ?>/images/urgent.png" alt="<?= $child->name ?>" />
                         </div>
                     </div>
+                    <form class="inner-container heading" action="/campaign/donate  " method="post">
                         <?php if ($child->purpose): ?>
                             <div class="text-container">
                                 <span>Нужно: </span><span class="purpose"><?= $child->purpose ?></span>
