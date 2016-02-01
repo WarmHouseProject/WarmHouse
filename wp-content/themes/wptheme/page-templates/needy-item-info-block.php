@@ -45,7 +45,7 @@
     <div class="col-md-12">
         <ul class="pagination">
             <?php for ($index = 0; $index <= $needyItemsCountPages; ++$index): ?>
-                <li class="page <?php if ($index == $page): ?><?= "active" ?><?php endif; ?>"><a href="#top"><?= $index + 1 ?></a></li>
+                <li class="page <?php if ($index == $page): ?><?= "active" ?><?php endif; ?>"><a href="javascript:void(0);"><?= $index + 1 ?></a></li>
             <?php endfor; ?>
         </ul>
     </div>
