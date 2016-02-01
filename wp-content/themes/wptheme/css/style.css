@@ -191,7 +191,7 @@ body a:hover{
 }
 
 .col-md-3.services-left .needy-item {
-	margin-bottom: 45px;
+	margin-bottom: 54px;
 }
 
 .footer .tabs-list {
@@ -945,6 +945,7 @@ a.tooltips2 span:before {
 	width: 216px;
 	margin: auto;
     text-align: left;
+	position: relative;
 }
 .s-btm h4{
 	word-wrap: break-word;
@@ -963,13 +964,34 @@ a.tooltips2 span:before {
 	color: #738899;
 	margin-bottom: 15px;
 }
-.s-btm p.purpose span{
+.s-btm p.purpose span,
+.s-btm p.collected span
+{
 	color: #444;
 }
 .s-btm p.purpose{
 	font-size:16px;
 	color: #B63F24;
+	margin-bottom: 8px;
 }
+.s-btm p.collected{
+	font-size:16px;
+	color: #136768;
+	margin-bottom: 8px;
+}
+
+.s-btm p.collected span.count-donate{
+	color: #79868F;
+	position: absolute;
+	right: 0;
+	margin-right: 5px;
+}
+
+.s-btm p.collected span.count-donate img{
+	width: initial;
+	margin-right: 5px;
+}
+
 .services-two{
 	margin-top:3%;
 }
@@ -1454,7 +1476,8 @@ h5.best {
 .s-btm p.short-info {
     font-size: 14px;
 }
-.s-btm p.purpose{
+.s-btm p.purpose,
+.s-btm p.collected{
 	font-size:15px;
 }
 .services-two {
@@ -1711,7 +1734,8 @@ a.tooltips2 span:before {
 .s-btm p.short-info {
     font-size: 13px;
 }
-.s-btm p.purpose{
+.s-btm p.purpose,
+.s-btm p.collected{
 	font-size:14px;
 }
 h5.best {
@@ -2714,7 +2738,8 @@ h4.head {
 .s-btm p.short-info {
     font-size: 12px;
 }
-.s-btm p.purpose{
+.s-btm p.purpose,
+.s-btm p.collected{
 	font-size:13px;
 }
 .flex-in h4 {

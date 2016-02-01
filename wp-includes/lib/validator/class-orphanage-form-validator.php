@@ -25,7 +25,8 @@ class OrphanageFormValidator
         (isset($parameters[Orphanage::SHORT_DESCRIPTION_FIELD]) && ValidateHelper::validateTextField($parameters[Orphanage::SHORT_DESCRIPTION_FIELD], Orphanage::MIN_SHORT_DESCRIPTION_LENGTH, Orphanage::MAX_SHORT_DESCRIPTION_LENGTH)) &&
         (isset($parameters[Orphanage::LONG_DESCRIPTION_FIELD]) && ValidateHelper::validateTextField($parameters[Orphanage::LONG_DESCRIPTION_FIELD], Orphanage::MIN_LONG_DESCRIPTION_LENGTH, Orphanage::MAX_LONG_DESCRIPTION_LENGTH)) &&
         (isset($parameters[Orphanage::CONTACT_INFO_FIELD]) && ValidateHelper::validateTextField($parameters[Orphanage::CONTACT_INFO_FIELD], Orphanage::MIN_CONTACT_LENGTH, Orphanage::MAX_CONTACT_LENGTH)) &&
-        (isset($parameters[Orphanage::PRIORITY_FIELD]) && ValidateHelper::validateNumberField($parameters[Orphanage::PRIORITY_FIELD], OrphanagePriority::MIN_PRIORITY, OrphanagePriority::MAX_PRIORITY));
+        (isset($parameters[Orphanage::PRIORITY_FIELD]) && ValidateHelper::validateNumberField($parameters[Orphanage::PRIORITY_FIELD], OrphanagePriority::MIN_PRIORITY, OrphanagePriority::MAX_PRIORITY)) &&
+        (isset($parameters[OrphanageSettings::SHOW_STAT_FIELD]));
     }
 
     static function validateOrphanageAvatar($parameters)

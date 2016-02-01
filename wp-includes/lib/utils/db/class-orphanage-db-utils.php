@@ -7,7 +7,7 @@ class OrphanageDBUtils
     static function createOrphanage($orphanageInfo, $imageId)
     {
         global $wpdb;
-        return $wpdb->query($wpdb->prepare("INSERT INTO `" . Orphanage::DB_TABLE_NAME .
+        $wpdb->query($wpdb->prepare("INSERT INTO `" . Orphanage::DB_TABLE_NAME .
             "` (" .
             Orphanage::NAME_FIELD . ", " .
             Orphanage::SHORT_DESCRIPTION_FIELD . ", " .
@@ -22,6 +22,7 @@ class OrphanageDBUtils
             $orphanageInfo[Orphanage::CONTACT_INFO_FIELD],
             $orphanageInfo[Orphanage::PRIORITY_FIELD],
             $imageId));
+        return $wpdb->insert_id;
     }
 
     static function updateOrphanageById($orphanageInfo, $imageId, $orphanageId)

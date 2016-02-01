@@ -1,7 +1,9 @@
 <?php
 require_once(ABSPATH . WPINC . '/lib/helper/class-needy-filter-helper.php');
 require_once(ABSPATH . WPINC . '/lib/model/child/class-child.php');
+require_once(ABSPATH . WPINC . '/lib/model/child_settings/class-child-settings.php');
 require_once(ABSPATH . WPINC . '/lib/model/orphanage/class-orphanage.php');
+require_once(ABSPATH . WPINC . '/lib/model/orphanage_settings/class-orphanage-settings.php');
 
 class RequestHelper
 {
@@ -51,6 +53,7 @@ class RequestHelper
         $childInfo[Child::SHORT_DESCRIPTION_FIELD] = self::getParameter(Child::SHORT_DESCRIPTION_FIELD);
         $childInfo[Child::LONG_DESCRIPTION_FIELD]  = self::getParameter(Child::LONG_DESCRIPTION_FIELD);
         $childInfo[Child::PURPOSE_FIELD]           = self::getParameter(Child::PURPOSE_FIELD);
+        $childInfo[ChildSettings::SHOW_STAT_FIELD] = self::getParameter(ChildSettings::SHOW_STAT_FIELD);
         $childInfo[Child::CONTACT_INFO_FIELD]      = self::getParameter(Child::CONTACT_INFO_FIELD);
         $childInfo[Child::STATUS_FIELD]            = self::getParameter(Child::STATUS_FIELD);
         $childInfo[Child::PRIORITY_FIELD]          = self::getParameter(Child::PRIORITY_FIELD);
@@ -65,6 +68,7 @@ class RequestHelper
         $childInfo[Orphanage::NAME_FIELD]              = self::getParameter(Orphanage::NAME_FIELD);
         $childInfo[Orphanage::SHORT_DESCRIPTION_FIELD] = self::getParameter(Orphanage::SHORT_DESCRIPTION_FIELD);
         $childInfo[Orphanage::LONG_DESCRIPTION_FIELD]  = self::getParameter(Orphanage::LONG_DESCRIPTION_FIELD);
+        $childInfo[OrphanageSettings::SHOW_STAT_FIELD] = self::getParameter(OrphanageSettings::SHOW_STAT_FIELD);
         $childInfo[Orphanage::CONTACT_INFO_FIELD]      = self::getParameter(Orphanage::CONTACT_INFO_FIELD);
         $childInfo[Orphanage::PRIORITY_FIELD]          = self::getParameter(Orphanage::PRIORITY_FIELD);
         $childInfo{Orphanage::AVATAR_FIELD}            = self::getFile(Orphanage::AVATAR_FIELD);

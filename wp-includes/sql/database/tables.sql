@@ -42,6 +42,28 @@ CREATE TABLE `wp_orphanage` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+DROP TABLE IF EXISTS `wp_child_settings`;
+CREATE TABLE `wp_child_settings` (
+  `child_settings_id` int(11) NOT NULL AUTO_INCREMENT,
+  `child_id` int(11) NOT NULL,
+  `show_stat` TINYINT DEFAULT 0,
+  PRIMARY KEY (`child_settings_id`),
+  KEY `child_id` (`child_id`),
+  CONSTRAINT `child_settings_ibfk_1` FOREIGN KEY (`child_id`) REFERENCES `wp_child` (`child_id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `wp_orphanage_settings`;
+CREATE TABLE `wp_orphanage_settings` (
+  `orphanage_settings_id` int(11) NOT NULL AUTO_INCREMENT,
+  `orphanage_id` int(11) NOT NULL,
+  `show_stat` TINYINT DEFAULT 0,
+  PRIMARY KEY (`orphanage_settings_id`),
+  KEY `orphanage_id` (`orphanage_id`),
+  CONSTRAINT `orphanage_settings_ibfk_1` FOREIGN KEY (`orphanage_id`) REFERENCES `wp_orphanage` (`orphanage_id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 DROP TABLE IF EXISTS `wp_stock`;
 CREATE TABLE `wp_stock` (
   `stock_id` int(11) NOT NULL AUTO_INCREMENT,

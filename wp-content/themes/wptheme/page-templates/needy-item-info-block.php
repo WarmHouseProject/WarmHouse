@@ -1,5 +1,7 @@
 <?php
     require_once(ABSPATH . WPINC . '/lib/utils/view/class-needy-view-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/db/class-needy-item-settings-db-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/db/class-needy-stat-db-utils.php');
 
     $needyItems = NeedyViewUtils::prepareNeedyViewArray($needyItems);
     $page = isset($page) ? $page : 0;
@@ -27,8 +29,13 @@
                     <h4><?= $needyItem->name ?></h4>
                     <div class="underline"></div>
                     <p class="short-info"><?= $needyItem->short_description ?></p>
-                    <?php if ($needyItem->purpose): ?>
+                    <?php if ($needyItem->purpose && $needyItem->status != NeedyStatus::HELPED): ?>
                       <p class="purpose"><span>Нужно: </span><?= $needyItem->purpose ?></p>
+                    <?php endif; ?>
+
+                    <?php if (NeedyItemSettingsDBUtils::isSetShowNeedyItemStat($needyItem->needy_id, $needyItem->needy_type)): ?>
+                        <?php $collected = NeedyStatDBUtils::getNeedyItemStat($needyItem->needy_id, $needyItem->needy_type); ?>
+                        <p class="collected"><span>Собрано: </span><?= intval($collected->amount) ?> руб. <span class="count-donate"><img src="<?php echo get_template_directory_uri(); ?>/images/count_donate.png" alt="" /><?= intval($collected->count) ?></span></p>
                     <?php endif; ?>
                     
                     <input type="hidden" name="needy_type" value="<?= $needyItem->needy_type; ?>">

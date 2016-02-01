@@ -5,6 +5,7 @@
     require_once(ABSPATH . WPINC . '/lib/validator/class-orphanage-form-validator.php');
     require_once(ABSPATH . WPINC . '/lib/utils/class-image-utils.php');
     require_once(ABSPATH . WPINC . '/lib/utils/db/class-orphanage-db-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/db/class-needy-item-settings-db-utils.php');
 
     if (!is_user_logged_in())
     {
@@ -26,6 +27,7 @@
             }
         }
         OrphanageDBUtils::updateOrphanageById($orphanageInfo, $imageId, $orphanage->orphanage_id);
+        NeedyItemSettingsDBUtils::updateOrphanageSettings($orphanage->orphanage_id, $orphanageInfo[OrphanageSettings::SHOW_STAT_FIELD]);
     }
 
-    wp_redirect(get_site_url() . '/orphanages'); exit;
+wp_redirect(home_url()); exit;

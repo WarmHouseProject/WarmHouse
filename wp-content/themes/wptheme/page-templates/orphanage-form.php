@@ -5,6 +5,8 @@ Template Name: Orphanage Form
 
     require_once(ABSPATH . WPINC . '/lib/model/orphanage/class-orphanage.php');
     require_once(ABSPATH . WPINC . '/lib/model/orphanage/class-orphanage-priority.php');
+    require_once(ABSPATH . WPINC . '/lib/model/orphanage_settings/class-orphanage-settings.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/db/class-needy-item-settings-db-utils.php');
 
     $avatar            = "";
     $name              = "";
@@ -12,6 +14,7 @@ Template Name: Orphanage Form
     $shortDescription  = "";
     $longDescription   = "";
     $contactInfo       = "";
+    $showStat         = false;
 
     $formRequestUrl = "/add-orphanage-controller.php";
     if (isset($orphanage))
@@ -22,6 +25,7 @@ Template Name: Orphanage Form
         $shortDescription  = $orphanage->short_description;
         $longDescription   = $orphanage->long_description;
         $contactInfo       = $orphanage->contact_info;
+        $showStat          = NeedyItemSettingsDBUtils::isSetShowOrphanageStat($orphanage->orphanage_id);
 
         $formRequestUrl = "/edit-orphanage-controller.php";
     }
@@ -97,6 +101,11 @@ Template Name: Orphanage Form
                             </div>
                         </div>
                         <div class="form-group">
+                            <div class="input-block">
+                                <input name="<?= OrphanageSettings::SHOW_STAT_FIELD ?>" id ="<?= OrphanageSettings::SHOW_STAT_FIELD ?>" type="checkbox" value="<?= intval($showStat) ?>"<?php if ($showStat): ?> checked="checked"<?php endif; ?>><label class="checkbox-label" for="<?= OrphanageSettings::SHOW_STAT_FIELD ?>">Показывать статистику</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="<?= Orphanage::CONTACT_INFO_FIELD ?>">Контактные данные:</label>
                             <div class="input-block">
                                 <input type="text" name="<?= Orphanage::CONTACT_INFO_FIELD ?>" maxlength="<?= Orphanage::MAX_CONTACT_LENGTH ?>" class="form-control" id="<?= Orphanage::CONTACT_INFO_FIELD ?>" value="<?= $contactInfo ?>">
@@ -122,6 +131,15 @@ Template Name: Orphanage Form
             <script src="<?php echo get_template_directory_uri(); ?>/js/validatefield.js"></script>
             <script>
                 jQuery(document).ready(function($) {
+                    $("#<?= OrphanageSettings::SHOW_STAT_FIELD ?>").click(function(){
+                        if ($(this).prop( "checked" )) {
+                            $(this).val("1");
+                        }
+                        else {
+                            $(this).val("0");
+                        }
+                    });
+
                     $("form[name='orphanage_form']").submit(function(){
                         return validateTextField($('#<?= Orphanage::NAME_FIELD ?>'), <?= Orphanage::MIN_NAME_LENGTH ?>, <?= Orphanage::MAX_NAME_LENGTH ?>) &&
                             validateTextField($('#<?= Orphanage::SHORT_DESCRIPTION_FIELD ?>'), <?= Orphanage::MIN_SHORT_DESCRIPTION_LENGTH ?>, <?= Orphanage::MAX_SHORT_DESCRIPTION_LENGTH ?>) &&

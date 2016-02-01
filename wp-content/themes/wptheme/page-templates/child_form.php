@@ -6,6 +6,8 @@ Template Name: Child Form
     require_once(ABSPATH . WPINC . '/lib/model/child/class-child.php');
     require_once(ABSPATH . WPINC . '/lib/model/child/class-child-status.php');
     require_once(ABSPATH . WPINC . '/lib/model/child/class-child-priority.php');
+    require_once(ABSPATH . WPINC . '/lib/model/child_settings/class-child-settings.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/db/class-needy-item-settings-db-utils.php');
 
     $avatar           = "";
     $name             = "";
@@ -15,6 +17,7 @@ Template Name: Child Form
     $longDescription  = "";
     $purpose          = "";
     $contactInfo      = "";
+    $showStat         = false;
 
     $formRequestUrl = "/child-form-controller.php";
     if (isset($child))
@@ -27,6 +30,7 @@ Template Name: Child Form
         $longDescription  = $child->long_description;
         $contactInfo      = $child->contact_info;
         $purpose          = $child->purpose;
+        $showStat         = NeedyItemSettingsDBUtils::isSetShowChildStat($child->child_id);
 
         $formRequestUrl = "/edit-child-controller.php";
     }
@@ -124,6 +128,11 @@ Template Name: Child Form
                         </div>
                     </div>
                     <div class="form-group">
+                        <div class="input-block">
+                            <input name="<?= ChildSettings::SHOW_STAT_FIELD ?>" id ="<?= ChildSettings::SHOW_STAT_FIELD ?>" type="checkbox" value="<?= intval($showStat) ?>"<?php if ($showStat): ?> checked="checked"<?php endif; ?>><label class="checkbox-label" for="<?= ChildSettings::SHOW_STAT_FIELD ?>">Показывать статистику</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="<?= Child::CONTACT_INFO_FIELD ?>">Контактные данные:</label>
                         <div class="input-block">
                             <input type="text" name="<?= Child::CONTACT_INFO_FIELD ?>" maxlength="<?= Child::MAX_CONTACT_LENGTH ?>" class="form-control" id="<?= Child::CONTACT_INFO_FIELD ?>" value="<?= $contactInfo ?>">
@@ -149,6 +158,15 @@ Template Name: Child Form
         <script src="<?php echo get_template_directory_uri(); ?>/js/validatefield.js"></script>
         <script>
             jQuery(document).ready(function($) {
+                $("#<?= ChildSettings::SHOW_STAT_FIELD ?>").click(function(){
+                    if ($(this).prop( "checked" )) {
+                        $(this).val("1");
+                    }
+                    else {
+                        $(this).val("0");
+                    }
+                });
+
                 $("form[name='child_form']").submit(function(){
                     return validateTextField($('#<?= Child::NAME_FIELD ?>'), <?= Child::MIN_NAME_LENGTH ?>, <?= Child::MAX_NAME_LENGTH ?>) &&
                            validateTextField($('#<?= Child::SHORT_DESCRIPTION_FIELD ?>'), <?= Child::MIN_SHORT_DESCRIPTION_LENGTH ?>, <?= Child::MAX_SHORT_DESCRIPTION_LENGTH ?>) &&

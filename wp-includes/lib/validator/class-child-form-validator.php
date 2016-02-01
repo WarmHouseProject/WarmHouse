@@ -2,6 +2,7 @@
 require_once(ABSPATH . WPINC . '/lib/helper/class-validate-helper.php');
 require_once(ABSPATH . WPINC . '/lib/model/child/class-child-status.php');
 require_once(ABSPATH . WPINC . '/lib/model/child/class-child-priority.php');
+require_once(ABSPATH . WPINC . '/lib/model/child_settings/class-child-settings.php');
 
 class ChildFormValidator
 {
@@ -27,7 +28,8 @@ class ChildFormValidator
         (isset($parameters[Child::LONG_DESCRIPTION_FIELD]) && ValidateHelper::validateTextField($parameters[Child::LONG_DESCRIPTION_FIELD], Child::MIN_LONG_DESCRIPTION_LENGTH, Child::MAX_LONG_DESCRIPTION_LENGTH)) &&
         (isset($parameters[Child::CONTACT_INFO_FIELD]) && ValidateHelper::validateTextField($parameters[Child::CONTACT_INFO_FIELD], Child::MIN_CONTACT_LENGTH, Child::MAX_CONTACT_LENGTH)) &&
         (isset($parameters[Child::STATUS_FIELD]) && ValidateHelper::validateSelectField($parameters[Child::STATUS_FIELD], ChildStatus::getNeedyStatuses())) &&
-        (isset($parameters[Child::PRIORITY_FIELD]) && ValidateHelper::validateNumberField($parameters[Child::PRIORITY_FIELD], ChildPriority::MIN_PRIORITY, ChildPriority::MAX_PRIORITY));
+        (isset($parameters[Child::PRIORITY_FIELD]) && ValidateHelper::validateNumberField($parameters[Child::PRIORITY_FIELD], ChildPriority::MIN_PRIORITY, ChildPriority::MAX_PRIORITY)) &&
+        (isset($parameters[ChildSettings::SHOW_STAT_FIELD]));
     }
 
     static function validateChildAvatar($parameters)
