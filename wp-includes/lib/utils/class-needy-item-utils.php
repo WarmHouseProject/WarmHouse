@@ -8,4 +8,9 @@ class NeedyItemUtils
     {
         return isset($needyItem->status);
     }
+
+    static function storedTextToHTML($text)
+    {
+        return nl2br($text);
+    }
 }

@@ -70,7 +70,12 @@
                     </a>
                     <div class="company-info-block">
                         <div class="company-name">Лучик надежды</div>
-                        <div class="company-description">Благотворительная организация</div>
+                        <div class="company-description">Благотворительный фонд</div>
+                    </div>
+                    <div class="company-location-info-block">
+                        <p>респ. Марий Эл, г. Йошкар-Ола,</p>
+                        <p>Ленинский пр. 21, оф. 25</p>
+                        <p> +7 (8362) 43-43-19</p>
                     </div>
                 </div>
                 <div class="header-main">

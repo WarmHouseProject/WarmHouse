@@ -502,7 +502,7 @@ function do_action($tag, $arg = '') {
 			if ( !is_null($the_['function']) ) {
 
 				$argument = array_slice($args, 0, (int) $the_['accepted_args']);
-				if ($the_['function'] == 'session_start' && $argument == '') {
+				if ($the_['function'] == 'session_start'  && isset($argument[0]) && $argument[0] == '') {
 					$argument = [[]];
 				}
 				call_user_func_array($the_['function'], $argument);

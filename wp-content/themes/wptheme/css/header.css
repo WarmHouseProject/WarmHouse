@@ -55,6 +55,19 @@
     width: 59px;
 }
 
+.header .header_block .company-location-info-block
+{
+    float: left;
+    padding-top: 8px;
+    color: #738899;
+    display: none;
+}
+
+.header .header_block .company-location-info-block p
+{
+    line-height: 20px;
+}
+
 .header .top-menu .nav
 {
     float: right;
@@ -224,9 +237,15 @@
         font-size: 42px;
     }
 
+    .header .header_block .company-location-info-block
+    {
+        display: block;
+        margin-left: 20px;
+    }
+
     .header .header_block .top-menu ul li a
     {
-        padding: 30px 28px;
+        padding: 30px 10px;
     }
 }
 
@@ -240,8 +259,14 @@
         font-size: 50px;
     }
 
+    .header .header_block .company-location-info-block
+    {
+        display: block;
+        margin-left: 51px;
+    }
+
     .header .header_block .top-menu ul li a
     {
-        padding: 30px 40px;
+        padding: 30px 25.5px;
     }
 }

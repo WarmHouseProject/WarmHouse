@@ -30,6 +30,7 @@ get_header();
 
 <div class="services">
     <div class="container">
+        <a id="toplink" name="top"></a>
         <div class="col-md-6">
             <?php if (is_user_logged_in()): ?>
                 <div class="btn-group float-left">
@@ -39,7 +40,7 @@ get_header();
                 <div class="clearfix"></div>
             <?php else:?>
                 <div class="services-top heading">
-                    <h2 id="helpTitle">Нуждаются в помощи</h2>
+                    <h2 id="helpTitle">Наши подопечные</h2>
                 </div>
             <?php endif; ?>
         </div>
@@ -142,6 +143,7 @@ get_header();
         $('.pagination .page').live('click', (function(){
             var page = $(this).text();
             changeFilter(currentFilter, null, page);
+            scrollToListTop();
         }));
 
         function changeFilter(filter, title, page)
@@ -158,6 +160,16 @@ get_header();
                         $('#helpTitle').text(title);
                     }
                 });
+        }
+
+        function scrollToListTop()
+        {
+            $("html, body").animate({
+                scrollTop: $("#toplink").offset().top + "px"
+            }, {
+                duration: 1500,
+                easing: "swing"
+            });
         }
     });
 </script>
