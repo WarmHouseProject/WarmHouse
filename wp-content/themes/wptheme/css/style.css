@@ -909,6 +909,7 @@ a.tooltips2 span:before {
 .view {
     width: 216px;
     height: 295px;
+	height: 216px;
 	margin: auto;
     margin-bottom: 31px;
     overflow: hidden;

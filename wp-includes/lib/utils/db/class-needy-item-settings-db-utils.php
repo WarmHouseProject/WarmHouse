@@ -86,6 +86,7 @@ class NeedyItemSettingsDBUtils
 
     static function updateChildSettings($childId, $showStat)
     {
+        $showStat = is_null($showStat) ? 0 : $showStat;
         $isSettingsNotExist = self::isChildSettingsNotExist($childId);
         if ($isSettingsNotExist)
         {
@@ -102,6 +103,7 @@ class NeedyItemSettingsDBUtils
 
     static function updateOrphanageSettings($orphanageId, $showStat)
     {
+        $showStat = is_null($showStat) ? 0 : $showStat;
         $isSettingsNotExist = self::isOrphanageSettingsNotExist($orphanageId);
         if ($isSettingsNotExist)
         {

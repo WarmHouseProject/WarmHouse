@@ -5,7 +5,7 @@ class NeedyStatDBUtils
     static function getNeedyItemStat($needyItemId, $needyItemType)
     {
         global $wpdb;
-        return $wpdb->get_results(
+        return $wpdb->get_row(
            "SELECT
               SUM(wp1.meta_value) AS amount,
               COUNT(wp1.post_id) as count
