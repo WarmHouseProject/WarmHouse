@@ -5,6 +5,7 @@
     require_once(ABSPATH . WPINC . '/lib/validator/class-orphanage-form-validator.php');
     require_once(ABSPATH . WPINC . '/lib/utils/db/class-orphanage-db-utils.php');
     require_once(ABSPATH . WPINC . '/lib/utils/class-image-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/db/class-needy-item-settings-db-utils.php');
 
     if (!is_user_logged_in())
     {
@@ -16,7 +17,8 @@
         $image = ImageUtils::createImageFromRequestParameters($orphanageInfo);
         if ($image)
         {
-            OrphanageDBUtils::createOrphanage($orphanageInfo, $image->image_id);
+            $orphanageId = OrphanageDBUtils::createOrphanage($orphanageInfo, $image->image_id);
+            NeedyItemSettingsDBUtils::updateOrphanageSettings($orphanageId, $orphanageInfo[OrphanageSettings::SHOW_STAT_FIELD]);
         }
     }
 

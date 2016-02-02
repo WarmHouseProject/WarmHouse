@@ -5,6 +5,7 @@
     require_once(ABSPATH . WPINC . '/lib/validator/class-child-form-validator.php');
     require_once(ABSPATH . WPINC . '/lib/utils/db/class-child-db-utils.php');
     require_once(ABSPATH . WPINC . '/lib/utils/class-image-utils.php');
+    require_once(ABSPATH . WPINC . '/lib/utils/db/class-needy-item-settings-db-utils.php');
 
     if (!is_user_logged_in())
     {
@@ -16,7 +17,8 @@
         $image = ImageUtils::createImageFromRequestParameters($childInfo);
         if ($image)
         {
-            ChildDBUtils::createChild($childInfo, $image->image_id);
+            $childId = ChildDBUtils::createChild($childInfo, $image->image_id);
+            NeedyItemSettingsDBUtils::updateChildSettings($childId, $childInfo[ChildSettings::SHOW_STAT_FIELD]);
         }
     }
 
