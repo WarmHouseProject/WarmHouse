@@ -122,10 +122,10 @@ get_header();
         var currentFilter = <?= NeedyFilterHelper::ALL ?>;
 
         $('#allNeedy').click(function(){
-            changeFilter(<?= NeedyFilterHelper::ALL ?>, 'Нуждаются в помощи');
+            changeFilter(<?= NeedyFilterHelper::ALL ?>, 'Наши подопечные');
         });
         $('#allChilds').click(function(){
-            changeFilter(<?= NeedyFilterHelper::ALL_CHILDS ?>, 'Нуждаются в помощи');
+            changeFilter(<?= NeedyFilterHelper::ALL_CHILDS ?>, 'Наши подопечные');
         });
         $('#urgentlyNeedHelpChilds').click(function(){
             changeFilter(<?= NeedyFilterHelper::URGENTLY_NEED_HELP_CHILDS ?>, 'Срочно нужна помощь');

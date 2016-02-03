@@ -113,7 +113,7 @@ Template Name: Contacts Form
                 <div class="mail-form-container">
                     <form class="mail-form" role="form" action="<?= esc_url( home_url( $emailSenderURL ) ); ?>">
                         <div class="col col-md-12">
-                            <h2>Если у вас есть вопросы</h2>
+                            <h2>Спрашивайте, обращайтесь</h2>
                             <div class="alert alert-danger collapse" style="display: none;" id="wrong_email_error_block">
                                 <span class="glyphicon glyphicon-remove"></span>
                                 <p>Введите правильный email адрес</p>

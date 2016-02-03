@@ -33,8 +33,8 @@
 .needy-item .status-overlay img {
     width: 40%;
     position:absolute;
-    right:-8%;
-    top:-6%;
+    right:-15%;
+    top:-14%;
 }
 
 .needy-image-container {
@@ -78,6 +78,13 @@
     text-align: left;
 }
 
+@media screen and (max-width: 1200px) {
+    .needy-item .status-overlay img {
+        right:-10%;
+        top:-9%;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .s-btm {
         width: 216px;
@@ -86,6 +93,11 @@
 
     .col-md-3.services-left .needy-item {
         margin-bottom: 40px;
+    }
+
+    .needy-item .status-overlay img {
+        right:-10%;
+        top:-9%;
     }
 }
 
@@ -101,6 +113,11 @@
     .col-md-3.services-left .needy-item {
         margin-bottom: 35px;
     }
+
+    .needy-item .status-overlay img {
+        right:-8%;
+        top:-5%;
+    }
 }
 
 @media screen and (max-width: 640px) {
@@ -110,6 +127,11 @@
 
     .col-md-3.services-left .needy-item {
         margin-bottom: 30px;
+    }
+
+    .needy-item .status-overlay img {
+        right:-12%;
+        top:-7%;
     }
 }
 
@@ -121,6 +143,11 @@
     .col-md-3.services-left .needy-item {
         margin-bottom: 25px;
     }
+
+    .needy-item .status-overlay img {
+        right:-10%;
+        top:-6%;
+    }
 }
 
 @media screen and (max-width: 320px) {
@@ -130,5 +157,10 @@
 
     .col-md-3.services-left .needy-item {
         margin-bottom: 20px;
+    }
+
+    .needy-item .status-overlay img {
+        right:-15%;
+        top:-9%;
     }
 }
