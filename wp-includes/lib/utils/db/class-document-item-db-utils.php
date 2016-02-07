@@ -2,7 +2,7 @@
 
 require_once(ABSPATH . WPINC . '/lib/model/document/class-document-item.php');
 require_once(ABSPATH . WPINC . '/lib/model/document/class-document-type.php');
-require_once(ABSPATH . WPINC . '/lib/model/grant/class-grant.php');
+require_once(ABSPATH . WPINC . '/lib/model/grant1/class-grant.php');
 require_once(ABSPATH . WPINC . '/lib/model/program/class-program.php');
 
 class DocumentItemDBUtils

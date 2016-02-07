@@ -40,6 +40,10 @@
     margin-bottom: 50px;
 }
 
+.projects .right-column {
+    margin-bottom: 50px;
+}
+
 @media (min-width: 1200px) {
     .projects .left-column {
         padding-left: 10%;
