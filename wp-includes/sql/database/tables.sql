@@ -76,3 +76,19 @@ CREATE TABLE `wp_stock` (
   KEY `image_id` (`image_id`),
   CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `wp_image` (`image_id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `wp_grant`;
+CREATE TABLE `wp_grant` (
+  `grant_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `info` longtext NOT NULL,
+  PRIMARY KEY (`grant_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `wp_program`;
+CREATE TABLE `wp_program` (
+  `program_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `info` longtext NOT NULL,
+  PRIMARY KEY (`program_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

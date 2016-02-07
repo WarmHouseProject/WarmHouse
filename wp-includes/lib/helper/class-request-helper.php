@@ -4,6 +4,7 @@ require_once(ABSPATH . WPINC . '/lib/model/child/class-child.php');
 require_once(ABSPATH . WPINC . '/lib/model/child_settings/class-child-settings.php');
 require_once(ABSPATH . WPINC . '/lib/model/orphanage/class-orphanage.php');
 require_once(ABSPATH . WPINC . '/lib/model/orphanage_settings/class-orphanage-settings.php');
+require_once(ABSPATH . WPINC . '/lib/model/document/class-document-item.php');
 
 class RequestHelper
 {
@@ -85,5 +86,15 @@ class RequestHelper
         $childInfo[Stock::PRIORITY_FIELD]    = self::getParameter(Stock::PRIORITY_FIELD);
         $childInfo{Stock::AVATAR_FIELD}      = self::getFile(Stock::AVATAR_FIELD);
         return $childInfo;
+    }
+
+    static function getDocumentInfoFromRequest()
+    {
+        $documentInfo = [];
+        $documentInfo[DocumentItem::ID_FIELD]      = self::getParameter(DocumentItem::ID_FIELD);
+        $documentInfo[DocumentItem::TITLE_FIELD]   = self::getParameter(DocumentItem::TITLE_FIELD);
+        $documentInfo[DocumentItem::INFO_FIELD]    = self::getParameter(DocumentItem::INFO_FIELD);
+        $documentInfo[DocumentItem::DOCUMENT_TYPE] = self::getParameter(DocumentItem::DOCUMENT_TYPE);
+        return $documentInfo;
     }
 }

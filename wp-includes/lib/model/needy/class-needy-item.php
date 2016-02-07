@@ -1,6 +1,5 @@
 <?php
 
-
 class NeedyItem
 {
     const ID_FIELD                = "needy_id";
