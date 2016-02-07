@@ -27,7 +27,7 @@
             }
         }
         OrphanageDBUtils::updateOrphanageById($orphanageInfo, $imageId, $orphanage->orphanage_id);
-        NeedyItemSettingsDBUtils::updateOrphanageSettings($orphanage->orphanage_id, $orphanageInfo[OrphanageSettings::SHOW_STAT_FIELD]);
+        NeedyItemSettingsDBUtils::updateOrphanageSettings($orphanage->orphanage_id, $orphanageInfo);
     }
 
 wp_redirect(home_url()); exit;

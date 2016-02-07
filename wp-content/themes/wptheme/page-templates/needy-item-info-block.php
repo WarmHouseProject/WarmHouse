@@ -34,8 +34,12 @@
                     <?php endif; ?>
 
                     <?php if (NeedyItemSettingsDBUtils::isSetShowNeedyItemStat($needyItem->needy_id, $needyItem->needy_type)): ?>
-                        <?php $collected = NeedyStatDBUtils::getNeedyItemStat($needyItem->needy_id, $needyItem->needy_type); ?>
-                        <p class="collected"><span>Собрано: </span><?= intval($collected->amount) ?> руб. <span class="count-donate"><img src="<?php echo get_template_directory_uri(); ?>/images/count_donate.png" alt="" /><?= intval($collected->count) ?></span></p>
+                        <?php
+                            $collected = NeedyStatDBUtils::getNeedyItemStat($needyItem->needy_id, $needyItem->needy_type);
+                            $addition  = NeedyItemSettingsDBUtils::getAdditionAmount($needyItem->needy_id, $needyItem->needy_type);
+                            $result = $collected->amount + $addition->addition_amount;
+                        ?>
+                        <p class="collected"><span>Собрано: </span><?= intval($result) ?> руб. <span class="count-donate"><img src="<?php echo get_template_directory_uri(); ?>/images/count_donate.png" alt="" /><?= intval($collected->count) ?></span></p>
                     <?php endif; ?>
                     
                     <input type="hidden" name="needy_type" value="<?= $needyItem->needy_type; ?>">

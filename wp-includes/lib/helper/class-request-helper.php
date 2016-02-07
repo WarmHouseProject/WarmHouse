@@ -59,6 +59,7 @@ class RequestHelper
         $childInfo[Child::STATUS_FIELD]            = self::getParameter(Child::STATUS_FIELD);
         $childInfo[Child::PRIORITY_FIELD]          = self::getParameter(Child::PRIORITY_FIELD);
         $childInfo{Child::AVATAR_FIELD}            = self::getFile(Child::AVATAR_FIELD);
+        $childInfo[ChildSettings::ADDITION_AMOUNT] = self::getParameter(ChildSettings::ADDITION_AMOUNT);
         return $childInfo;
     }
 
@@ -73,6 +74,7 @@ class RequestHelper
         $childInfo[Orphanage::CONTACT_INFO_FIELD]      = self::getParameter(Orphanage::CONTACT_INFO_FIELD);
         $childInfo[Orphanage::PRIORITY_FIELD]          = self::getParameter(Orphanage::PRIORITY_FIELD);
         $childInfo{Orphanage::AVATAR_FIELD}            = self::getFile(Orphanage::AVATAR_FIELD);
+        $childInfo[OrphanageSettings::ADDITION_AMOUNT] = self::getParameter(OrphanageSettings::ADDITION_AMOUNT);
         return $childInfo;
     }
 

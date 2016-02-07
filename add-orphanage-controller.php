@@ -18,7 +18,7 @@
         if ($image)
         {
             $orphanageId = OrphanageDBUtils::createOrphanage($orphanageInfo, $image->image_id);
-            NeedyItemSettingsDBUtils::updateOrphanageSettings($orphanageId, $orphanageInfo[OrphanageSettings::SHOW_STAT_FIELD]);
+            NeedyItemSettingsDBUtils::updateOrphanageSettings($orphanageId, $orphanageInfo);
         }
     }
 

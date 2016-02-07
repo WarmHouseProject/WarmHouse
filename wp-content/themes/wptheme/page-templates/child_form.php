@@ -18,19 +18,22 @@ Template Name: Child Form
     $purpose          = "";
     $contactInfo      = "";
     $showStat         = false;
+    $additionAmount   = 0.00;
 
     $formRequestUrl = "/child-form-controller.php";
     if (isset($child))
     {
-        $avatar           = "<img src='" . get_site_url() . ImageDBUtils::getImageLinkByImageId($child->image_id) . "' class='file-preview-image' alt='avatar' title='avatar'>";
-        $name             = $child->name;
-        $childStatus      = $child->status;
-        $childPriority    = $child->priority;
-        $shortDescription = $child->short_description;
-        $longDescription  = $child->long_description;
-        $contactInfo      = $child->contact_info;
-        $purpose          = $child->purpose;
-        $showStat         = NeedyItemSettingsDBUtils::isSetShowChildStat($child->child_id);
+        $avatar            = "<img src='" . get_site_url() . ImageDBUtils::getImageLinkByImageId($child->image_id) . "' class='file-preview-image' alt='avatar' title='avatar'>";
+        $name              = $child->name;
+        $childStatus       = $child->status;
+        $childPriority     = $child->priority;
+        $shortDescription  = $child->short_description;
+        $longDescription   = $child->long_description;
+        $contactInfo       = $child->contact_info;
+        $purpose           = $child->purpose;
+        $showStat          = NeedyItemSettingsDBUtils::isSetShowChildStat($child->child_id);
+        $additionAmountObj = NeedyItemSettingsDBUtils::getAdditionAmount($child->child_id, NeedyType::CHILD);
+        $additionAmount = $additionAmountObj->addition_amount;
 
         $formRequestUrl = "/edit-child-controller.php";
     }
@@ -133,6 +136,13 @@ Template Name: Child Form
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="<?= ChildSettings::ADDITION_AMOUNT ?>">Дополнительная Сумма: </label>
+                        <div class="input-block">
+                            <input type="number" name="<?= ChildSettings::ADDITION_AMOUNT ?>" min="0.00" step="0.01" class="form-control" id="<?= ChildSettings::ADDITION_AMOUNT ?>" value="<?= $additionAmount ?>">
+                            <span class="glyphicon form-control-feedback"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="<?= Child::CONTACT_INFO_FIELD ?>">Контактные данные:</label>
                         <div class="input-block">
                             <input type="text" name="<?= Child::CONTACT_INFO_FIELD ?>" maxlength="<?= Child::MAX_CONTACT_LENGTH ?>" class="form-control" id="<?= Child::CONTACT_INFO_FIELD ?>" value="<?= $contactInfo ?>">
@@ -175,7 +185,8 @@ Template Name: Child Form
                            validateTextField($('#<?= Child::CONTACT_INFO_FIELD ?>'), <?= Child::MIN_CONTACT_LENGTH ?>, <?= Child::MAX_CONTACT_LENGTH ?>) &&
                            validateImageUploadingField($('.kv-avatar .file-input')) &&
                            validateSelectField($('#<?= Child::STATUS_FIELD ?>'), [<?= $childStatuses ?>]) &&
-                           validateNumberField($('#<?= Child::PRIORITY_FIELD ?>'), <?= ChildPriority::MIN_PRIORITY ?>, <?= ChildPriority::MAX_PRIORITY ?>);
+                           validateNumberField($('#<?= Child::PRIORITY_FIELD ?>'), <?= ChildPriority::MIN_PRIORITY ?>, <?= ChildPriority::MAX_PRIORITY ?>) &&
+                           validateTextField($('#<?= ChildSettings::ADDITION_AMOUNT ?>'), 0, -1);
                 });
             });
         </script>

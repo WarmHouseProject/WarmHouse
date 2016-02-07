@@ -18,7 +18,7 @@
         if ($image)
         {
             $childId = ChildDBUtils::createChild($childInfo, $image->image_id);
-            NeedyItemSettingsDBUtils::updateChildSettings($childId, $childInfo[ChildSettings::SHOW_STAT_FIELD]);
+            NeedyItemSettingsDBUtils::updateChildSettings($childId, $childInfo);
         }
     }
 

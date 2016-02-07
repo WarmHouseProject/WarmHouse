@@ -84,37 +84,68 @@ class NeedyItemSettingsDBUtils
                                                 $childId));
     }
 
-    static function updateChildSettings($childId, $showStat)
+    static function updateChildSettings($childId, $childInfo)
     {
+        global $wpdb;
+
+        $showStat = $childInfo[ChildSettings::SHOW_STAT_FIELD];
+        $addAmount = $childInfo[ChildSettings::ADDITION_AMOUNT];
+
         $showStat = is_null($showStat) ? 0 : $showStat;
         $isSettingsNotExist = self::isChildSettingsNotExist($childId);
         if ($isSettingsNotExist)
         {
             self::createChildSettings($childId);
         }
-        global $wpdb;
-        return $wpdb->query($wpdb->prepare("UPDATE `" . ChildSettings::DB_TABLE_NAME .
-                                         "` SET " .
-                                             ChildSettings::SHOW_STAT_FIELD . " = %d " .
-                                          " WHERE " . ChildSettings::NEEDY_ID_FIELD . " = %d",
-                                              $showStat,
-                                              $childId));
+
+        $q = $wpdb->prepare("UPDATE `" . ChildSettings::DB_TABLE_NAME .
+            "` SET " .
+            ChildSettings::SHOW_STAT_FIELD . " = %d, " .
+            ChildSettings::ADDITION_AMOUNT . " = %s " .
+            " WHERE " . ChildSettings::NEEDY_ID_FIELD . " = %d",
+            $showStat,
+            round($addAmount, 2),
+            $childId);
+
+        return $wpdb->query($q);
     }
 
-    static function updateOrphanageSettings($orphanageId, $showStat)
+    static function updateOrphanageSettings($orphanageId, $orphanageInfo)
     {
+        global $wpdb;
+
+        $showStat = $orphanageInfo[OrphanageSettings::SHOW_STAT_FIELD];
+        $addAmount = $orphanageInfo[OrphanageSettings::ADDITION_AMOUNT];
+
         $showStat = is_null($showStat) ? 0 : $showStat;
         $isSettingsNotExist = self::isOrphanageSettingsNotExist($orphanageId);
         if ($isSettingsNotExist)
         {
             self::createOrphanageSettings($orphanageId);
         }
-        global $wpdb;
+
         return $wpdb->query($wpdb->prepare("UPDATE `" . OrphanageSettings::DB_TABLE_NAME .
                                          "` SET " .
-                                              OrphanageSettings::SHOW_STAT_FIELD . " = %d " .
+                                              OrphanageSettings::SHOW_STAT_FIELD . " = %d, " .
+                                              OrphanageSettings::ADDITION_AMOUNT . " = %s " .
                                           " WHERE " . OrphanageSettings::NEEDY_ID_FIELD . " = %d",
                                               $showStat,
+                                              round($addAmount, 2),
                                               $orphanageId));
+    }
+
+    public static function getAdditionAmount($needyId, $needyType)
+    {
+        global $wpdb;
+
+        $needyTable = ($needyType == NeedyType::CHILD) ? ChildSettings::DB_TABLE_NAME : OrphanageSettings::DB_TABLE_NAME;
+        $needyIdColumn = ($needyType == NeedyType::CHILD) ? ChildSettings::NEEDY_ID_FIELD : OrphanageSettings::NEEDY_ID_FIELD;
+
+        $result = $wpdb->get_row(
+            "SELECT " .
+            NeedyItemSettings::ADDITION_AMOUNT . " as " . NeedyItemSettings::ADDITION_AMOUNT . "
+            FROM `" . $needyTable . "`
+            WHERE " . $needyIdColumn . " = " . $needyId);
+        return $result;
     }
 }

@@ -15,6 +15,7 @@ Template Name: Orphanage Form
     $longDescription   = "";
     $contactInfo       = "";
     $showStat         = false;
+    $additionAmount   = 0.00;
 
     $formRequestUrl = "/add-orphanage-controller.php";
     if (isset($orphanage))
@@ -26,6 +27,8 @@ Template Name: Orphanage Form
         $longDescription   = $orphanage->long_description;
         $contactInfo       = $orphanage->contact_info;
         $showStat          = NeedyItemSettingsDBUtils::isSetShowOrphanageStat($orphanage->orphanage_id);
+        $additionAmountObj = NeedyItemSettingsDBUtils::getAdditionAmount($child->child_id, NeedyType::ORPHANAGE);
+        $additionAmount = $additionAmountObj->addition_amount;
 
         $formRequestUrl = "/edit-orphanage-controller.php";
     }
@@ -106,6 +109,13 @@ Template Name: Orphanage Form
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="<?= ChildSettings::ADDITION_AMOUNT ?>">Дополнительная Сумма: </label>
+                            <div class="input-block">
+                                <input type="number" name="<?= OrphanageSettings::ADDITION_AMOUNT ?>" min="0.00" step="0.01" class="form-control" id="<?= OrphanageSettings::ADDITION_AMOUNT ?>" value="<?= $additionAmount ?>">
+                                <span class="glyphicon form-control-feedback"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="<?= Orphanage::CONTACT_INFO_FIELD ?>">Контактные данные:</label>
                             <div class="input-block">
                                 <input type="text" name="<?= Orphanage::CONTACT_INFO_FIELD ?>" maxlength="<?= Orphanage::MAX_CONTACT_LENGTH ?>" class="form-control" id="<?= Orphanage::CONTACT_INFO_FIELD ?>" value="<?= $contactInfo ?>">
@@ -146,7 +156,8 @@ Template Name: Orphanage Form
                             validateTextField($('#<?= Orphanage::LONG_DESCRIPTION_FIELD ?>'), <?= Orphanage::MIN_LONG_DESCRIPTION_LENGTH ?>, <?= Orphanage::MAX_LONG_DESCRIPTION_LENGTH ?>) &&
                             validateTextField($('#<?= Orphanage::CONTACT_INFO_FIELD ?>'), <?= Orphanage::MIN_CONTACT_LENGTH ?>, <?= Orphanage::MAX_CONTACT_LENGTH ?>) &&
                             validateImageUploadingField($('.kv-avatar .file-input')) &&
-                            validateNumberField($('#<?= Orphanage::PRIORITY_FIELD ?>'), <?= OrphanagePriority::MIN_PRIORITY ?>, <?= OrphanagePriority::MAX_PRIORITY ?>);
+                            validateNumberField($('#<?= Orphanage::PRIORITY_FIELD ?>'), <?= OrphanagePriority::MIN_PRIORITY ?>, <?= OrphanagePriority::MAX_PRIORITY ?>) &&
+                            validateTextField($('#<?= OrphanageSettings::ADDITION_AMOUNT ?>'), 0, -1);
                     });
                 });
             </script>

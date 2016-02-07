@@ -27,7 +27,7 @@
             }
         }
         ChildDBUtils::updateChildById($childInfo, $imageId, $child->child_id);
-        NeedyItemSettingsDBUtils::updateChildSettings($child->child_id, $childInfo[ChildSettings::SHOW_STAT_FIELD]);
+        $result = NeedyItemSettingsDBUtils::updateChildSettings($child->child_id, $childInfo);
     }
 
     wp_redirect(home_url()); exit;
