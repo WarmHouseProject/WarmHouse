@@ -14,7 +14,40 @@
     margin-bottom: 20px;
 }
 
+.projects .add-buttons
+{
+    margin-bottom: 40px;
+}
+
+.projects .edit-document
+{
+    margin-left: 10px;
+    color: #136768;
+}
+
+.projects .edit-document:hover
+{
+    color: #69AFAF;
+}
+
 #element_to_pop_up .content
 {
     max-width: 600px;
+}
+
+.child-form.document .container
+{
+    margin-bottom: 50px;
+}
+
+@media (min-width: 1200px) {
+    .projects .left-column {
+        padding-left: 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects .left-column {
+        padding-left: 15px;
+    }
 }
