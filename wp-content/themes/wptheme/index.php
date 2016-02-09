@@ -68,8 +68,12 @@ get_header();
         <div class="clearfix"></div>
         <script>
             jQuery(document).ready(function($) {
-                $('.dropdown-toggle-button').click(function(){
+                $('.dropdown-toggle-button').click(function(event){
                     $(this).toggleClass("open");
+                    event.stopPropagation();
+                });
+                $(window).click(function(){
+                    $('.dropdown-toggle-button').removeClass('open');
                 });
             });
         </script>
