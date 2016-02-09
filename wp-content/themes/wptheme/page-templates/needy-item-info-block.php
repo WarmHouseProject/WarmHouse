@@ -8,9 +8,8 @@
 ?>
 <div class="services-bottom">
     <div class="services-row">
-
-        <?php foreach ($needyItems as $subNeedyItems): ?>
-          <div class="col-md-3 services-left">
+        <?php foreach ($needyItems as $key => $subNeedyItems): ?>
+          <div class="col-md-3 services-left <? if ($key >2): ?>float_right<? endif;?>">
           <?php foreach ($subNeedyItems as $needyItem): ?>
             <div class="needy-item">
                 <div class="view fifth-effect needy-image-container">

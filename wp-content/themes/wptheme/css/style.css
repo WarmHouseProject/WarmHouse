@@ -1714,6 +1714,11 @@ a.tooltips2 span:before {
     float: left;
     padding: 5px;
 }
+
+.services-left.float_right {
+	float: right;
+}
+
 .services-bottom {
     margin-top: 2%;
 }

@@ -161,7 +161,7 @@ Template Name: Orphanage Form
                     });
 
                     $("form[name='orphanage_form']").submit(function(){
-                        return validateTextField($('#<?= Orphanage::NAME_FIELD ?>'), <?= Orphanage::MIN_NAME_LENGTH ?>, <?= Orphanage::MAX_NAME_LENGTH ?>) &&
+                        retu        rn validateTextField($('#<?= Orphanage::NAME_FIELD ?>'), <?= Orphanage::MIN_NAME_LENGTH ?>, <?= Orphanage::MAX_NAME_LENGTH ?>) &&
                             validateTextField($('#<?= Orphanage::SHORT_DESCRIPTION_FIELD ?>'), <?= Orphanage::MIN_SHORT_DESCRIPTION_LENGTH ?>, <?= Orphanage::MAX_SHORT_DESCRIPTION_LENGTH ?>) &&
                             validateTextField($('#<?= Orphanage::LONG_DESCRIPTION_FIELD ?>'), <?= Orphanage::MIN_LONG_DESCRIPTION_LENGTH ?>, <?= Orphanage::MAX_LONG_DESCRIPTION_LENGTH ?>) &&
                             validateTextField($('#<?= Orphanage::PURPOSE_FIELD ?>'), <?= Orphanage::MIN_PURPOSE_LENGTH ?>, <?= Orphanage::MAX_PURPOSE_LENGTH ?>) &&
