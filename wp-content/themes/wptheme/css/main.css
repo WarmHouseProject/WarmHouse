@@ -268,12 +268,18 @@
 
 @media (max-width:640px) {
     .contact-information-block {
-        padding: 3em 2em;
+        padding: 2em 2em;
     }
 }
 
 @media (max-width:480px) {
     .contact-information-block {
-        padding: 2em 1em;
+        padding: 1em 1em;
+    }
+}
+
+@media (max-width:320px) {
+    .contact-information-block {
+        padding: 0;
     }
 }

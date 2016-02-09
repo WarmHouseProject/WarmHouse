@@ -141,3 +141,9 @@
         padding: 2em 1em;
     }
 }
+
+@media (max-width:320px) {
+    .information_block {
+        padding: 1em 0;
+    }
+}
