@@ -123,3 +123,21 @@
 {
     background-color: #1A8989;
 }
+
+@media (max-width:768px) {
+    .information_block {
+        padding: 4em 3em;
+    }
+}
+
+@media (max-width:640px) {
+    .information_block {
+        padding: 3em 2em;
+    }
+}
+
+@media (max-width:480px) {
+    .information_block {
+        padding: 2em 1em;
+    }
+}
