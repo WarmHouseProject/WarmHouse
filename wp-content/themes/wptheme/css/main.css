@@ -224,8 +224,10 @@
     box-shadow: 0 0 25px 5px #999;
     color: #111;
     display: none;
-    min-width: 450px;
     padding: 25px;
+    padding-right: 10px;
+    max-height: 550px;
+    max-width: 60%;
 }
 
 #element_to_pop_up .content

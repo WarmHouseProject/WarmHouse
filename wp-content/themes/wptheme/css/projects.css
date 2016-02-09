@@ -32,16 +32,9 @@
 
 #element_to_pop_up .content
 {
-    max-width: 600px;
     max-height: 450px;
     overflow-y: auto;
     padding-right: 15px;
-}
-
-#element_to_pop_up
-{
-    padding-right: 10px;
-    max-height: 550px;
 }
 
 .child-form.document .container
@@ -58,5 +51,25 @@
 @media (max-width: 768px) {
     .projects .left-column {
         padding-left: 15px;
+    }
+
+    #element_to_pop_up .content {
+        max-height: 350px;
+    }
+
+    #element_to_pop_up {
+        max-height: 450px;
+        max-width: 70%;
+    }
+}
+
+@media (max-width:480px) {
+    #element_to_pop_up .content {
+        max-height: 250px;
+    }
+
+    #element_to_pop_up {
+        max-height: 300px;
+        max-width: 80%;
     }
 }
