@@ -17,7 +17,7 @@ get_header();
         <div class="col-md-6">
             <?php if (is_user_logged_in()): ?>
                 <div class="btn-group float-left add-buttons">
-                    <a href="<?= get_site_url(); ?>/add-document-page-controller.php?<?= DocumentItem::DOCUMENT_TYPE . '=' . DocumentType::GRANT ?>"><span class="btn btn-primary">Добавить грант</span></a>
+                    <a href="<?= get_site_url(); ?>/add-document-page-controller.php?<?= DocumentItem::DOCUMENT_TYPE . '=' . DocumentType::GRANT ?>"><span class="btn btn-primary">Добавить проект</span></a>
                     <a href="<?= get_site_url(); ?>/add-document-page-controller.php?<?= DocumentItem::DOCUMENT_TYPE . '=' . DocumentType::PROGRAM ?>"><span class="btn btn-primary">Добавить программу</span></a>
                 </div>
                 <div class="clearfix"></div>
@@ -25,7 +25,7 @@ get_header();
         </div>
         <div class="clearfix"></div>
         <div class="col-md-6 left-column">
-            <h2 class="header green_text">Гранты</h2>
+            <h2 class="header green_text">Проекты</h2>
             <ul class="list">
                 <?php foreach($grants as $grant): ?>
                   <li>

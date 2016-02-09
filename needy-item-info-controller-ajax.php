@@ -18,8 +18,13 @@
     $needyItemsCountPages = 0;
     if ($filter == NeedyFilterHelper::ALL)
     {
-        $needyItems = NeedyItemDBUtils::getAllNeedyItems($page);
-        $needyItemsCountPages = NeedyItemDBUtils::getAllNeedyItemsCountPages();
+        $needyItems = NeedyItemDBUtils::getAllNeedyItemsByStatuses($page);
+        $needyItemsCountPages = NeedyItemDBUtils::getAllNeedyItemsByStatusesCountPages();
+    }
+    elseif ($filter == NeedyFilterHelper::ALL_NEEDY)
+    {
+        $needyItems = NeedyItemDBUtils::getAllNeedyItemsByStatuses($page, NeedyStatus::getNeedHelpNeedyStatuses());
+        $needyItemsCountPages = NeedyItemDBUtils::getAllNeedyItemsByStatusesCountPages(NeedyStatus::getNeedHelpNeedyStatuses());
     }
     elseif ($filter == NeedyFilterHelper::ALL_CHILDS)
     {

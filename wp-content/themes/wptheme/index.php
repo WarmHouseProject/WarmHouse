@@ -14,6 +14,7 @@
  * @since Twenty Twelve 1.0
  */
 
+require_once(ABSPATH . WPINC . '/lib/model/needy/class-needy-status.php');
 require_once(ABSPATH . WPINC . '/lib/utils/db/class-needy-item-db-utils.php');
 require_once(ABSPATH . WPINC . '/lib/utils/db/class-child-db-utils.php');
 require_once(ABSPATH . WPINC . '/lib/utils/db/class-image-db-utils.php');
@@ -21,8 +22,8 @@ require_once(ABSPATH . WPINC . '/lib/utils/class-needy-item-utils.php');
 require_once(ABSPATH . WPINC . '/lib/utils/class-template-utils.php');
 require_once(ABSPATH . WPINC . '/lib/helper/class-needy-filter-helper.php');
 
-$needyItems = NeedyItemDBUtils::getAllNeedyItems();
-$needyItemsCountPages = NeedyItemDBUtils::getAllNeedyItemsCountPages();
+$needyItems = NeedyItemDBUtils::getAllNeedyItemsByStatuses(0, NeedyStatus::getNeedHelpNeedyStatuses());
+$needyItemsCountPages = NeedyItemDBUtils::getAllNeedyItemsByStatusesCountPages(NeedyStatus::getNeedHelpNeedyStatuses());
 $data = ["needyItems" => $needyItems, "needyItemsCountPages" => $needyItemsCountPages];
 
 get_header();
@@ -119,7 +120,7 @@ get_header();
     jQuery(document).ready(function($) {
         var needyBlock = $("#needyBlock");
         var needyPaginationBlock = $("#needyPaginationBlock");
-        var currentFilter = <?= NeedyFilterHelper::ALL ?>;
+        var currentFilter = <?= NeedyFilterHelper::ALL_NEEDY ?>;
 
         $('#allNeedy').click(function(){
             changeFilter(<?= NeedyFilterHelper::ALL ?>, 'Наши подопечные');
