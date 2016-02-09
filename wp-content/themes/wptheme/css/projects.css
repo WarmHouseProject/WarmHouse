@@ -33,6 +33,15 @@
 #element_to_pop_up .content
 {
     max-width: 600px;
+    max-height: 450px;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+#element_to_pop_up
+{
+    padding-right: 10px;
+    max-height: 550px;
 }
 
 .child-form.document .container

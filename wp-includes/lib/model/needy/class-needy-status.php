@@ -32,7 +32,7 @@ class NeedyStatus
         ];
     }
 
-    static function getUrgentlyNeedHelpNeedyStatuses()
+    static function getUrgentlyNeedHelpNeedyStatus()
     {
         return [
             self::URGENTLY_NEED_HELP,
@@ -43,10 +43,18 @@ class NeedyStatus
     {
         return [
             self::NEED_HELP,
+            self::URGENTLY_NEED_HELP,
         ];
     }
 
-    static function getHelpedNeedyStatuses()
+    static function getNeedHelpNeedyStatus()
+    {
+        return [
+            self::NEED_HELP,
+        ];
+    }
+
+    static function getHelpedNeedyStatus()
     {
         return [
             self::HELPED,

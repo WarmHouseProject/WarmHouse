@@ -69,6 +69,7 @@ class RequestHelper
         $childInfo[Orphanage::NAME_FIELD]              = self::getParameter(Orphanage::NAME_FIELD);
         $childInfo[Orphanage::SHORT_DESCRIPTION_FIELD] = self::getParameter(Orphanage::SHORT_DESCRIPTION_FIELD);
         $childInfo[Orphanage::LONG_DESCRIPTION_FIELD]  = self::getParameter(Orphanage::LONG_DESCRIPTION_FIELD);
+        $childInfo[Orphanage::PURPOSE_FIELD]           = self::getParameter(Orphanage::PURPOSE_FIELD);
         $childInfo[OrphanageSettings::SHOW_STAT_FIELD] = self::getParameter(OrphanageSettings::SHOW_STAT_FIELD);
         $childInfo[Orphanage::CONTACT_INFO_FIELD]      = self::getParameter(Orphanage::CONTACT_INFO_FIELD);
         $childInfo[Orphanage::PRIORITY_FIELD]          = self::getParameter(Orphanage::PRIORITY_FIELD);

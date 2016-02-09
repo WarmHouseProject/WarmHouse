@@ -8,6 +8,7 @@ class NeedyFilterHelper
     const NEED_HELP_CHILDS          = 3;
     const HELPED_CHILDS             = 4;
     const ALL_ORPHANAGES            = 5;
+    const ALL_NEEDY                 = 6;
 
     const FILTER_FIELD = "filter";
     const PAGE_FIELD   = "page";

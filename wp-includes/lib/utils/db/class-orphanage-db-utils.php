@@ -12,13 +12,15 @@ class OrphanageDBUtils
             Orphanage::NAME_FIELD . ", " .
             Orphanage::SHORT_DESCRIPTION_FIELD . ", " .
             Orphanage::LONG_DESCRIPTION_FIELD . ", " .
+            Orphanage::PURPOSE_FIELD . ", " .
             Orphanage::CONTACT_INFO_FIELD . ", " .
             Orphanage::PRIORITY_FIELD . ", " .
             Orphanage::IMAGE_FIELD .
-            ") VALUES (%s, %s, %s, %s, %d, %d)",
+            ") VALUES (%s, %s, %s, %s, %s, %d, %d)",
             $orphanageInfo[Orphanage::NAME_FIELD],
             $orphanageInfo[Orphanage::SHORT_DESCRIPTION_FIELD],
             $orphanageInfo[Orphanage::LONG_DESCRIPTION_FIELD],
+            $orphanageInfo[Orphanage::PURPOSE_FIELD],
             $orphanageInfo[Orphanage::CONTACT_INFO_FIELD],
             $orphanageInfo[Orphanage::PRIORITY_FIELD],
             $imageId));
@@ -33,6 +35,7 @@ class OrphanageDBUtils
             Orphanage::NAME_FIELD . " = %s, " .
             Orphanage::SHORT_DESCRIPTION_FIELD . " = %s, " .
             Orphanage::LONG_DESCRIPTION_FIELD . " = %s, " .
+            Orphanage::PURPOSE_FIELD . " = %s, " .
             Orphanage::CONTACT_INFO_FIELD . " = %s, " .
             Orphanage::PRIORITY_FIELD . " = %d, " .
             Orphanage::IMAGE_FIELD . " = %d " .
@@ -40,6 +43,7 @@ class OrphanageDBUtils
             $orphanageInfo[Orphanage::NAME_FIELD],
             $orphanageInfo[Orphanage::SHORT_DESCRIPTION_FIELD],
             $orphanageInfo[Orphanage::LONG_DESCRIPTION_FIELD],
+            $orphanageInfo[Orphanage::PURPOSE_FIELD],
             $orphanageInfo[Orphanage::CONTACT_INFO_FIELD],
             $orphanageInfo[Orphanage::PRIORITY_FIELD],
             $imageId,

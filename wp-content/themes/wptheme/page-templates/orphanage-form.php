@@ -13,8 +13,9 @@ Template Name: Orphanage Form
     $orphanagePriority = OrphanagePriority::DEFAULT_PRIORITY;
     $shortDescription  = "";
     $longDescription   = "";
+    $purpose           = "";
     $contactInfo       = "";
-    $showStat         = false;
+    $showStat          = false;
 
     $formRequestUrl = "/add-orphanage-controller.php";
     if (isset($orphanage))
@@ -25,6 +26,7 @@ Template Name: Orphanage Form
         $shortDescription  = $orphanage->short_description;
         $longDescription   = $orphanage->long_description;
         $contactInfo       = $orphanage->contact_info;
+        $purpose           = $orphanage->purpose;
         $showStat          = NeedyItemSettingsDBUtils::isSetShowOrphanageStat($orphanage->orphanage_id);
 
         $formRequestUrl = "/edit-orphanage-controller.php";
@@ -101,6 +103,14 @@ Template Name: Orphanage Form
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="<?= Orphanage::PURPOSE_FIELD ?>">Нужно:</label>
+                            <div class="input-block">
+                                <input type="text" name="<?= Orphanage::PURPOSE_FIELD ?>" maxlength="<?= Orphanage::MAX_PURPOSE_LENGTH ?>" class="form-control" id="<?= Orphanage::PURPOSE_FIELD ?>" value="<?= $purpose ?>">
+                                <span class="glyphicon form-control-feedback"></span>
+                                <span class="error-message">допустимая длина текста от <?= Orphanage::MIN_PURPOSE_LENGTH ?> до <?= Orphanage::MAX_PURPOSE_LENGTH ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <div class="input-block">
                                 <input name="<?= OrphanageSettings::SHOW_STAT_FIELD ?>" id ="<?= OrphanageSettings::SHOW_STAT_FIELD ?>" type="checkbox" value="<?= intval($showStat) ?>"<?php if ($showStat): ?> checked="checked"<?php endif; ?>><label class="checkbox-label" for="<?= OrphanageSettings::SHOW_STAT_FIELD ?>">Показывать статистику</label>
                             </div>
@@ -144,6 +154,7 @@ Template Name: Orphanage Form
                         return validateTextField($('#<?= Orphanage::NAME_FIELD ?>'), <?= Orphanage::MIN_NAME_LENGTH ?>, <?= Orphanage::MAX_NAME_LENGTH ?>) &&
                             validateTextField($('#<?= Orphanage::SHORT_DESCRIPTION_FIELD ?>'), <?= Orphanage::MIN_SHORT_DESCRIPTION_LENGTH ?>, <?= Orphanage::MAX_SHORT_DESCRIPTION_LENGTH ?>) &&
                             validateTextField($('#<?= Orphanage::LONG_DESCRIPTION_FIELD ?>'), <?= Orphanage::MIN_LONG_DESCRIPTION_LENGTH ?>, <?= Orphanage::MAX_LONG_DESCRIPTION_LENGTH ?>) &&
+                            validateTextField($('#<?= Orphanage::PURPOSE_FIELD ?>'), <?= Orphanage::MIN_PURPOSE_LENGTH ?>, <?= Orphanage::MAX_PURPOSE_LENGTH ?>) &&
                             validateTextField($('#<?= Orphanage::CONTACT_INFO_FIELD ?>'), <?= Orphanage::MIN_CONTACT_LENGTH ?>, <?= Orphanage::MAX_CONTACT_LENGTH ?>) &&
                             validateImageUploadingField($('.kv-avatar .file-input')) &&
                             validateNumberField($('#<?= Orphanage::PRIORITY_FIELD ?>'), <?= OrphanagePriority::MIN_PRIORITY ?>, <?= OrphanagePriority::MAX_PRIORITY ?>);
